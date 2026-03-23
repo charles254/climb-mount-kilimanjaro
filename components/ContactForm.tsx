@@ -35,7 +35,9 @@ export default function ContactForm({
       if (CONFIG.FORMSPREE_ID === "placeholder") {
         // Mock success if no ID set yet to let user see the UI
         await new Promise(resolve => setTimeout(resolve, 1500));
-        console.warn("Form submitted with placeholder ID. Set your Formspree ID in lib/config.ts");
+        if (process.env.NODE_ENV === "development") {
+          console.debug("Form submitted with placeholder ID. Set your Formspree ID in lib/config.ts");
+        }
       } else {
         const response = await fetch(`https://formspree.io/f/${CONFIG.FORMSPREE_ID}`, {
           method: "POST",
@@ -55,7 +57,7 @@ export default function ContactForm({
       (e.target as HTMLFormElement).reset();
     } catch (err: any) {
       setStatus("ERROR");
-      setErrorMessage(err.message || "Something went wrong.");
+      setErrorMessage("Something went wrong. Please try again.");
     }
   }
 
@@ -85,6 +87,8 @@ export default function ContactForm({
           name="name"
           placeholder="Your Name"
           required
+          minLength={2}
+          maxLength={100}
           className={`border px-6 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all ${
             variant === "dark" 
             ? "bg-slate-800 border-slate-700 text-white placeholder:text-slate-500" 
@@ -96,6 +100,8 @@ export default function ContactForm({
           name="email"
           placeholder="Email Address"
           required
+          maxLength={254}
+          pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
           className={`border px-6 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all ${
             variant === "dark" 
             ? "bg-slate-800 border-slate-700 text-white placeholder:text-slate-500" 
@@ -107,6 +113,8 @@ export default function ContactForm({
         type="tel"
         name="phone"
         placeholder="Phone Number (WhatsApp preferred)"
+        maxLength={20}
+        pattern="[\d\s\+\-\(\)]{7,20}"
         className={`w-full border px-6 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all ${
           variant === "dark" 
           ? "bg-slate-800 border-slate-700 text-white placeholder:text-slate-500" 
@@ -118,6 +126,8 @@ export default function ContactForm({
         placeholder="Tell us about your dream climb (Travel dates, preferred route...)"
         rows={4}
         required
+        minLength={10}
+        maxLength={2000}
         className={`w-full border px-6 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all resize-none ${
           variant === "dark" 
           ? "bg-slate-800 border-slate-700 text-white placeholder:text-slate-500" 

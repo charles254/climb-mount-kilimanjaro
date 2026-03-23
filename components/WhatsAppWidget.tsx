@@ -18,7 +18,7 @@ export default function WhatsAppWidget() {
       <a
         href={whatsappUrl}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
         className="group relative flex items-center justify-center w-16 h-16 bg-amber-600 hover:bg-amber-700 text-white rounded-full shadow-2xl transition-all hover:scale-110 active:scale-95"
       >
         <div className="absolute inset-0 rounded-full bg-amber-600 animate-ping opacity-20 group-hover:hidden" />
