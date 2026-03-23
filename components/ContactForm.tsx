@@ -8,12 +8,14 @@ interface ContactFormProps {
   source?: string; // e.g., "Homepage", "Contact Page", "Success Predictor"
   className?: string;
   variant?: "dark" | "light";
+  footerClassName?: string;
 }
 
 export default function ContactForm({ 
   source = "General Enquiry", 
   className = "", 
-  variant = "dark" 
+  variant = "dark",
+  footerClassName = ""
 }: ContactFormProps) {
   const [status, setStatus] = useState<"IDLE" | "LOADING" | "SUCCESS" | "ERROR">("IDLE");
   const [errorMessage, setErrorMessage] = useState("");
@@ -148,7 +150,7 @@ export default function ContactForm({
           </>
         )}
       </button>
-      <p className="text-center text-xs text-slate-500 italic">No spam, just expert advice. Guaranteed response within 24h.</p>
+      <p className={`text-center text-xs italic transition-colors ${footerClassName || (variant === 'dark' ? 'text-amber-500/70' : 'text-slate-500')}`}>No spam, just expert advice. Guaranteed response within 24h.</p>
     </form>
   );
 }

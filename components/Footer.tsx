@@ -1,48 +1,86 @@
-import { Mountain, Mail, Phone, MapPin, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Mountain, Mail, Phone, MapPin, Instagram, Facebook, Twitter, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
+    <footer className="bg-slate-950 text-slate-400 py-20 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center space-x-2 mb-4">
-              <Mountain className="h-6 w-6 text-amber-500" />
-              <span className="text-lg font-bold text-white tracking-tight">KILI TRAILBLAZERS</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+          {/* Brand Column */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center space-x-2 mb-6 group">
+              <Mountain className="h-8 w-8 text-amber-500 transition-transform group-hover:scale-110" />
+              <div className="flex flex-col">
+                <span className="text-xl font-black text-white tracking-widest leading-none">KILIMANJARO</span>
+                <span className="text-[10px] font-bold text-amber-500 tracking-[0.3em] uppercase">The Quest Awaits</span>
+              </div>
             </div>
-            <p className="text-sm leading-relaxed">
-              Expert-led Kilimanjaro treks with a unique Kenyan perspective. Safety, success, and sustainability at the heart of every climb.
+            <p className="text-sm leading-relaxed max-w-sm mb-8 italic">
+              The premier resource for <strong className="text-white">high-altitude expeditions</strong>. We provide the data, gear guides, and tactical expertise for a successful <strong className="text-white">summit quest</strong>.
             </p>
-          </div>
-          <div>
-            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/" className="hover:text-amber-500 transition-colors">Home</Link></li>
-              <li><Link href="/routes/machame" className="hover:text-amber-500 transition-colors">Climbing Routes</Link></li>
-              <li><Link href="/when-to-climb/february" className="hover:text-amber-500 transition-colors">Best Time to Climb</Link></li>
-              <li><Link href="/travel-from/nairobi" className="hover:text-amber-500 transition-colors">Travel Logistics</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Contact Us</h3>
-            <ul className="space-y-2 text-sm">
-              <li className="flex items-center space-x-2"><Mail className="h-4 w-4 text-amber-500" /> <span>info@kilitrailblazers.com</span></li>
-              <li className="flex items-center space-x-2"><Phone className="h-4 w-4 text-amber-500" /> <span>+254 712 345 678</span></li>
-              <li className="flex items-center space-x-2"><MapPin className="h-4 w-4 text-amber-500" /> <span>Nairobi, Kenya</span></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Follow Us</h3>
-            <div className="flex space-x-4">
-              <Instagram className="h-5 w-5 hover:text-amber-500 cursor-pointer" />
-              <Facebook className="h-5 w-5 hover:text-amber-500 cursor-pointer" />
-              <Twitter className="h-5 w-5 hover:text-amber-500 cursor-pointer" />
+            <div className="flex gap-4">
+              <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer nofollow" className="bg-slate-900 p-2.5 rounded-lg hover:text-amber-500 transition-all border border-white/5 shadow-xl">
+                <Instagram className="h-5 w-5" />
+              </Link>
+              <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer nofollow" className="bg-slate-900 p-2.5 rounded-lg hover:text-amber-500 transition-all border border-white/5 shadow-xl">
+                <Facebook className="h-5 w-5" />
+              </Link>
+              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer nofollow" className="bg-slate-900 p-2.5 rounded-lg hover:text-amber-500 transition-all border border-white/5 shadow-xl">
+                <Twitter className="h-5 w-5" />
+              </Link>
             </div>
+          </div>
+
+          {/* Column 2: Expertise */}
+          <div>
+            <h3 className="text-amber-500 font-black mb-6 text-[10px] uppercase tracking-[0.2em]">Expertise</h3>
+            <ul className="grid grid-cols-1 gap-4 text-sm font-bold">
+              <li><Link href="/routes" className="text-slate-300 hover:text-white transition-colors">Climbing Routes</Link></li>
+              <li><Link href="/climb" className="text-slate-300 hover:text-white transition-colors">Best Time to Climb</Link></li>
+              <li><Link href="/travel-guide" className="text-slate-300 hover:text-white transition-colors">Travel Logistics</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 3: Prep */}
+          <div>
+            <h3 className="text-amber-500 font-black mb-6 text-[10px] uppercase tracking-[0.2em]">Preparation</h3>
+            <ul className="grid grid-cols-1 gap-4 text-sm font-bold">
+              <li><Link href="/gear" className="text-slate-300 hover:text-white transition-colors">Gear Guide</Link></li>
+              <li><Link href="/preparation" className="text-slate-300 hover:text-white transition-colors">Training & Prep</Link></li>
+              <li><Link href="/health" className="text-slate-300 hover:text-white transition-colors">Health & Safety</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 4: Experience */}
+          <div>
+            <h3 className="text-amber-500 font-black mb-6 text-[10px] uppercase tracking-[0.2em]">Experience</h3>
+            <ul className="grid grid-cols-1 gap-4 text-sm font-bold">
+              <li><Link href="/costs" className="text-slate-300 hover:text-white transition-colors">Costs & Budget</Link></li>
+              <li><Link href="/life" className="text-slate-300 hover:text-white transition-colors">Life on Mountain</Link></li>
+              <li><Link href="/ultimate-guide" className="text-slate-300 hover:text-white transition-colors">Ultimate Guide</Link></li>
+              <li><Link href="/contact" className="text-slate-300 hover:text-white transition-colors">Book Your Summit</Link></li>
+            </ul>
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t border-slate-900 text-center text-xs">
-          <p>&copy; {new Date().getFullYear()} Kili Trailblazers. All rights reserved. Locally owned in Kenya.</p>
+
+        {/* Global Footer Bottom */}
+        <div className="mt-20 pt-10 border-t border-white/5 flex flex-col lg:flex-row justify-between items-center gap-8">
+          <div className="flex items-center gap-6 text-[10px] font-black uppercase tracking-widest text-slate-500">
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="h-4 w-4 text-amber-500/50" />
+              95% Success Rate
+            </div>
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="h-4 w-4 text-amber-500/50" />
+              Certified Guides
+            </div>
+          </div>
+          
+          <div className="flex flex-wrap justify-center gap-8 text-[10px] uppercase font-bold tracking-widest text-slate-500">
+            <Link href="/privacy-policy" className="hover:text-amber-500 transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-amber-500 transition-colors">Terms of Service</Link>
+            <span>&copy; {new Date().getFullYear()} KILIMANJARO QUEST</span>
+          </div>
         </div>
       </div>
     </footer>
