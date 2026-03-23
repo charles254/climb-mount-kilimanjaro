@@ -3,9 +3,9 @@ import ContactForm from "@/components/ContactForm";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Book Your Summit",
-  description: "Contact our expert Kilimanjaro guides in Nairobi for custom quotes, itineraries, and booking information. Start your 2026 expedition with the best.",
-  keywords: "book Kilimanjaro trek, contact Kilimanjaro guides, Kilimanjaro quest office nairobi, custom kilimanjaro quotes",
+  title: "Book Your Kilimanjaro Climb: Expert Guides in Nairobi",
+  description: "Contact Kilimanjaro Quest's expert guides in Nairobi for custom trek quotes, detailed itineraries, and 2026 expedition booking. 95% summit success rate.",
+  keywords: "book kilimanjaro trek, kilimanjaro tour operators, contact kilimanjaro guides, kilimanjaro guided tour, kilimanjaro nairobi, custom kilimanjaro quotes",
   alternates: { canonical: "/contact" },
 };
 

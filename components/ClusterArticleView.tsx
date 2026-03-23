@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import FAQSchema from "@/components/FAQSchema";
 import CostBreakdownTable from "./CostBreakdownTable";
+import { SITE_URL } from "@/lib/config";
 
 
 interface Props {
@@ -110,7 +111,7 @@ export default function ClusterArticleView({ slug }: Props) {
                 <div className="relative w-full h-[400px] mb-12 rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10">
                   <Image 
                     src={`/${articleImage}`} 
-                    alt={currentArticle.title} 
+                    alt={`${currentArticle.title} - Kilimanjaro Quest Guide`} 
                     fill
                     className="object-cover"
                     priority
@@ -231,14 +232,14 @@ export default function ClusterArticleView({ slug }: Props) {
               "name": "Kilimanjaro Quest",
               "logo": {
                 "@type": "ImageObject",
-                "url": "http://localhost:3003/icon.png"
+                "url": `${SITE_URL}/icon.png`
               }
             },
             "datePublished": "2024-01-01",
             "dateModified": new Date().toISOString().split('T')[0],
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": `http://localhost:3003/${currentCluster.slug}/${currentArticle.slug}`
+              "@id": `${SITE_URL}/${currentCluster.slug}/${currentArticle.slug}`
             }
           })
         }}
