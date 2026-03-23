@@ -62,6 +62,7 @@ export default function Navbar() {
             <Link href="/climb" className="text-slate-300 hover:text-white px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors">Seasons</Link>
             <Link href="/travel-guide" className="text-slate-300 hover:text-white px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors">Travel</Link>
             <Link href="/gear" className="text-slate-300 hover:text-white px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors">Gear</Link>
+            <Link href="/about" className="text-slate-300 hover:text-white px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors">About</Link>
             
             {/* Guide Megamenu Trigger */}
             <div className="relative group">

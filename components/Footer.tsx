@@ -77,6 +77,7 @@ export default function Footer() {
           </div>
           
           <div className="flex flex-wrap justify-center gap-8 text-[10px] uppercase font-bold tracking-widest text-slate-500">
+            <Link href="/about" className="hover:text-amber-500 transition-colors">About Us</Link>
             <Link href="/privacy-policy" className="hover:text-amber-500 transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-amber-500 transition-colors">Terms of Service</Link>
             <span>&copy; {new Date().getFullYear()} KILIMANJARO QUEST</span>
