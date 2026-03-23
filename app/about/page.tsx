@@ -152,19 +152,19 @@ export default function AboutPage() {
                 name: "David Mwangi",
                 role: "Lead Expedition Guide",
                 bio: "12+ years guiding on Kilimanjaro. WFR certified. Has summited over 200 times across all 5 major routes.",
-                image: "/images/hiker-2.webp",
+                image: "/images/team-david.webp",
               },
               {
                 name: "Dr. Sarah Tanui",
                 role: "High-Altitude Physiologist",
                 bio: "Specializes in altitude medicine and acclimatization protocols. Designs our route-specific health monitoring systems.",
-                image: "/images/hiker-1.webp",
+                image: "/images/team-sarah-t.webp",
               },
               {
                 name: "Sarah Kimani",
                 role: "Gear & Logistics Specialist",
                 bio: "Manages equipment quality, porter welfare, and the Nairobi-Moshi logistics corridor. KPAP certified.",
-                image: "/images/hiker-3.webp",
+                image: "/images/team-sarah-k.webp",
               },
             ].map((member, idx) => (
               <div key={idx} className="bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 group hover:border-amber-500/30 transition-all">
