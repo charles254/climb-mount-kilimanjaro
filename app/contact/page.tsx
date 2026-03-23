@@ -1,4 +1,13 @@
 import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react";
+import ContactForm from "@/components/ContactForm";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Book Your Kilimanjaro Climb: Expert Guides in Nairobi",
+  description: "Contact Kilimanjaro Quest's expert guides in Nairobi for custom trek quotes, detailed itineraries, and 2026 expedition booking. 95% summit success rate.",
+  keywords: "book kilimanjaro trek, kilimanjaro tour operators, contact kilimanjaro guides, kilimanjaro guided tour, kilimanjaro nairobi, custom kilimanjaro quotes",
+  alternates: { canonical: "/contact" },
+};
 
 export default function ContactPage() {
   return (
@@ -35,7 +44,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-white font-bold mb-1 uppercase tracking-wider">Email Us</h3>
-                    <p className="text-slate-400 font-medium">expeditions@kilitrailblazers.com</p>
+                    <p className="text-slate-400 font-medium">expeditions@kilimanjaroquest.com</p>
                   </div>
                 </div>
 
@@ -55,7 +64,7 @@ export default function ContactPage() {
                   <MessageCircle className="h-5 w-5" />
                   <span className="font-bold uppercase tracking-widest text-xs">Live Status</span>
                 </div>
-                <p className="text-slate-400 text-sm">Our team is currently online. Average response time: <span className="text-white font-bold">12 minutes</span>.</p>
+                <p className="text-slate-400 text-sm">Our team is currently online. Average response time: <span className="text-white font-bold uppercase tracking-tight">under 10 minutes</span>.</p>
               </div>
             </div>
           </div>

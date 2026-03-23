@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { climbingRoutes } from "@/lib/pseo-data";
@@ -140,6 +141,12 @@ export default function SuccessPredictor() {
             >
               Get Personalized Itinerary <ChevronRight className="h-5 w-5" />
             </button>
+            <Link
+              href="/gear"
+              className="border border-slate-700 hover:border-amber-500/50 text-white px-8 py-4 rounded-xl font-bold transition-all text-center flex items-center justify-center"
+            >
+              View Gear Checklist
+            </Link>
           </div>
 
           <AnimatePresence>

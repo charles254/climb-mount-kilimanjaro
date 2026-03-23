@@ -1,46 +1,82 @@
 import { getRouteBySlug, climbingRoutes } from "@/lib/pseo-data";
+import { topicalClusters } from "@/lib/topical-cluster-data";
+import { SITE_URL } from "@/lib/config";
 import ElevationProfile from "@/components/ElevationProfile";
+import ClusterArticleView from "@/components/ClusterArticleView";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Link from "next/link";
 import { CheckCircle2, AlertCircle, Clock, BarChart, Map, ArrowLeft, ArrowRight } from "lucide-react";
+import FAQAccordion from "@/components/FAQAccordion";
+import FAQSchema from "@/components/FAQSchema";
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return climbingRoutes.map((route) => ({
+  const trekRoutes = climbingRoutes.map((route) => ({
     slug: route.slug,
   }));
+
+  const clusterArticles = topicalClusters
+    .find(c => c.slug === "routes")
+    ?.articles.map(a => ({ slug: a.slug })) || [];
+
+  return [...trekRoutes, ...clusterArticles];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const route = getRouteBySlug(slug);
-  if (!route) return { title: "Route Not Found" };
+  
+  if (!route) {
+    const article = topicalClusters
+      .find(c => c.slug === "routes")
+      ?.articles.find(a => a.slug === slug);
+    
+    if (article) {
+      return {
+        title: article.title,
+        description: article.description,
+        keywords: `Kilimanjaro routes, ${slug.replace(/-/g, ' ')}, route comparison`,
+        alternates: {
+          canonical: `/routes/${slug}`
+        }
+      };
+    }
+    return { title: "Route Not Found" };
+  }
 
   return {
-    title: `${route.name} | Kilimanjaro Trek Guide`,
+    title: route.name,
     description: `Complete guide to climbing Kilimanjaro via the ${route.name}. Success rate: ${route.success_rate}, Duration: ${route.duration}. Book your guided trek now.`,
+    keywords: `${route.name} route, Kilimanjaro treks, best Kilimanjaro routes, acclimatization ${route.name}`,
+    alternates: {
+      canonical: `/routes/${route.slug}`
+    }
   };
 }
 
-export default async function RoutePage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function RoutePage({ params }: Props) {
   const { slug } = await params;
   const route = getRouteBySlug(slug);
 
   if (!route) {
+    // Check if it's a cluster article
+    const isClusterArticle = topicalClusters
+      .find(c => c.slug === "routes")
+      ?.articles.some(a => a.slug === slug);
+
+    if (isClusterArticle) {
+       return <ClusterArticleView slug={slug} />;
+    }
     notFound();
   }
 
   return (
     <div className="bg-slate-950 min-h-screen pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="inline-flex items-center text-amber-500 hover:text-amber-400 mb-8 transition-colors">
-          <ArrowLeft className="h-4 w-4 mr-2" /> Back to Home
-        </Link>
-        
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Main Content */}
           <div className="lg:col-span-2">
@@ -131,6 +167,22 @@ export default async function RoutePage({ params }: { params: Promise<{ slug: st
           </div>
         </div>
 
+        {/* Path-Specific FAQ Section */}
+        {route.faqs && (
+          <div className="mt-32 pt-16 border-t border-slate-900">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-white uppercase tracking-tight mb-4">
+                {route.name} <span className="text-amber-500">FAQs</span>
+              </h2>
+              <p className="text-slate-400">Expert answers to common questions about the {route.name}.</p>
+            </div>
+            <div className="max-w-3xl mx-auto">
+              <FAQAccordion items={route.faqs} />
+              <FAQSchema faqs={route.faqs} />
+            </div>
+          </div>
+        )}
+
         {/* Topical Cluster Navigation */}
         <div className="mt-24 pt-16 border-t border-slate-900">
           <h2 className="text-2xl font-bold text-white mb-8">Compare Other Routes</h2>
@@ -151,6 +203,35 @@ export default async function RoutePage({ params }: { params: Promise<{ slug: st
           </div>
         </div>
       </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": route.name,
+            "description": route.description,
+            "author": {
+              "@type": "Organization",
+              "name": "Kilimanjaro Quest"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Kilimanjaro Quest",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "${SITE_URL}/icon.png"
+              }
+            },
+            "datePublished": "2024-01-01",
+            "dateModified": new Date().toISOString().split('T')[0],
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `${SITE_URL}/routes/${route.slug}`
+            }
+          })
+        }}
+      />
     </div>
   );
 }
