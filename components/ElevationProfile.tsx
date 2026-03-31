@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { ElevationDay } from "@/lib/pseo-data";
 import { useState } from "react";
 
@@ -8,14 +8,15 @@ interface ElevationProfileProps {
   data: ElevationDay[];
 }
 
+const metersToFeet = (m: number) => Math.round(m * 3.28084);
+
 export default function ElevationProfile({ data }: ElevationProfileProps) {
   const [hoveredDay, setHoveredDay] = useState<ElevationDay | null>(null);
 
   if (!data || data.length === 0) return null;
 
   const maxAlt = Math.max(...data.map(d => d.altitude), 5895);
-  const minAlt = Math.min(...data.map(d => d.altitude), 1800);
-  
+
   const width = 800;
   const height = 300;
   const padding = 40;
@@ -26,9 +27,8 @@ export default function ElevationProfile({ data }: ElevationProfileProps) {
   const points = data.map((d, i) => `${getX(i)},${getY(d.altitude)}`).join(" ");
   const areaPoints = `${points} ${getX(data.length - 1)},${height - padding} ${getX(0)},${height - padding}`;
 
-  const metersToFeet = (m: number) => Math.round(m * 3.28084);
-
   return (
+    <LazyMotion features={domAnimation}>
     <div className="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 relative overflow-hidden group">
       <div className="flex justify-between items-center mb-8">
         <div>
@@ -93,7 +93,7 @@ export default function ElevationProfile({ data }: ElevationProfileProps) {
           ))}
 
           {/* Main Area */}
-          <motion.polyline
+          <m.polyline
             points={areaPoints}
             fill="url(#elevationGradient)"
             initial={{ opacity: 0 }}
@@ -102,7 +102,7 @@ export default function ElevationProfile({ data }: ElevationProfileProps) {
           />
 
           {/* Path Line */}
-          <motion.polyline
+          <m.polyline
             points={points}
             fill="none"
             stroke="#f59e0b"
@@ -133,7 +133,7 @@ export default function ElevationProfile({ data }: ElevationProfileProps) {
                 className="transition-all duration-200"
               />
               {hoveredDay?.day === d.day && (
-                <motion.circle
+                <m.circle
                   initial={{ r: 6, opacity: 1 }}
                   animate={{ r: 12, opacity: 0 }}
                   transition={{ duration: 0.8, repeat: Infinity }}
@@ -183,5 +183,6 @@ export default function ElevationProfile({ data }: ElevationProfileProps) {
         </div>
       </div>
     </div>
+    </LazyMotion>
   );
 }

@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion";
 import { climbingRoutes } from "@/lib/pseo-data";
 import { 
   ChevronRight, 
@@ -67,6 +68,7 @@ export default function SuccessPredictor() {
 
   if (showResult) {
     return (
+      <LazyMotion features={domAnimation}>
       <div className="bg-slate-900 rounded-3xl p-8 border border-amber-500/20 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 p-4 opacity-10">
           <Trophy className="h-32 w-32 text-amber-500" />
@@ -86,7 +88,7 @@ export default function SuccessPredictor() {
                 cx="96"
                 cy="96"
               />
-              <motion.circle
+              <m.circle
                 className="text-amber-500"
                 strokeWidth="8"
                 strokeDasharray={440}
@@ -136,15 +138,21 @@ export default function SuccessPredictor() {
             </button>
             <button 
               onClick={() => setShowLeadForm(true)}
-              className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2"
+              className="bg-amber-700 hover:bg-amber-800 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2"
             >
               Get Personalized Itinerary <ChevronRight className="h-5 w-5" />
             </button>
+            <Link
+              href="/gear"
+              className="border border-slate-700 hover:border-amber-500/50 text-white px-8 py-4 rounded-xl font-bold transition-all text-center flex items-center justify-center"
+            >
+              View Gear Checklist
+            </Link>
           </div>
 
           <AnimatePresence>
             {showLeadForm && (
-              <motion.div 
+              <m.div 
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
@@ -167,15 +175,17 @@ export default function SuccessPredictor() {
                   variant="dark"
                   className="text-left"
                 />
-              </motion.div>
+              </m.div>
             )}
           </AnimatePresence>
         </div>
       </div>
+      </LazyMotion>
     );
   }
 
   return (
+    <LazyMotion features={domAnimation}>
     <div className="bg-slate-900 rounded-3xl p-8 border border-slate-800 shadow-xl min-h-[500px] flex flex-col">
       <div className="flex justify-between items-center mb-8">
         <h3 className="text-xl font-bold text-white uppercase tracking-wider flex items-center gap-2">
@@ -193,7 +203,7 @@ export default function SuccessPredictor() {
 
       <div className="flex-grow relative overflow-hidden">
         <AnimatePresence mode="wait" custom={step}>
-          <motion.div
+          <m.div
             key={step}
             custom={step}
             variants={variants}
@@ -224,7 +234,7 @@ export default function SuccessPredictor() {
                         <Mountain className={`h-5 w-5 ${routeSlug === route.slug ? 'text-amber-500' : 'text-slate-500'}`} />
                         <div>
                           <p className="font-bold">{route.name}</p>
-                          <p className="text-xs opacity-60">Base Success: {route.success_rate}</p>
+                          <p className="text-xs text-slate-400">Base Success: {route.success_rate}</p>
                         </div>
                       </div>
                       {routeSlug === route.slug && <CheckCircle2 className="h-5 w-5 text-amber-500" />}
@@ -285,7 +295,7 @@ export default function SuccessPredictor() {
                       }`}
                     >
                       <h5 className="font-bold text-lg mb-1">{exp}</h5>
-                      <p className="text-xs opacity-60">
+                      <p className="text-xs text-slate-400">
                         {exp === "Beginner" && "Occasional hiker, first high altitude trek."}
                         {exp === "Intermediate" && "Regular hiker, familiar with multi-day treks."}
                         {exp === "Advanced" && "Experienced climber, comfortable with extreme conditions."}
@@ -295,7 +305,7 @@ export default function SuccessPredictor() {
                 </div>
               </div>
             )}
-          </motion.div>
+          </m.div>
         </AnimatePresence>
       </div>
 
@@ -318,12 +328,13 @@ export default function SuccessPredictor() {
         ) : (
           <button 
             onClick={() => setShowResult(true)}
-            className="flex-[2] bg-amber-600 hover:bg-amber-700 text-white px-4 py-4 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2"
+            className="flex-[2] bg-amber-700 hover:bg-amber-800 text-white px-4 py-4 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2"
           >
             Calculate My Chance <Trophy className="h-5 w-5" />
           </button>
         )}
       </div>
     </div>
+    </LazyMotion>
   );
 }

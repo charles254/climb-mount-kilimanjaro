@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(npx skills:*)",
+      "Bash(find 'C:/Users/ENG. KIPTOO/Desktop/Climb Mount Kilimanjaro/Climb Mount Kilimanjaro' -path */skills/* -name *.md)"
+    ]
+  }
+}

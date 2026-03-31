@@ -4,6 +4,11 @@ export interface ElevationDay {
   altitude: number; // in meters
 }
 
+export interface FAQ {
+  question: string;
+  answer: string;
+}
+
 export interface ClimbingRoute {
   slug: string;
   name: string;
@@ -14,6 +19,8 @@ export interface ClimbingRoute {
   kenya_advantage_tip: string;
   description: string;
   elevation_data: ElevationDay[];
+  faqs?: FAQ[];
+  best_for: string;
 }
 
 export interface ClimbingMonth {
@@ -30,9 +37,20 @@ export interface TravelOrigin {
   slug: string;
   city: string;
   country: string;
+  continent: string;
   transport_method: string;
   visa_requirements: string;
   estimated_cost: string;
+  flight_duration: string;
+  timezone_diff: string;
+  currency: string;
+  best_airlines: string;
+  airport_code: string;
+  jet_lag_tip: string;
+  local_tip: string;
+  peak_flight_season: string;
+  priority: "high" | "medium" | "low";
+  faqs?: FAQ[];
 }
 
 export const climbingRoutes: ClimbingRoute[] = [
@@ -55,8 +73,21 @@ export const climbingRoutes: ClimbingRoute[] = [
       { day: 6, label: "Karanga Camp", altitude: 3995 },
       { day: 7, label: "Barafu Camp", altitude: 4673 },
       { day: 8, label: "Uhuru Peak", altitude: 5895 },
-      { day: 9, label: "Mweka Camp", altitude: 3100 }
-    ]
+      { day: 9, label: "Mweka Camp", altitude: 3100 },
+    ],
+    faqs: [
+      {
+        question: "Why is Lemosho recommended for acclimatization?",
+        answer:
+          "Lemosho is a longer route (7-8 days) that starts low and has an excellent 'climb high, sleep low' profile, particularly around the Lava Tower and Barranco Wall sections.",
+      },
+      {
+        question: "Is the Barranco Wall dangerous on Lemosho?",
+        answer:
+          "While it looks intimidating, the Barranco Wall is a non-technical scramble. No mountaineering experience is required, but it does require focus and steady footing.",
+      },
+    ],
+    best_for: "Highest success rates & scenic beauty",
   },
   {
     slug: "machame",
@@ -76,8 +107,21 @@ export const climbingRoutes: ClimbingRoute[] = [
       { day: 5, label: "Karanga Camp", altitude: 3995 },
       { day: 6, label: "Barafu Camp", altitude: 4673 },
       { day: 7, label: "Uhuru Peak", altitude: 5895 },
-      { day: 8, label: "Mweka Camp", altitude: 3100 }
-    ]
+      { day: 8, label: "Mweka Camp", altitude: 3100 },
+    ],
+    faqs: [
+      {
+        question: "Why is Machame called the 'Whiskey Route'?",
+        answer:
+          "Unlike the 'Coca-Cola' route (Marangu), Machame is tougher and more rugged, traditionally appealing to more adventurous climbers looking for a challenge.",
+      },
+      {
+        question: "Do I sleep in tents or huts on Machame?",
+        answer:
+          "Machame is a pure camping route. You will sleep in high-quality mountain tents which our porters set up and take down for you each day.",
+      },
+    ],
+    best_for: "Adventurous climbers & photographers",
   },
   {
     slug: "rongai",
@@ -96,8 +140,21 @@ export const climbingRoutes: ClimbingRoute[] = [
       { day: 4, label: "Mawenzi Ridge", altitude: 4330 },
       { day: 5, label: "Kibo Hut", altitude: 4700 },
       { day: 6, label: "Uhuru Peak", altitude: 5895 },
-      { day: 7, label: "Horombo Hut", altitude: 3720 }
-    ]
+      { day: 7, label: "Horombo Hut", altitude: 3720 },
+    ],
+    faqs: [
+      {
+        question: "Why choose Rongai over other routes?",
+        answer:
+          "Rongai is the only route that approaches from the North. It's much drier than the southern routes, making it the best choice during the rainy season.",
+      },
+      {
+        question: "Can I see Mawenzi Peak on the Rongai route?",
+        answer:
+          "Yes! Rongai offers one of the best views of Mawenzi, the second-highest peak on Kilimanjaro, especially from the Mawenzi Tarn camp.",
+      },
+    ],
+    best_for: "Rainy season climbs & solitude",
   },
   {
     slug: "marangu",
@@ -114,8 +171,21 @@ export const climbingRoutes: ClimbingRoute[] = [
       { day: 2, label: "Horombo Hut", altitude: 3720 },
       { day: 3, label: "Kibo Hut", altitude: 4700 },
       { day: 4, label: "Uhuru Peak", altitude: 5895 },
-      { day: 5, label: "Marangu Gate", altitude: 1870 }
-    ]
+      { day: 5, label: "Marangu Gate", altitude: 1870 },
+    ],
+    faqs: [
+      {
+        question: "Do I need a sleeping bag for the huts on Marangu?",
+        answer:
+          "Yes. While the huts provide basic foam mattresses and bunks, you still need a high-quality (minus 10-15\u00b0C) sleeping bag for warmth.",
+      },
+      {
+        question: "Why does Marangu have a lower success rate?",
+        answer:
+          "Marangu is often chosen for its 5-day duration. This short ascent doesn't allow for proper acclimatization, leading to more altitude-related failures.",
+      },
+    ],
+    best_for: "Climbers seeking hut accommodation",
   },
   {
     slug: "northern-circuit",
@@ -135,9 +205,22 @@ export const climbingRoutes: ClimbingRoute[] = [
       { day: 5, label: "Third Cave", altitude: 3870 },
       { day: 6, label: "School Hut", altitude: 4750 },
       { day: 7, label: "Uhuru Peak", altitude: 5895 },
-      { day: 8, label: "Mweka Camp", altitude: 3100 }
-    ]
-  }
+      { day: 8, label: "Mweka Camp", altitude: 3100 },
+    ],
+    faqs: [
+      {
+        question: "Is the Northern Circuit worth the extra days?",
+        answer:
+          "Absolutely. The 9-day duration gives you a 98% success rate and allows you to experience the remote northern slopes that 99% of climbers never see.",
+      },
+      {
+        question: "How physically demanding is the Northern Circuit?",
+        answer:
+          "While it's the longest route, the daily hiking distances are moderate, and the extra days actually make it easier on the body than shorter routes.",
+      },
+    ],
+    best_for: "Ultimate acclimatization & 360\u00b0 views",
+  },
 ];
 
 export const climbingMonths: ClimbingMonth[] = [
@@ -145,110 +228,110 @@ export const climbingMonths: ClimbingMonth[] = [
     slug: "january",
     month_name: "January",
     weather_profile: "Warm and Clear",
-    base_temp: "25°C",
-    summit_temp: "-7°C",
+    base_temp: "25\u00b0C",
+    summit_temp: "-7\u00b0C",
     crowd_level: "Busy",
-    verdict: "Excellent - One of the best times to climb."
+    verdict: "Excellent - One of the best times to climb.",
   },
   {
     slug: "february",
     month_name: "February",
     weather_profile: "Warmest, Clear skies",
-    base_temp: "27°C",
-    summit_temp: "-5°C",
+    base_temp: "27\u00b0C",
+    summit_temp: "-5\u00b0C",
     crowd_level: "Busy",
-    verdict: "Perfect - Warmest month with great visibility."
+    verdict: "Perfect - Warmest month with great visibility.",
   },
   {
     slug: "march",
     month_name: "March",
     weather_profile: "Mixed - Rain starts late month",
-    base_temp: "24°C",
-    summit_temp: "-8°C",
+    base_temp: "24\u00b0C",
+    summit_temp: "-8\u00b0C",
     crowd_level: "Moderate",
-    verdict: "Good for early month, risky late month due to rains."
+    verdict: "Good for early month, risky late month due to rains.",
   },
   {
     slug: "april",
     month_name: "April",
     weather_profile: "Heavy Rain (Long Rains)",
-    base_temp: "22°C",
-    summit_temp: "-10°C",
+    base_temp: "22\u00b0C",
+    summit_temp: "-10\u00b0C",
     crowd_level: "Quiet",
-    verdict: "Poor - Very wet and muddy paths."
+    verdict: "Poor - Very wet and muddy paths.",
   },
   {
     slug: "may",
     month_name: "May",
     weather_profile: "Rain (Long Rains)",
-    base_temp: "22°C",
-    summit_temp: "-10°C",
+    base_temp: "22\u00b0C",
+    summit_temp: "-10\u00b0C",
     crowd_level: "Quiet",
-    verdict: "Poor - Continued rainy season."
+    verdict: "Poor - Continued rainy season.",
   },
   {
     slug: "june",
     month_name: "June",
     weather_profile: "Cool and Dry",
-    base_temp: "20°C",
-    summit_temp: "-12°C",
+    base_temp: "20\u00b0C",
+    summit_temp: "-12\u00b0C",
     crowd_level: "Moderate",
-    verdict: "Good - Start of the dry season, can be cold."
+    verdict: "Good - Start of the dry season, can be cold.",
   },
   {
     slug: "july",
     month_name: "July",
     weather_profile: "Cool and Dry",
-    base_temp: "19°C",
-    summit_temp: "-13°C",
+    base_temp: "19\u00b0C",
+    summit_temp: "-13\u00b0C",
     crowd_level: "Busy",
-    verdict: "Very Good - Cold but dry, very clear skies."
+    verdict: "Very Good - Cold but dry, very clear skies.",
   },
   {
     slug: "august",
     month_name: "August",
     weather_profile: "Cool and Dry",
-    base_temp: "21°C",
-    summit_temp: "-11°C",
+    base_temp: "21\u00b0C",
+    summit_temp: "-11\u00b0C",
     crowd_level: "Busy",
-    verdict: "Excellent - Peak season, great weather."
+    verdict: "Excellent - Peak season, great weather.",
   },
   {
     slug: "september",
     month_name: "September",
     weather_profile: "Warm and Dry",
-    base_temp: "24°C",
-    summit_temp: "-9°C",
+    base_temp: "24\u00b0C",
+    summit_temp: "-9\u00b0C",
     crowd_level: "Busy",
-    verdict: "Excellent - Warmest dry month, perfect conditions."
+    verdict: "Excellent - Warmest dry month, perfect conditions.",
   },
   {
     slug: "october",
     month_name: "October",
     weather_profile: "Warm, Mixed skies",
-    base_temp: "25°C",
-    summit_temp: "-8°C",
+    base_temp: "25\u00b0C",
+    summit_temp: "-8\u00b0C",
     crowd_level: "Moderate",
-    verdict: "Good - Rains can start late in the month."
+    verdict: "Good - Rains can start late in the month.",
   },
   {
     slug: "november",
     month_name: "November",
     weather_profile: "Short Rains",
-    base_temp: "23°C",
-    summit_temp: "-9°C",
+    base_temp: "23\u00b0C",
+    summit_temp: "-9\u00b0C",
     crowd_level: "Moderate",
-    verdict: "Mixed - Expect short afternoon rain showers."
+    verdict: "Mixed - Expect short afternoon rain showers.",
   },
   {
     slug: "december",
     month_name: "December",
     weather_profile: "Warm and Mixed",
-    base_temp: "24°C",
-    summit_temp: "-8°C",
+    base_temp: "24\u00b0C",
+    summit_temp: "-8\u00b0C",
     crowd_level: "Busy",
-    verdict: "Very Good - Holiday season peak, despite occasional rain."
-  }
+    verdict: "Very Good - Holiday season peak, despite occasional rain.",
+  },
 ];
 
 export const travelOrigins: TravelOrigin[] = [
@@ -256,52 +339,655 @@ export const travelOrigins: TravelOrigin[] = [
     slug: "nairobi",
     city: "Nairobi",
     country: "Kenya",
+    continent: "Africa",
     transport_method: "Riverside Shuttle (Bus) via Namanga Border or Flight (NBO/WIL to JRO)",
     visa_requirements: "EAC Citizens: Visa Free. Foreign Nationals/Expats: $50 Tanzanian Visa (Apply Online).",
-    estimated_cost: "$30 - $250 USD"
+    estimated_cost: "$30 - $250 USD",
+    flight_duration: "1 hour (direct) or 6-7 hours (bus)",
+    timezone_diff: "UTC+3 (same as EAT)",
+    currency: "KES (KSh)",
+    best_airlines: "Kenya Airways, Safarilink, AirKenya",
+    airport_code: "NBO",
+    jet_lag_tip: "No jet lag since Nairobi shares the same timezone as Kilimanjaro.",
+    local_tip: "The Riverside shuttle departs from the Nairobi CBD and crosses the Namanga border; carry your passport and arrive 30 minutes early.",
+    peak_flight_season: "July-September (safari high season)",
+    priority: "high",
+    faqs: [
+      { question: "How long is the bus from Nairobi to Kilimanjaro?", answer: "The Riverside shuttle takes approximately 6-7 hours including the Namanga border crossing." },
+      { question: "Can I fly from Wilson Airport (WIL)?", answer: "Yes, Safarilink and AirKenya operate daily flights from Wilson to JRO, which are often more convenient than Jomo Kenyatta (NBO)." },
+    ],
   },
   {
     slug: "mombasa",
     city: "Mombasa",
     country: "Kenya",
+    continent: "Africa",
     transport_method: "Direct flight to JRO via Fly540 or Air Kenya",
     visa_requirements: "EAC Citizens: Visa Free. Foreign Nationals: $50 Tanzanian Visa.",
-    estimated_cost: "$150 - $300 USD"
+    estimated_cost: "$150 - $300 USD",
+    flight_duration: "1 hour (direct)",
+    timezone_diff: "UTC+3 (same as EAT)",
+    currency: "KES (KSh)",
+    best_airlines: "Fly540, AirKenya, Safarilink",
+    airport_code: "MBA",
+    jet_lag_tip: "No jet lag at all since Mombasa is in the same timezone as Kilimanjaro.",
+    local_tip: "Combine your Kilimanjaro climb with a beach recovery holiday on the Diani or Nyali coast.",
+    peak_flight_season: "December-January (holiday beach season)",
+    priority: "medium",
+    faqs: [
+      { question: "Can I combine a Kilimanjaro climb with a Mombasa beach holiday?", answer: "Absolutely. Many climbers fly from Mombasa to JRO, complete their climb, then return to the Kenyan coast for recovery at Diani or Nyali Beach, making it a perfect adventure-and-relaxation combo." },
+      { question: "Are there direct flights from Mombasa to Kilimanjaro Airport?", answer: "Yes, Fly540 and Safarilink operate direct flights from Moi International Airport (MBA) to JRO, taking roughly 1 hour with no layover required." },
+      { question: "Do I need a visa if I am a Kenyan resident flying from Mombasa to Tanzania?", answer: "EAC citizens travel visa-free. Foreign nationals residing in Kenya still need a $50 Tanzanian tourist visa, which can be applied for online before departure." },
+    ],
   },
   {
     slug: "london",
     city: "London",
     country: "UK",
+    continent: "Europe",
     transport_method: "Flight to JRO (Kilimanjaro Int'l) via Doha (Qatar) or Addis Ababa (Ethiopian)",
     visa_requirements: "$50 Tourist Visa on arrival or online",
-    estimated_cost: "£600 - £900"
+    estimated_cost: "\u00a3600 - \u00a3900",
+    flight_duration: "12-14 hours (1 stop)",
+    timezone_diff: "UTC+0 (3 hours behind EAT)",
+    currency: "GBP (\u00a3)",
+    best_airlines: "Qatar Airways, Ethiopian Airlines, KLM",
+    airport_code: "LHR",
+    jet_lag_tip: "Shift your sleep schedule 1 hour earlier per day for 3 days before departure to ease the 3-hour time change.",
+    local_tip: "Heathrow Terminal 4 handles most Qatar Airways flights to Doha; allow extra time for the Heathrow Express from central London.",
+    peak_flight_season: "June-September (summer holidays)",
+    priority: "high",
+    faqs: [
+      { question: "Are there any direct flights from London to Kilimanjaro?", answer: "There are no regular nonstop flights from London to JRO. The most popular one-stop routes go via Doha (Qatar Airways) or Addis Ababa (Ethiopian Airlines), both departing from Heathrow." },
+      { question: "Do UK citizens need a visa to climb Kilimanjaro?", answer: "Yes, British passport holders need a $50 Tanzanian tourist visa, which can be obtained online through the Tanzanian immigration e-visa portal before departure." },
+      { question: "Should I exchange pounds to dollars or Tanzanian shillings before leaving London?", answer: "Bring US dollars in clean, post-2006 notes. USD is widely accepted for tourism services in Tanzania, and you will get better exchange rates in-country than converting GBP to TZS in London." },
+    ],
   },
   {
     slug: "dubai",
     city: "Dubai",
     country: "UAE",
+    continent: "Middle East",
     transport_method: "Direct flight to JRO via FlyDubai",
     visa_requirements: "Visa on arrival for most residents ($50-$100 depending on passport)",
-    estimated_cost: "AED 1,500 - 2,500"
+    estimated_cost: "AED 1,500 - 2,500",
+    flight_duration: "5-6 hours (direct)",
+    timezone_diff: "UTC+4 (1 hour ahead of EAT)",
+    currency: "AED (\u062f.\u0625)",
+    best_airlines: "FlyDubai, Emirates, Ethiopian Airlines",
+    airport_code: "DXB",
+    jet_lag_tip: "Only a 1-hour time difference means virtually no jet lag; just adjust meal times slightly.",
+    local_tip: "FlyDubai operates direct flights from Dubai International Terminal 2, which is smaller and faster to navigate than Terminal 3.",
+    peak_flight_season: "October-March (escaping Dubai summer heat)",
+    priority: "high",
+    faqs: [
+      { question: "Does FlyDubai operate direct flights from Dubai to Kilimanjaro?", answer: "Yes, FlyDubai runs direct flights from Dubai International Terminal 2 to JRO, taking about 5 hours. This is the fastest and most convenient routing from the Gulf." },
+      { question: "What visa do UAE residents need for Tanzania?", answer: "Visa requirements depend on your passport nationality, not your UAE residency. Most nationalities pay $50-$100 for a Tanzanian visa on arrival or via the e-visa portal." },
+      { question: "Is it better to fly from DXB or DWC for Kilimanjaro?", answer: "Use Dubai International (DXB) as all Kilimanjaro-bound flights depart from there. Dubai World Central (DWC) does not have direct East Africa services." },
+    ],
   },
   {
     slug: "new-york",
     city: "New York",
     country: "USA",
+    continent: "North America",
     transport_method: "Flight to NBO (Nairobi) then regional connector to JRO",
     visa_requirements: "$100 Tanzanian Visa (US Citizens)",
-    estimated_cost: "$900 - $1,400"
-  }
+    estimated_cost: "$900 - $1,400",
+    flight_duration: "18-22 hours (1-2 stops)",
+    timezone_diff: "UTC-5 (8 hours behind EAT)",
+    currency: "USD ($)",
+    best_airlines: "Ethiopian Airlines, Qatar Airways, Turkish Airlines",
+    airport_code: "JFK",
+    jet_lag_tip: "Start adjusting 4-5 days before departure by sleeping 1 hour earlier each night to bridge the 8-hour gap.",
+    local_tip: "JFK Terminal 1 handles most international connections; consider a lounge pass for the long layover.",
+    peak_flight_season: "June-August (summer vacation) and December (holidays)",
+    priority: "high",
+    faqs: [
+      { question: "Why do US citizens pay $100 instead of $50 for the Tanzania visa?", answer: "Tanzania applies reciprocal visa pricing. Since the US charges higher fees for Tanzanian visitors, American passport holders pay $100 instead of the standard $50." },
+      { question: "What is the best routing from JFK to Kilimanjaro?", answer: "Ethiopian Airlines via Addis Ababa and Qatar Airways via Doha are the two most popular options. Ethiopian often has the shortest total travel time at around 18 hours including the layover." },
+      { question: "How far in advance should I book flights from New York to JRO?", answer: "Book at least 3-4 months ahead for the best fares, especially if traveling during peak season (June-August or December). Last-minute bookings can cost 40-60% more." },
+    ],
+  },
+  {
+    slug: "sydney",
+    city: "Sydney",
+    country: "Australia",
+    continent: "Oceania",
+    transport_method: "Flight to JRO via Doha or Addis Ababa",
+    visa_requirements: "$50 Tourist Visa",
+    estimated_cost: "$1,200 - $1,800 AUD",
+    flight_duration: "20-24 hours (1-2 stops)",
+    timezone_diff: "UTC+11 (8 hours ahead of EAT)",
+    currency: "AUD (A$)",
+    best_airlines: "Qatar Airways, Emirates, Ethiopian Airlines",
+    airport_code: "SYD",
+    jet_lag_tip: "Fly westbound via Doha to spread the 8-hour time shift over two legs and arrive in daylight.",
+    local_tip: "Qantas and Qatar Airways codeshare from Sydney T1 International; book the Doha route for the shortest total travel time.",
+    peak_flight_season: "June-August (Australian winter, Kilimanjaro dry season)",
+    priority: "high",
+    faqs: [
+      { question: "What is the fastest way to fly from Sydney to Kilimanjaro?", answer: "Qatar Airways via Doha offers the shortest total journey at around 20-22 hours. Emirates via Dubai is a close alternative with similarly good connections to JRO." },
+      { question: "Should Australians get travel insurance for Kilimanjaro?", answer: "Yes, standard Australian travel insurance often excludes trekking above 3,000m. Purchase a policy that specifically covers high-altitude trekking up to 6,000m and emergency helicopter evacuation." },
+      { question: "When is the cheapest time for Australians to fly to Kilimanjaro?", answer: "May and early June offer lower airfares from Sydney since it falls between Australian school holidays. This also coincides with the start of Kilimanjaro's dry season." },
+    ],
+  },
+  {
+    slug: "berlin",
+    city: "Berlin",
+    country: "Germany",
+    continent: "Europe",
+    transport_method: "Flight to JRO via Frankfurt or Istanbul",
+    visa_requirements: "$50 Tourist Visa",
+    estimated_cost: "\u20ac700 - \u20ac1,100",
+    flight_duration: "11-14 hours (1 stop)",
+    timezone_diff: "UTC+1 (2 hours behind EAT)",
+    currency: "EUR (\u20ac)",
+    best_airlines: "Turkish Airlines, Ethiopian Airlines, Condor",
+    airport_code: "BER",
+    jet_lag_tip: "A modest 2-hour difference means you can adjust naturally within a day of arrival in Tanzania.",
+    local_tip: "Berlin Brandenburg Airport (BER) has direct Turkish Airlines connections to Istanbul, which is the fastest hub to JRO.",
+    peak_flight_season: "July-August (German school holidays)",
+    priority: "medium",
+    faqs: [
+      { question: "Can I fly direct from Berlin to Kilimanjaro?", answer: "There are no direct flights from Berlin. The fastest one-stop option is Turkish Airlines via Istanbul, which typically takes 11-12 hours total including the layover." },
+      { question: "Is Kilimanjaro popular with German climbers?", answer: "Very much so. Tanzania was once a German colony, and Kilimanjaro has deep historical ties to Germany. German climbers make up one of the largest European groups on the mountain each year." },
+      { question: "Should I bring euros or US dollars for my Kilimanjaro trip?", answer: "Bring US dollars for park fees and tour payments, as they are the standard currency for tourism in Tanzania. Convert only a small amount to Tanzanian shillings for local purchases." },
+    ],
+  },
+  {
+    slug: "mumbai",
+    city: "Mumbai",
+    country: "India",
+    continent: "Asia",
+    transport_method: "Direct flight to NBO via Air India/Kenya Airways, then JRO",
+    visa_requirements: "$50 Tourist Visa",
+    estimated_cost: "\u20b950,000 - \u20b980,000",
+    flight_duration: "9-12 hours (1 stop)",
+    timezone_diff: "UTC+5:30 (2.5 hours ahead of EAT)",
+    currency: "INR (\u20b9)",
+    best_airlines: "Kenya Airways, Ethiopian Airlines, Air India",
+    airport_code: "BOM",
+    jet_lag_tip: "With only a 2.5-hour difference, adjust by having dinner an hour earlier for two days before departure.",
+    local_tip: "Kenya Airways operates direct flights from Mumbai to Nairobi T1A; book a same-day connector to JRO for seamless travel.",
+    peak_flight_season: "October-March (Indian wedding and holiday season)",
+    priority: "high",
+    faqs: [
+      { question: "Is there a direct flight from Mumbai to Nairobi for connecting to Kilimanjaro?", answer: "Yes, Kenya Airways operates direct Mumbai-Nairobi flights. From Nairobi, you can take a short 1-hour connector flight to JRO on the same day." },
+      { question: "Do Indian citizens need a yellow fever vaccination for Tanzania?", answer: "Yes, if you transit through a yellow fever endemic country like Kenya or Ethiopia, Tanzania requires proof of yellow fever vaccination. Get vaccinated at least 10 days before travel." },
+      { question: "Can I use Indian rupees in Tanzania?", answer: "No, Indian rupees are not accepted. Carry US dollars for major payments and withdraw Tanzanian shillings from ATMs in Moshi or Arusha for smaller purchases." },
+    ],
+  },
+  {
+    slug: "toronto",
+    city: "Toronto",
+    country: "Canada",
+    continent: "North America",
+    transport_method: "Flight to JRO via Amsterdam or Addis Ababa",
+    visa_requirements: "$50 Tourist Visa",
+    estimated_cost: "$1,100 - $1,600 CAD",
+    flight_duration: "17-21 hours (1-2 stops)",
+    timezone_diff: "UTC-5 (8 hours behind EAT)",
+    currency: "CAD (C$)",
+    best_airlines: "Ethiopian Airlines, KLM, Turkish Airlines",
+    airport_code: "YYZ",
+    jet_lag_tip: "Begin shifting your sleep schedule 1 hour earlier each day for 4-5 days before departure to manage the 8-hour gap.",
+    local_tip: "Ethiopian Airlines flies direct from Toronto Pearson T1 to Addis Ababa with a quick connection to JRO.",
+    peak_flight_season: "June-August (Canadian summer) and December-January (winter escape)",
+    priority: "high",
+    faqs: [
+      { question: "Does Ethiopian Airlines fly direct from Toronto to Addis Ababa?", answer: "Yes, Ethiopian Airlines operates a direct flight from Toronto Pearson Terminal 1 to Addis Ababa, with convenient same-day connections to JRO." },
+      { question: "Can Canadians use their provincial health insurance for Kilimanjaro?", answer: "No, provincial health plans do not cover medical costs abroad. Purchase comprehensive travel insurance that includes high-altitude trekking coverage and emergency evacuation up to 6,000m." },
+      { question: "Is it worth booking through a Canadian adventure travel agency?", answer: "Some Canadian agencies specialize in Kilimanjaro packages, but you often get better value booking directly with a reputable Tanzania-based operator who handles the ground logistics." },
+    ],
+  },
+  {
+    slug: "tokyo",
+    city: "Tokyo",
+    country: "Japan",
+    continent: "Asia",
+    transport_method: "Flight to JRO via Doha or Addis Ababa",
+    visa_requirements: "$50 Tourist Visa",
+    estimated_cost: "\u00a5150,000 - \u00a5250,000",
+    flight_duration: "18-22 hours (1-2 stops)",
+    timezone_diff: "UTC+9 (6 hours ahead of EAT)",
+    currency: "JPY (\u00a5)",
+    best_airlines: "Qatar Airways, Ethiopian Airlines, Turkish Airlines",
+    airport_code: "NRT",
+    jet_lag_tip: "Fly westbound via Doha to travel with the sun and reduce the impact of the 6-hour time shift.",
+    local_tip: "Narita Airport has excellent shower and nap facilities in Terminal 1 if you need to freshen up before your connection.",
+    peak_flight_season: "July-August (Obon holiday season) and December-January (New Year)",
+    priority: "high",
+    faqs: [
+      { question: "Should I fly from Narita or Haneda for Kilimanjaro?", answer: "Narita (NRT) has more long-haul options to the Middle East and Africa via Qatar Airways and Ethiopian Airlines. Haneda has fewer East Africa connections but is closer to central Tokyo." },
+      { question: "How do Japanese climbers handle the language barrier on Kilimanjaro?", answer: "Most Kilimanjaro guides speak excellent English. Some tour operators offer Japanese-speaking guides if booked in advance, though this is a premium service." },
+      { question: "Can I use my Japan Rail Pass to get to Narita Airport?", answer: "Yes, the JR Narita Express is covered by the Japan Rail Pass and takes about 1 hour from Tokyo Station, making it a convenient and cost-free way to reach the airport." },
+    ],
+  },
+  {
+    slug: "cape-town",
+    city: "Cape Town",
+    country: "South Africa",
+    continent: "Africa",
+    transport_method: "Flight to JRO via Nairobi or Johannesburg",
+    visa_requirements: "Visa-free for SA Citizens",
+    estimated_cost: "R8,000 - R15,000",
+    flight_duration: "6-8 hours (1 stop)",
+    timezone_diff: "UTC+2 (1 hour behind EAT)",
+    currency: "ZAR (R)",
+    best_airlines: "Kenya Airways, Ethiopian Airlines, Airlink",
+    airport_code: "CPT",
+    jet_lag_tip: "Only a 1-hour time difference so no jet lag adjustment is needed.",
+    local_tip: "Book the Johannesburg-JRO leg on Airlink for a direct connection, avoiding a double stopover through Nairobi.",
+    peak_flight_season: "December-February (SA summer holidays)",
+    priority: "medium",
+    faqs: [
+      { question: "Do South African citizens need a visa for Tanzania?", answer: "No, South African passport holders enjoy visa-free entry to Tanzania for tourism purposes, making it one of the easiest African countries to visit from SA." },
+      { question: "What is the best route from Cape Town to Kilimanjaro without a double layover?", answer: "Book the Johannesburg-JRO direct leg on Airlink. This avoids routing through both Johannesburg and Nairobi and keeps your total travel time to around 7-8 hours." },
+      { question: "Can I pay for my Kilimanjaro climb in South African rand?", answer: "Tour operators price in USD. Convert your rand to US dollars before traveling, as exchange rates in Tanzania for ZAR are very unfavorable." },
+    ],
+  },
+  {
+    slug: "singapore",
+    city: "Singapore",
+    country: "Singapore",
+    continent: "Asia",
+    transport_method: "Flight to JRO via Addis Ababa or Doha",
+    visa_requirements: "$50 Tourist Visa",
+    estimated_cost: "$1,200 - $1,800 SGD",
+    flight_duration: "14-17 hours (1 stop)",
+    timezone_diff: "UTC+8 (5 hours ahead of EAT)",
+    currency: "SGD (S$)",
+    best_airlines: "Qatar Airways, Singapore Airlines, Ethiopian Airlines",
+    airport_code: "SIN",
+    jet_lag_tip: "Set your watch to EAT when you board and eat meals on Tanzanian time to ease the 5-hour shift.",
+    local_tip: "Changi Airport's transit hotel in Terminal 3 is ideal for a rest if you have a long layover on the way to Doha.",
+    peak_flight_season: "June-August (school holidays) and December (year-end break)",
+    priority: "medium",
+    faqs: [
+      { question: "Can I use Changi Airport's free city tour during a long layover?", answer: "If you are transiting through Singapore on the way to Kilimanjaro, Changi offers free 2-hour city tours for layovers over 5.5 hours. Check availability at the transit counter in Terminals 2 or 3." },
+      { question: "Do Singaporean passport holders need a Tanzania visa?", answer: "Yes, Singaporean citizens need a $50 tourist visa for Tanzania, which can be obtained online via the e-visa portal or on arrival at JRO." },
+      { question: "Is Singapore Airlines a good option for flying to Kilimanjaro?", answer: "Singapore Airlines does not fly directly to JRO, but their codeshare with partner airlines via Doha or Addis Ababa provides seamless connections. Qatar Airways via Doha is typically the fastest route." },
+    ],
+  },
+  // --- North America ---
+  {
+    slug: "los-angeles",
+    city: "Los Angeles",
+    country: "USA",
+    continent: "North America",
+    transport_method: "Flight to JRO via Doha or Amsterdam",
+    visa_requirements: "$100 Tanzanian Visa",
+    estimated_cost: "$1,200 - $1,700",
+    flight_duration: "22-26 hours (1-2 stops)",
+    timezone_diff: "UTC-8 (11 hours behind EAT)",
+    currency: "USD ($)",
+    best_airlines: "Qatar Airways, KLM, Turkish Airlines",
+    airport_code: "LAX",
+    jet_lag_tip: "With an 11-hour difference, consider arriving 2 days early in Tanzania and using melatonin at local bedtime.",
+    local_tip: "LAX Tom Bradley International Terminal handles most Middle Eastern and European connections; use the FlyAway bus from Union Station to avoid traffic.",
+    peak_flight_season: "June-August (summer) and December (holiday travel)",
+    priority: "medium",
+    faqs: [
+      { question: "How do I handle the extreme 11-hour jet lag from Los Angeles?", answer: "Arrive in Tanzania at least 2 days before your climb starts. Use melatonin at local bedtime and seek bright morning sunlight to reset your circadian rhythm before heading to the mountain." },
+      { question: "Which LAX terminal do I depart from for Kilimanjaro flights?", answer: "Most Africa-bound connections depart from the Tom Bradley International Terminal (TBIT). Qatar Airways, KLM, and Turkish Airlines all operate from this terminal." },
+      { question: "Can I add a safari to my Kilimanjaro trip from LA?", answer: "Yes, many climbers from LA extend their trip by 3-4 days to visit the Serengeti or Ngorongoro Crater after summiting. Book a combo package to save on internal flights and logistics." },
+    ],
+  },
+  {
+    slug: "chicago",
+    city: "Chicago",
+    country: "USA",
+    continent: "North America",
+    transport_method: "Flight to JRO via Doha or Addis Ababa",
+    visa_requirements: "$100 Tanzanian Visa",
+    estimated_cost: "$1,100 - $1,500",
+    flight_duration: "19-23 hours (1-2 stops)",
+    timezone_diff: "UTC-6 (9 hours behind EAT)",
+    currency: "USD ($)",
+    best_airlines: "Ethiopian Airlines, Qatar Airways, Turkish Airlines",
+    airport_code: "ORD",
+    jet_lag_tip: "Start going to bed 1 hour earlier each night for at least 4 days before your trip to ease the 9-hour shift.",
+    local_tip: "O'Hare Terminal 5 handles all international departures; the ATS train connects domestic terminals for easy connections.",
+    peak_flight_season: "June-August (summer vacation)",
+    priority: "medium",
+    faqs: [
+      { question: "Does Ethiopian Airlines fly direct from Chicago O'Hare?", answer: "Yes, Ethiopian Airlines operates direct flights from O'Hare Terminal 5 to Addis Ababa, with a quick connection to JRO, making it the most efficient routing from Chicago." },
+      { question: "How should I handle connecting flights at O'Hare for international travel?", answer: "Allow at least 3 hours if connecting from a domestic terminal to Terminal 5 for your international departure. The ATS people-mover train links all terminals." },
+      { question: "What vaccinations do I need when flying from the US to Tanzania?", answer: "Yellow fever vaccination is required if transiting through an endemic country like Ethiopia. Consult a travel medicine clinic in Chicago at least 6 weeks before departure for all recommended shots." },
+    ],
+  },
+  { slug: "houston", city: "Houston", country: "USA", continent: "North America", transport_method: "Flight to JRO via Doha or Istanbul", visa_requirements: "$100 Tanzanian Visa", estimated_cost: "$1,100 - $1,600", flight_duration: "20-24 hours (1-2 stops)", timezone_diff: "UTC-6 (9 hours behind EAT)", currency: "USD ($)", best_airlines: "Qatar Airways, Turkish Airlines, Emirates", airport_code: "IAH", jet_lag_tip: "Avoid caffeine after noon for several days before departure to help reset your sleep cycle across 9 time zones.", local_tip: "George Bush Intercontinental (IAH) Terminal D handles Qatar Airways flights with direct Doha connections.", peak_flight_season: "June-August (summer) and spring break (March)", priority: "low" },
+  {
+    slug: "san-francisco",
+    city: "San Francisco",
+    country: "USA",
+    continent: "North America",
+    transport_method: "Flight to JRO via Doha or Amsterdam",
+    visa_requirements: "$100 Tanzanian Visa",
+    estimated_cost: "$1,300 - $1,800",
+    flight_duration: "22-26 hours (1-2 stops)",
+    timezone_diff: "UTC-8 (11 hours behind EAT)",
+    currency: "USD ($)",
+    best_airlines: "Qatar Airways, KLM, Turkish Airlines",
+    airport_code: "SFO",
+    jet_lag_tip: "Consider a stopover in Doha or Amsterdam for one night to break up the massive 11-hour time zone shift.",
+    local_tip: "SFO International Terminal has excellent lounge options; BART connects directly from downtown in 30 minutes.",
+    peak_flight_season: "June-September (summer/tech conference season)",
+    priority: "medium",
+    faqs: [
+      { question: "Should I book a stopover when flying from San Francisco to Kilimanjaro?", answer: "Highly recommended. With an 11-hour time difference, a 1-night stopover in Doha or Amsterdam helps you arrive in Tanzania rested and better adjusted to local time." },
+      { question: "Can I take BART to SFO for my Kilimanjaro flight?", answer: "Yes, BART runs directly to SFO International Terminal from downtown San Francisco in about 30 minutes, making it the most convenient way to reach the airport without dealing with Bay Area traffic." },
+      { question: "Are there good outdoor training spots near SF to prepare for Kilimanjaro?", answer: "The Bay Area is excellent for altitude prep. Hike Mount Tamalpais or Mission Peak regularly, and do weekend trips to the Sierra Nevada for higher elevation training above 3,000m." },
+    ],
+  },
+  { slug: "seattle", city: "Seattle", country: "USA", continent: "North America", transport_method: "Flight to JRO via Doha or Amsterdam", visa_requirements: "$100 Tanzanian Visa", estimated_cost: "$1,200 - $1,700", flight_duration: "22-26 hours (1-2 stops)", timezone_diff: "UTC-8 (11 hours behind EAT)", currency: "USD ($)", best_airlines: "Qatar Airways, KLM, Turkish Airlines", airport_code: "SEA", jet_lag_tip: "Start light therapy with a sunrise alarm clock 5 days before departure to gradually shift your circadian rhythm by 11 hours.", local_tip: "Sea-Tac Airport has limited direct international connections, so plan for a domestic connection to a major hub first.", peak_flight_season: "June-September (Pacific Northwest summer)", priority: "low" },
+  { slug: "denver", city: "Denver", country: "USA", continent: "North America", transport_method: "Flight to JRO via London or Munich", visa_requirements: "$100 Tanzanian Visa", estimated_cost: "$1,100 - $1,600", flight_duration: "20-24 hours (1-2 stops)", timezone_diff: "UTC-7 (10 hours behind EAT)", currency: "USD ($)", best_airlines: "Lufthansa, British Airways, United Airlines", airport_code: "DEN", jet_lag_tip: "Denver's high altitude (1,600m) gives you a head start on acclimatization; use the 10-hour time shift to arrive well-rested by sleeping on the plane.", local_tip: "Denver's altitude of 1,600m means you are already partly acclimatized, which is an advantage for Kilimanjaro.", peak_flight_season: "June-August (summer) and December-March (ski season)", priority: "low" },
+  { slug: "vancouver", city: "Vancouver", country: "Canada", continent: "North America", transport_method: "Flight to JRO via Amsterdam or London", visa_requirements: "$50 Tourist Visa", estimated_cost: "$1,300 - $1,800 CAD", flight_duration: "22-26 hours (1-2 stops)", timezone_diff: "UTC-8 (11 hours behind EAT)", currency: "CAD (C$)", best_airlines: "KLM, British Airways, Condor", airport_code: "YVR", jet_lag_tip: "Book an overnight stopover in Amsterdam or London to split the 11-hour time shift into manageable segments.", local_tip: "YVR has direct connections to Amsterdam via KLM, making it the fastest routing to East Africa from the West Coast.", peak_flight_season: "June-September (summer holidays)", priority: "medium" },
+  { slug: "montreal", city: "Montreal", country: "Canada", continent: "North America", transport_method: "Flight to JRO via Paris or Addis Ababa", visa_requirements: "$50 Tourist Visa", estimated_cost: "$1,100 - $1,600 CAD", flight_duration: "17-21 hours (1-2 stops)", timezone_diff: "UTC-5 (8 hours behind EAT)", currency: "CAD (C$)", best_airlines: "Air France, Ethiopian Airlines, Turkish Airlines", airport_code: "YUL", jet_lag_tip: "Gradually shift your bedtime 1 hour earlier each day starting 4 days before to bridge the 8-hour gap.", local_tip: "Air France flies direct from Montreal-Trudeau to Paris CDG, which connects efficiently to Addis Ababa and then JRO.", peak_flight_season: "June-August (summer) and December-January (holiday season)", priority: "low" },
+  { slug: "calgary", city: "Calgary", country: "Canada", continent: "North America", transport_method: "Flight to JRO via Amsterdam", visa_requirements: "$50 Tourist Visa", estimated_cost: "$1,200 - $1,700 CAD", flight_duration: "21-25 hours (1-2 stops)", timezone_diff: "UTC-7 (10 hours behind EAT)", currency: "CAD (C$)", best_airlines: "KLM, WestJet, Condor", airport_code: "YYC", jet_lag_tip: "Use the long flight time to your advantage by sleeping on the eastbound leg to arrive closer to Tanzanian time.", local_tip: "Calgary has seasonal direct flights to Amsterdam via KLM; otherwise connect through Toronto or Vancouver.", peak_flight_season: "June-August (summer) and December-March (ski season)", priority: "low" },
+  { slug: "mexico-city", city: "Mexico City", country: "Mexico", continent: "North America", transport_method: "Flight to JRO via Madrid or Amsterdam", visa_requirements: "$50 Tourist Visa", estimated_cost: "$1,200 - $1,800", flight_duration: "20-24 hours (1-2 stops)", timezone_diff: "UTC-6 (9 hours behind EAT)", currency: "MXN ($)", best_airlines: "Aeromexico, KLM, Turkish Airlines", airport_code: "MEX", jet_lag_tip: "With a 9-hour difference, try to catch a full sleep on the transatlantic leg and stay awake until local bedtime upon arrival.", local_tip: "Mexico City's altitude of 2,240m provides excellent pre-acclimatization for Kilimanjaro climbers.", peak_flight_season: "July-August (summer holidays) and December (holiday season)", priority: "medium" },
+  { slug: "miami", city: "Miami", country: "USA", continent: "North America", transport_method: "Flight to JRO via Doha or Istanbul", visa_requirements: "$100 Tanzanian Visa", estimated_cost: "$1,000 - $1,500", flight_duration: "18-22 hours (1-2 stops)", timezone_diff: "UTC-5 (8 hours behind EAT)", currency: "USD ($)", best_airlines: "Turkish Airlines, Qatar Airways, Emirates", airport_code: "MIA", jet_lag_tip: "Spend time outdoors in bright sunlight upon arrival in Tanzania to help reset your body clock across the 8-hour shift.", local_tip: "Miami International has excellent Turkish Airlines connections from Concourse J with competitive fares to East Africa.", peak_flight_season: "June-August (summer) and November-March (snowbird season)", priority: "medium" },
+  { slug: "boston", city: "Boston", country: "USA", continent: "North America", transport_method: "Flight to JRO via Doha or Addis Ababa", visa_requirements: "$100 Tanzanian Visa", estimated_cost: "$950 - $1,400", flight_duration: "18-22 hours (1-2 stops)", timezone_diff: "UTC-5 (8 hours behind EAT)", currency: "USD ($)", best_airlines: "Ethiopian Airlines, Qatar Airways, Turkish Airlines", airport_code: "BOS", jet_lag_tip: "Avoid alcohol on the flight and stay hydrated to help your body adjust to the 8-hour time difference more quickly.", local_tip: "Logan Airport Terminal E handles international flights; Ethiopian Airlines offers competitive East Africa fares from Boston.", peak_flight_season: "June-August (summer) and December (holiday season)", priority: "low" },
+  { slug: "atlanta", city: "Atlanta", country: "USA", continent: "North America", transport_method: "Flight to JRO via Doha or Amsterdam", visa_requirements: "$100 Tanzanian Visa", estimated_cost: "$1,100 - $1,550", flight_duration: "19-23 hours (1-2 stops)", timezone_diff: "UTC-5 (8 hours behind EAT)", currency: "USD ($)", best_airlines: "Delta, KLM, Qatar Airways", airport_code: "ATL", jet_lag_tip: "Use Delta's evening departures to Europe to arrive in your layover city in the morning, then continue to JRO in sync with local time.", local_tip: "Hartsfield-Jackson is a Delta hub with excellent European connections via Amsterdam (KLM codeshare) for onward travel to JRO.", peak_flight_season: "June-August (summer vacation)", priority: "low" },
+  { slug: "washington-dc", city: "Washington DC", country: "USA", continent: "North America", transport_method: "Flight to JRO via Addis Ababa or Doha", visa_requirements: "$100 Tanzanian Visa", estimated_cost: "$1,000 - $1,500", flight_duration: "18-22 hours (1-2 stops)", timezone_diff: "UTC-5 (8 hours behind EAT)", currency: "USD ($)", best_airlines: "Ethiopian Airlines, Qatar Airways, Turkish Airlines", airport_code: "IAD", jet_lag_tip: "Ethiopian Airlines' direct flight from Dulles to Addis Ababa departs at night, letting you sleep and arrive ready for East African time.", local_tip: "Dulles (IAD) has direct Ethiopian Airlines service to Addis Ababa, making it one of the best US gateways to Kilimanjaro.", peak_flight_season: "June-August (summer) and December (holiday season)", priority: "medium" },
+  { slug: "dallas", city: "Dallas", country: "USA", continent: "North America", transport_method: "Flight to JRO via Doha or London", visa_requirements: "$100 Tanzanian Visa", estimated_cost: "$1,100 - $1,650", flight_duration: "20-24 hours (1-2 stops)", timezone_diff: "UTC-6 (9 hours behind EAT)", currency: "USD ($)", best_airlines: "Qatar Airways, British Airways, American Airlines", airport_code: "DFW", jet_lag_tip: "DFW has excellent lounge facilities; use a long layover to nap and reset before the final leg to East Africa.", local_tip: "DFW is an American Airlines hub with daily Qatar Airways service to Doha, providing a smooth connection to JRO.", peak_flight_season: "June-August (summer) and March (spring break)", priority: "low" },
+  { slug: "philadelphia", city: "Philadelphia", country: "USA", continent: "North America", transport_method: "Flight to JRO via Doha", visa_requirements: "$100 Tanzanian Visa", estimated_cost: "$1,050 - $1,500", flight_duration: "19-23 hours (1-2 stops)", timezone_diff: "UTC-5 (8 hours behind EAT)", currency: "USD ($)", best_airlines: "Qatar Airways, Turkish Airlines, American Airlines", airport_code: "PHL", jet_lag_tip: "Set your watch to Tanzanian time as soon as you board and eat meals accordingly to start adjusting the 8-hour difference.", local_tip: "PHL has limited direct long-haul options; connect through Doha or Istanbul for the most efficient routing to JRO.", peak_flight_season: "June-August (summer vacation)", priority: "low" },
+  { slug: "phoenix", city: "Phoenix", country: "USA", continent: "North America", transport_method: "Flight to JRO via London or Amsterdam", visa_requirements: "$100 Tanzanian Visa", estimated_cost: "$1,200 - $1,750", flight_duration: "22-26 hours (2 stops)", timezone_diff: "UTC-7 (10 hours behind EAT)", currency: "USD ($)", best_airlines: "British Airways, KLM, American Airlines", airport_code: "PHX", jet_lag_tip: "Phoenix does not observe daylight saving time; double-check the time difference before your trip, which is always UTC-7.", local_tip: "Sky Harbor has limited international routes, so connect via LA, Dallas, or a major hub for your onward flight to Africa.", peak_flight_season: "October-April (snowbird season) and June-August (summer travel)", priority: "low" },
+  { slug: "san-diego", city: "San Diego", country: "USA", continent: "North America", transport_method: "Flight to JRO via Doha", visa_requirements: "$100 Tanzanian Visa", estimated_cost: "$1,300 - $1,800", flight_duration: "23-27 hours (2 stops)", timezone_diff: "UTC-8 (11 hours behind EAT)", currency: "USD ($)", best_airlines: "Qatar Airways, British Airways, Lufthansa", airport_code: "SAN", jet_lag_tip: "Plan a 1-night stopover in your connection city to break up the 11-hour time zone shift and arrive refreshed.", local_tip: "San Diego International has limited long-haul options; most travelers connect through LAX or Dallas for Africa-bound flights.", peak_flight_season: "June-September (summer)", priority: "low" },
+  { slug: "portland", city: "Portland", country: "USA", continent: "North America", transport_method: "Flight to JRO via Amsterdam", visa_requirements: "$100 Tanzanian Visa", estimated_cost: "$1,250 - $1,700", flight_duration: "22-26 hours (1-2 stops)", timezone_diff: "UTC-8 (11 hours behind EAT)", currency: "USD ($)", best_airlines: "KLM, Delta, Condor", airport_code: "PDX", jet_lag_tip: "Take advantage of the long travel time to sleep as much as possible and arrive in Tanzania ready for local bedtime.", local_tip: "PDX has a seasonal KLM direct to Amsterdam, which is the fastest routing to East Africa from Portland.", peak_flight_season: "June-September (summer)", priority: "low" },
+  { slug: "honolulu", city: "Honolulu", country: "USA", continent: "North America", transport_method: "Flight to JRO via Tokyo and Doha", visa_requirements: "$100 Tanzanian Visa", estimated_cost: "$1,800 - $2,500", flight_duration: "28-34 hours (2-3 stops)", timezone_diff: "UTC-10 (13 hours behind EAT)", currency: "USD ($)", best_airlines: "Japan Airlines, Qatar Airways, Emirates", airport_code: "HNL", jet_lag_tip: "With a 13-hour difference, plan to arrive 2-3 days early and use melatonin and sunlight exposure to reset your clock.", local_tip: "Route through Tokyo Narita for the best connection options; Japan Airlines offers excellent Hawaii-Japan service.", peak_flight_season: "June-August (summer) and December-January (holiday season)", priority: "low" },
+
+  // --- Europe ---
+  { slug: "paris", city: "Paris", country: "France", continent: "Europe", transport_method: "Flight to JRO via Addis Ababa or Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20ac750 - \u20ac1,100", flight_duration: "11-14 hours (1 stop)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "EUR (\u20ac)", best_airlines: "Ethiopian Airlines, Air France, Qatar Airways", airport_code: "CDG", jet_lag_tip: "Only a 2-hour time difference makes adjustment effortless; simply shift your meal times slightly on arrival day.", local_tip: "Charles de Gaulle Terminal 2E handles most long-haul African flights; take the RER B from central Paris for easy access.", peak_flight_season: "July-August (French summer holidays) and December", priority: "high" },
+  { slug: "madrid", city: "Madrid", country: "Spain", continent: "Europe", transport_method: "Flight to JRO via Addis Ababa or Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20ac700 - \u20ac1,000", flight_duration: "11-14 hours (1 stop)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "EUR (\u20ac)", best_airlines: "Ethiopian Airlines, Qatar Airways, Turkish Airlines", airport_code: "MAD", jet_lag_tip: "A minimal 2-hour shift means you can adjust naturally without any special preparation.", local_tip: "Barajas Airport Terminal 4 handles most international flights; grab some jamon iberico for the journey.", peak_flight_season: "June-August (summer) and December-January (Christmas)", priority: "medium" },
+  { slug: "rome", city: "Rome", country: "Italy", continent: "Europe", transport_method: "Flight to JRO via Addis Ababa or Istanbul", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20ac700 - \u20ac1,050", flight_duration: "10-13 hours (1 stop)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "EUR (\u20ac)", best_airlines: "Ethiopian Airlines, Turkish Airlines, Qatar Airways", airport_code: "FCO", jet_lag_tip: "With only a 2-hour difference, no special adjustment is needed; just keep your normal schedule.", local_tip: "Fiumicino Airport has a direct Ethiopian Airlines connection to Addis Ababa, offering the fastest route to Kilimanjaro from Italy.", peak_flight_season: "June-September (Italian summer holidays)", priority: "medium" },
+  { slug: "stockholm", city: "Stockholm", country: "Sweden", continent: "Europe", transport_method: "Flight to JRO via Doha or Addis Ababa", visa_requirements: "$50 Tourist Visa", estimated_cost: "6,500 - 9,500 SEK", flight_duration: "12-15 hours (1 stop)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "SEK (kr)", best_airlines: "Qatar Airways, Ethiopian Airlines, Turkish Airlines", airport_code: "ARN", jet_lag_tip: "Only a 2-hour difference means no special jet lag preparation is required.", local_tip: "Arlanda Airport has an Arlanda Express train to Stockholm Central in 20 minutes for easy pre-flight city exploration.", peak_flight_season: "June-August (Scandinavian summer)", priority: "low" },
+  { slug: "oslo", city: "Oslo", country: "Norway", continent: "Europe", transport_method: "Flight to JRO via Doha or Istanbul", visa_requirements: "$50 Tourist Visa", estimated_cost: "7,000 - 10,000 NOK", flight_duration: "12-15 hours (1 stop)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "NOK (kr)", best_airlines: "Qatar Airways, Turkish Airlines, Ethiopian Airlines", airport_code: "OSL", jet_lag_tip: "A small 2-hour time difference means you can maintain your normal sleep schedule with minimal adjustment.", local_tip: "Oslo Gardermoen has excellent Turkish Airlines and Qatar Airways connections; the Flytoget express takes 19 minutes from the city.", peak_flight_season: "June-August (summer holidays) and February (winter break)", priority: "low" },
+  { slug: "copenhagen", city: "Copenhagen", country: "Denmark", continent: "Europe", transport_method: "Flight to JRO via Doha or Addis Ababa", visa_requirements: "$50 Tourist Visa", estimated_cost: "5,000 - 8,000 DKK", flight_duration: "12-15 hours (1 stop)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "DKK (kr)", best_airlines: "Qatar Airways, Ethiopian Airlines, Turkish Airlines", airport_code: "CPH", jet_lag_tip: "Only 2 hours difference; simply eat dinner an hour later than usual on your first day in Tanzania.", local_tip: "Kastrup Airport is well connected to the city by metro; Ethiopian Airlines offers direct service to Addis Ababa from CPH.", peak_flight_season: "June-August (Scandinavian summer holidays)", priority: "low" },
+  { slug: "zurich", city: "Zurich", country: "Switzerland", continent: "Europe", transport_method: "Flight to JRO via Addis Ababa or Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "CHF 800 - 1,200", flight_duration: "11-14 hours (1 stop)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "CHF (Fr.)", best_airlines: "Ethiopian Airlines, Swiss International, Qatar Airways", airport_code: "ZRH", jet_lag_tip: "A negligible 2-hour shift means no preparation is needed; your body will naturally adapt within hours.", local_tip: "Zurich Airport is directly connected to the main train station; Swiss International codeshares with Ethiopian Airlines for seamless booking.", peak_flight_season: "July-August (summer) and December-January (winter holidays)", priority: "low" },
+  {
+    slug: "amsterdam",
+    city: "Amsterdam",
+    country: "Netherlands",
+    continent: "Europe",
+    transport_method: "Direct flight to JRO via KLM",
+    visa_requirements: "$50 Tourist Visa",
+    estimated_cost: "\u20ac800 - \u20ac1,200",
+    flight_duration: "9-10 hours (direct via KLM)",
+    timezone_diff: "UTC+1 (2 hours behind EAT)",
+    currency: "EUR (\u20ac)",
+    best_airlines: "KLM, Ethiopian Airlines, Qatar Airways",
+    airport_code: "AMS",
+    jet_lag_tip: "Only a 2-hour shift and KLM's direct flight means you arrive in Kilimanjaro well-rested and barely jet-lagged.",
+    local_tip: "KLM operates one of the few direct European flights to JRO from Schiphol; book early as this route fills quickly in peak season.",
+    peak_flight_season: "July-August (Dutch summer holidays) and December",
+    priority: "high",
+    faqs: [
+      { question: "Is the KLM direct flight from Amsterdam to JRO available year-round?", answer: "KLM operates the Amsterdam-JRO direct route regularly, but frequency increases during peak season (July-August and December). Book early as this is one of the few direct European flights to Kilimanjaro." },
+      { question: "Why is Amsterdam considered the best European gateway to Kilimanjaro?", answer: "Schiphol Airport offers one of the only direct flights from Europe to JRO via KLM, cutting travel time to just 9-10 hours with no layover. It also serves as a major connecting hub for travelers from across Europe." },
+      { question: "Can I buy Kilimanjaro gear in Amsterdam before my trip?", answer: "Yes, Schiphol Plaza and central Amsterdam have outdoor retailers like Bever and Decathlon where you can pick up last-minute trekking gear. However, most specialized items are cheaper to buy in advance online." },
+    ],
+  },
+  { slug: "dublin", city: "Dublin", country: "Ireland", continent: "Europe", transport_method: "Flight to JRO via Addis Ababa or Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20ac800 - \u20ac1,150", flight_duration: "13-16 hours (1-2 stops)", timezone_diff: "UTC+0 (3 hours behind EAT)", currency: "EUR (\u20ac)", best_airlines: "Ethiopian Airlines, Qatar Airways, Turkish Airlines", airport_code: "DUB", jet_lag_tip: "Shift your bedtime 1 hour earlier for 3 nights before departure to handle the 3-hour time change smoothly.", local_tip: "Dublin Airport Terminal 2 handles most long-haul connections; Aer Lingus connections to major European hubs work well for Africa routing.", peak_flight_season: "June-August (summer holidays)", priority: "low" },
+  { slug: "lisbon", city: "Lisbon", country: "Portugal", continent: "Europe", transport_method: "Flight to JRO via Addis Ababa or Istanbul", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20ac750 - \u20ac1,100", flight_duration: "12-15 hours (1 stop)", timezone_diff: "UTC+0 (3 hours behind EAT)", currency: "EUR (\u20ac)", best_airlines: "Ethiopian Airlines, Turkish Airlines, TAP Portugal", airport_code: "LIS", jet_lag_tip: "A 3-hour shift is manageable; just go to bed an hour earlier for a few nights before departure.", local_tip: "Lisbon Humberto Delgado Airport is compact and efficient; Turkish Airlines offers excellent connections via Istanbul to JRO.", peak_flight_season: "June-September (summer tourism season)", priority: "low" },
+  { slug: "vienna", city: "Vienna", country: "Austria", continent: "Europe", transport_method: "Flight to JRO via Addis Ababa or Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20ac750 - \u20ac1,100", flight_duration: "11-14 hours (1 stop)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "EUR (\u20ac)", best_airlines: "Ethiopian Airlines, Austrian Airlines, Turkish Airlines", airport_code: "VIE", jet_lag_tip: "Minimal 2-hour difference requires no special preparation; simply adjust your watch and go.", local_tip: "Vienna Airport has direct Ethiopian Airlines service to Addis Ababa, providing the most efficient route to Kilimanjaro.", peak_flight_season: "July-August (summer) and December (Christmas markets season)", priority: "low" },
+  { slug: "warsaw", city: "Warsaw", country: "Poland", continent: "Europe", transport_method: "Flight to JRO via Doha or Istanbul", visa_requirements: "$50 Tourist Visa", estimated_cost: "3,500 - 5,500 PLN", flight_duration: "12-15 hours (1 stop)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "PLN (z\u0142)", best_airlines: "Qatar Airways, Turkish Airlines, LOT Polish Airlines", airport_code: "WAW", jet_lag_tip: "Only a 2-hour difference means you can travel without any jet lag concerns.", local_tip: "Chopin Airport has excellent Turkish Airlines connections via Istanbul; LOT also connects well through major European hubs.", peak_flight_season: "June-August (summer holidays)", priority: "low" },
+  { slug: "prague", city: "Prague", country: "Czech Republic", continent: "Europe", transport_method: "Flight to JRO via Doha or Istanbul", visa_requirements: "$50 Tourist Visa", estimated_cost: "18,000 - 28,000 CZK", flight_duration: "12-15 hours (1 stop)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "CZK (K\u010d)", best_airlines: "Turkish Airlines, Qatar Airways, Emirates", airport_code: "PRG", jet_lag_tip: "A small 2-hour time shift means no jet lag preparation is needed.", local_tip: "Prague Vaclav Havel Airport has frequent Turkish Airlines flights to Istanbul for efficient onward connection to JRO.", peak_flight_season: "June-August (summer) and December (Christmas)", priority: "low" },
+  { slug: "budapest", city: "Budapest", country: "Hungary", continent: "Europe", transport_method: "Flight to JRO via Istanbul or Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "250,000 - 380,000 HUF", flight_duration: "11-14 hours (1 stop)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "HUF (Ft)", best_airlines: "Turkish Airlines, Qatar Airways, Wizz Air", airport_code: "BUD", jet_lag_tip: "Minimal time change of 2 hours means you will adjust almost instantly upon arrival.", local_tip: "Budapest Liszt Ferenc Airport has competitive Turkish Airlines fares via Istanbul, often cheaper than Western European hubs.", peak_flight_season: "June-August (summer) and December (thermal bath season)", priority: "low" },
+  { slug: "helsinki", city: "Helsinki", country: "Finland", continent: "Europe", transport_method: "Flight to JRO via Doha or Istanbul", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20ac850 - \u20ac1,200", flight_duration: "12-15 hours (1 stop)", timezone_diff: "UTC+2 (1 hour behind EAT)", currency: "EUR (\u20ac)", best_airlines: "Finnair, Qatar Airways, Turkish Airlines", airport_code: "HEL", jet_lag_tip: "Only 1 hour of time difference means absolutely no jet lag adjustment is needed.", local_tip: "Helsinki-Vantaa Airport is a compact and efficient Nordic hub; Finnair connects well to Doha via their oneworld partnership with Qatar Airways.", peak_flight_season: "June-August (Finnish summer holidays)", priority: "low" },
+  { slug: "athens", city: "Athens", country: "Greece", continent: "Europe", transport_method: "Flight to JRO via Addis Ababa or Istanbul", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20ac650 - \u20ac1,000", flight_duration: "10-13 hours (1 stop)", timezone_diff: "UTC+2 (1 hour behind EAT)", currency: "EUR (\u20ac)", best_airlines: "Ethiopian Airlines, Turkish Airlines, Qatar Airways", airport_code: "ATH", jet_lag_tip: "Just 1 hour of time difference means your body clock will not need any adjustment.", local_tip: "Athens Eleftherios Venizelos Airport has direct Turkish Airlines flights to Istanbul, the quickest routing to JRO from Greece.", peak_flight_season: "June-September (Greek summer tourism)", priority: "low" },
+  { slug: "manchester", city: "Manchester", country: "UK", continent: "Europe", transport_method: "Flight to JRO via Doha or Addis Ababa", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u00a3650 - \u00a3950", flight_duration: "13-16 hours (1 stop)", timezone_diff: "UTC+0 (3 hours behind EAT)", currency: "GBP (\u00a3)", best_airlines: "Qatar Airways, Ethiopian Airlines, Turkish Airlines", airport_code: "MAN", jet_lag_tip: "Shift your bedtime 1 hour earlier for 3 days before departure to ease the 3-hour time change.", local_tip: "Manchester Airport Terminal 2 has direct Qatar Airways flights to Doha, avoiding the need to transfer via London Heathrow.", peak_flight_season: "June-September (UK summer holidays)", priority: "medium" },
+  { slug: "edinburgh", city: "Edinburgh", country: "UK", continent: "Europe", transport_method: "Flight to JRO via Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u00a3700 - \u00a31,000", flight_duration: "14-17 hours (1-2 stops)", timezone_diff: "UTC+0 (3 hours behind EAT)", currency: "GBP (\u00a3)", best_airlines: "Qatar Airways, Turkish Airlines, KLM", airport_code: "EDI", jet_lag_tip: "A 3-hour difference is minor; just adjust your watch on the plane and eat meals at Tanzanian time.", local_tip: "Edinburgh Airport has limited long-haul routes; connecting through Doha or Amsterdam provides the best options for JRO.", peak_flight_season: "August (Edinburgh Festival) and June-July (summer)", priority: "low" },
+  { slug: "munich", city: "Munich", country: "Germany", continent: "Europe", transport_method: "Flight to JRO via Addis Ababa or Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20ac750 - \u20ac1,150", flight_duration: "11-14 hours (1 stop)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "EUR (\u20ac)", best_airlines: "Ethiopian Airlines, Lufthansa, Condor", airport_code: "MUC", jet_lag_tip: "Only a 2-hour difference; you will adjust effortlessly upon landing in Tanzania.", local_tip: "Munich Airport has excellent Lufthansa connections and seasonal Condor flights to East Africa; the S-Bahn gets you to the airport in 40 minutes.", peak_flight_season: "July-August (Bavarian summer holidays) and September-October (Oktoberfest)", priority: "medium" },
+  { slug: "frankfurt", city: "Frankfurt", country: "Germany", continent: "Europe", transport_method: "Direct flight to JRO via Lufthansa (Seasonal) or via Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20ac800 - \u20ac1,200", flight_duration: "9-10 hours (direct, seasonal) or 12-14 hours (1 stop)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "EUR (\u20ac)", best_airlines: "Condor, Lufthansa, Ethiopian Airlines", airport_code: "FRA", jet_lag_tip: "Barely any time shift at 2 hours; take the direct Condor flight when available for the easiest journey.", local_tip: "Frankfurt Airport is a major European hub; Condor operates seasonal direct flights to JRO, making it one of the fastest European routings.", peak_flight_season: "July-August (summer holidays) and December-January", priority: "medium" },
+  { slug: "brussels", city: "Brussels", country: "Belgium", continent: "Europe", transport_method: "Flight to JRO via Addis Ababa or Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20ac750 - \u20ac1,100", flight_duration: "12-15 hours (1 stop)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "EUR (\u20ac)", best_airlines: "Ethiopian Airlines, Brussels Airlines, Turkish Airlines", airport_code: "BRU", jet_lag_tip: "A minor 2-hour difference; your body will adjust naturally without any intervention.", local_tip: "Brussels Airlines operates flights to several African destinations; combine with an Ethiopian Airlines connection for efficient routing to JRO.", peak_flight_season: "July-August (summer) and December (holidays)", priority: "low" },
+  { slug: "geneva", city: "Geneva", country: "Switzerland", continent: "Europe", transport_method: "Flight to JRO via Addis Ababa", visa_requirements: "$50 Tourist Visa", estimated_cost: "CHF 850 - 1,250", flight_duration: "12-15 hours (1 stop)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "CHF (Fr.)", best_airlines: "Ethiopian Airlines, Swiss International, Qatar Airways", airport_code: "GVA", jet_lag_tip: "Negligible 2-hour shift; just travel and enjoy without worrying about time adjustment.", local_tip: "Geneva Airport straddles the French-Swiss border; make sure you exit through the Swiss side for proper passport control.", peak_flight_season: "July-August (summer) and December-March (ski season)", priority: "low" },
+  { slug: "milan", city: "Milan", country: "Italy", continent: "Europe", transport_method: "Flight to JRO via Addis Ababa or Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20ac700 - \u20ac1,050", flight_duration: "11-14 hours (1 stop)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "EUR (\u20ac)", best_airlines: "Ethiopian Airlines, Qatar Airways, Turkish Airlines", airport_code: "MXP", jet_lag_tip: "Only 2 hours of time difference; just shift your meals slightly and you will be on Tanzanian time immediately.", local_tip: "Malpensa Airport (MXP) handles long-haul flights; the Malpensa Express train from Milano Centrale takes about 50 minutes.", peak_flight_season: "June-August (summer holidays) and December", priority: "low" },
+  { slug: "barcelona", city: "Barcelona", country: "Spain", continent: "Europe", transport_method: "Flight to JRO via Istanbul or Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20ac750 - \u20ac1,100", flight_duration: "12-15 hours (1 stop)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "EUR (\u20ac)", best_airlines: "Turkish Airlines, Qatar Airways, Ethiopian Airlines", airport_code: "BCN", jet_lag_tip: "Minimal 2-hour adjustment needed; your body will adapt naturally during the travel day.", local_tip: "El Prat Airport Terminal 1 handles Turkish Airlines flights; the Aerobus connects to Placa Catalunya in 35 minutes.", peak_flight_season: "June-September (Mediterranean summer)", priority: "medium" },
+  { slug: "reykjavik", city: "Reykjavik", country: "Iceland", continent: "Europe", transport_method: "Flight to JRO via London and Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "120,000 - 180,000 ISK", flight_duration: "16-20 hours (2 stops)", timezone_diff: "UTC+0 (3 hours behind EAT)", currency: "ISK (kr)", best_airlines: "Icelandair, Qatar Airways, Turkish Airlines", airport_code: "KEF", jet_lag_tip: "A 3-hour shift is manageable; shift your sleep schedule slightly before departure for smooth adjustment.", local_tip: "Keflavik Airport is 45 minutes from Reykjavik; Icelandair's London Heathrow connection provides the best routing to East Africa.", peak_flight_season: "June-August (midnight sun tourism)", priority: "low" },
+
+  // --- Asia ---
+  { slug: "beijing", city: "Beijing", country: "China", continent: "Asia", transport_method: "Flight to JRO via Addis Ababa or Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u00a56,000 - \u00a59,000", flight_duration: "16-20 hours (1-2 stops)", timezone_diff: "UTC+8 (5 hours ahead of EAT)", currency: "CNY (\u00a5)", best_airlines: "Ethiopian Airlines, Qatar Airways, Air China", airport_code: "PEK", jet_lag_tip: "Delay your bedtime by 1 hour each night for 5 days before departure to ease the 5-hour westward shift.", local_tip: "Beijing Capital Airport (PEK) Terminal 3 handles most international flights; Ethiopian Airlines offers direct service to Addis Ababa.", peak_flight_season: "October (Golden Week) and January-February (Chinese New Year)", priority: "medium" },
+  { slug: "shanghai", city: "Shanghai", country: "China", continent: "Asia", transport_method: "Flight to JRO via Addis Ababa or Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u00a56,000 - \u00a59,500", flight_duration: "16-20 hours (1-2 stops)", timezone_diff: "UTC+8 (5 hours ahead of EAT)", currency: "CNY (\u00a5)", best_airlines: "Ethiopian Airlines, Qatar Airways, Emirates", airport_code: "PVG", jet_lag_tip: "You are traveling westward by 5 hours; stay up a bit later than usual for a few days before departure to align with EAT.", local_tip: "Pudong Airport (PVG) is well connected via the Maglev train to downtown; Ethiopian Airlines has frequent Addis Ababa service.", peak_flight_season: "October (Golden Week) and January-February (Chinese New Year)", priority: "medium" },
+  { slug: "hong-kong", city: "Hong Kong", country: "China", continent: "Asia", transport_method: "Flight to JRO via Doha or Addis Ababa", visa_requirements: "$50 Tourist Visa", estimated_cost: "$7,000 - $11,000 HKD", flight_duration: "15-19 hours (1-2 stops)", timezone_diff: "UTC+8 (5 hours ahead of EAT)", currency: "HKD (HK$)", best_airlines: "Qatar Airways, Ethiopian Airlines, Cathay Pacific", airport_code: "HKG", jet_lag_tip: "Adjust by staying up later for a few days pre-departure; the 5-hour westward shift is easier than traveling east.", local_tip: "Hong Kong International Airport has world-class lounges and the Airport Express connects to Central in 24 minutes.", peak_flight_season: "December-January (holiday season) and July-August (summer)", priority: "medium" },
+  { slug: "seoul", city: "Seoul", country: "South Korea", continent: "Asia", transport_method: "Flight to JRO via Addis Ababa or Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20a91,200,000 - \u20a91,800,000", flight_duration: "17-21 hours (1-2 stops)", timezone_diff: "UTC+9 (6 hours ahead of EAT)", currency: "KRW (\u20a9)", best_airlines: "Ethiopian Airlines, Qatar Airways, Korean Air", airport_code: "ICN", jet_lag_tip: "Traveling 6 hours westward is more forgiving than eastward; gradually delay your bedtime before departure.", local_tip: "Incheon Airport has free transit hotels and excellent duty-free shopping for long layovers.", peak_flight_season: "July-August (summer) and September-October (Chuseok holiday)", priority: "medium" },
+  { slug: "bangkok", city: "Bangkok", country: "Thailand", continent: "Asia", transport_method: "Flight to JRO via Addis Ababa or Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u0e3f28,000 - \u0e3f45,000", flight_duration: "13-17 hours (1 stop)", timezone_diff: "UTC+7 (4 hours ahead of EAT)", currency: "THB (\u0e3f)", best_airlines: "Ethiopian Airlines, Qatar Airways, Emirates", airport_code: "BKK", jet_lag_tip: "A 4-hour westward shift is manageable; delay your bedtime by 1 hour for 4 days before departure.", local_tip: "Suvarnabhumi Airport (BKK) has excellent Ethiopian Airlines connections to Addis Ababa for onward travel to JRO.", peak_flight_season: "November-March (Thai peak tourism season)", priority: "medium" },
+  { slug: "jakarta", city: "Jakarta", country: "Indonesia", continent: "Asia", transport_method: "Flight to JRO via Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "IDR 12M - 18M", flight_duration: "15-19 hours (1-2 stops)", timezone_diff: "UTC+7 (4 hours ahead of EAT)", currency: "IDR (Rp)", best_airlines: "Qatar Airways, Emirates, Ethiopian Airlines", airport_code: "CGK", jet_lag_tip: "A 4-hour westward shift is one of the easier adjustments; simply delay your sleep by an hour each night for 4 days.", local_tip: "Soekarno-Hatta Airport Terminal 3 handles international flights; Qatar Airways offers reliable connections via Doha.", peak_flight_season: "June-August (school holidays) and December (year-end holidays)", priority: "low" },
+  { slug: "manila", city: "Manila", country: "Philippines", continent: "Asia", transport_method: "Flight to JRO via Doha or Addis Ababa", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20b160,000 - \u20b190,000", flight_duration: "16-20 hours (1-2 stops)", timezone_diff: "UTC+8 (5 hours ahead of EAT)", currency: "PHP (\u20b1)", best_airlines: "Qatar Airways, Ethiopian Airlines, Emirates", airport_code: "MNL", jet_lag_tip: "The 5-hour westward shift is gentle; just stay up a bit later for a few nights before your trip.", local_tip: "NAIA Terminal 3 handles most international carriers; allow extra time for Manila's notorious airport traffic.", peak_flight_season: "December-January (Christmas season) and March-May (summer)", priority: "low" },
+  { slug: "kuala-lumpur", city: "Kuala Lumpur", country: "Malaysia", continent: "Asia", transport_method: "Flight to JRO via Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "RM 3,500 - 5,500", flight_duration: "14-18 hours (1 stop)", timezone_diff: "UTC+8 (5 hours ahead of EAT)", currency: "MYR (RM)", best_airlines: "Qatar Airways, Malaysia Airlines, Emirates", airport_code: "KUL", jet_lag_tip: "Traveling 5 hours west is easier than east; gradually delay your bedtime in the days before departure.", local_tip: "KLIA has an excellent transit hotel and Qatar Airways departs from the main terminal; the KLIA Ekspres takes 28 minutes from KL Sentral.", peak_flight_season: "June-August (school holidays) and December (year-end holidays)", priority: "low" },
+  { slug: "ho-chi-minh-city", city: "Ho Chi Minh City", country: "Vietnam", continent: "Asia", transport_method: "Flight to JRO via Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "VND 20M - 30M", flight_duration: "15-19 hours (1-2 stops)", timezone_diff: "UTC+7 (4 hours ahead of EAT)", currency: "VND (\u20ab)", best_airlines: "Qatar Airways, Emirates, Ethiopian Airlines", airport_code: "SGN", jet_lag_tip: "A 4-hour westward adjustment is one of the easiest; stay up slightly later for a few days before departure.", local_tip: "Tan Son Nhat Airport is close to the city center; Qatar Airways connections via Doha offer the most reliable routing to JRO.", peak_flight_season: "December-March (dry season) and June-August (summer holidays)", priority: "low" },
+  { slug: "taipei", city: "Taipei", country: "Taiwan", continent: "Asia", transport_method: "Flight to JRO via Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "NT$ 35,000 - 55,000", flight_duration: "17-21 hours (1-2 stops)", timezone_diff: "UTC+8 (5 hours ahead of EAT)", currency: "TWD (NT$)", best_airlines: "Qatar Airways, Emirates, Turkish Airlines", airport_code: "TPE", jet_lag_tip: "The 5-hour westward shift is manageable; push your bedtime later by 1 hour each day for 5 days before departure.", local_tip: "Taiwan Taoyuan Airport has excellent facilities and the Taoyuan Airport MRT connects to Taipei Main Station in 35 minutes.", peak_flight_season: "January-February (Lunar New Year) and July-August (summer)", priority: "low" },
+  { slug: "tel-aviv", city: "Tel Aviv", country: "Israel", continent: "Middle East", transport_method: "Flight to JRO via Addis Ababa", visa_requirements: "$50 Tourist Visa", estimated_cost: "ILS 2,500 - 4,000", flight_duration: "8-11 hours (1 stop)", timezone_diff: "UTC+2 (1 hour behind EAT)", currency: "ILS (\u20aa)", best_airlines: "Ethiopian Airlines, Turkish Airlines, El Al", airport_code: "TLV", jet_lag_tip: "Only 1 hour of time difference means no jet lag adjustment is necessary.", local_tip: "Ben Gurion Airport has tight security screening; arrive at least 3 hours before your international departure.", peak_flight_season: "March-May (Passover/spring) and July-August (summer)", priority: "medium" },
+  { slug: "riyadh", city: "Riyadh", country: "Saudi Arabia", continent: "Middle East", transport_method: "Flight to JRO via Doha or Addis Ababa", visa_requirements: "$50 Tourist Visa", estimated_cost: "SAR 2,800 - 4,500", flight_duration: "7-10 hours (1 stop)", timezone_diff: "UTC+3 (same as EAT)", currency: "SAR (\ufdfc)", best_airlines: "Saudia, Qatar Airways, Ethiopian Airlines", airport_code: "RUH", jet_lag_tip: "No jet lag at all since Riyadh shares the same UTC+3 timezone as Kilimanjaro.", local_tip: "King Khalid International Airport is well connected; Saudia flies to Addis Ababa for an efficient Ethiopian Airlines connection to JRO.", peak_flight_season: "October-March (cooler months) and Ramadan season", priority: "medium" },
+  { slug: "abu-dhabi", city: "Abu Dhabi", country: "UAE", continent: "Middle East", transport_method: "Direct flight to JRO via Etihad (Seasonal) or via Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "AED 1,600 - 2,800", flight_duration: "5-6 hours (direct) or 8-10 hours (1 stop)", timezone_diff: "UTC+4 (1 hour ahead of EAT)", currency: "AED (\u062f.\u0625)", best_airlines: "Etihad Airways, Qatar Airways, Ethiopian Airlines", airport_code: "AUH", jet_lag_tip: "Only 1 hour of time difference means virtually no jet lag; just enjoy the short flight.", local_tip: "Abu Dhabi's new Midfield Terminal is a modern hub; Etihad operates seasonal direct flights to JRO when available.", peak_flight_season: "October-March (escaping Gulf summer heat)", priority: "medium" },
+  { slug: "new-delhi", city: "New Delhi", country: "India", continent: "Asia", transport_method: "Flight to JRO via Addis Ababa or Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20b955,000 - \u20b985,000", flight_duration: "10-13 hours (1 stop)", timezone_diff: "UTC+5:30 (2.5 hours ahead of EAT)", currency: "INR (\u20b9)", best_airlines: "Ethiopian Airlines, Air India, Qatar Airways", airport_code: "DEL", jet_lag_tip: "Only a 2.5-hour shift means minimal adjustment; just eat dinner slightly earlier for a day or two.", local_tip: "Indira Gandhi International Airport Terminal 3 handles most international flights; Ethiopian Airlines has direct Delhi-Addis Ababa service.", peak_flight_season: "October-March (Indian travel season) and May-June (summer holidays)", priority: "high" },
+  { slug: "bangalore", city: "Bangalore", country: "India", continent: "Asia", transport_method: "Flight to JRO via Addis Ababa", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20b950,000 - \u20b980,000", flight_duration: "9-12 hours (1 stop)", timezone_diff: "UTC+5:30 (2.5 hours ahead of EAT)", currency: "INR (\u20b9)", best_airlines: "Ethiopian Airlines, Air India, IndiGo", airport_code: "BLR", jet_lag_tip: "A 2.5-hour time shift is barely noticeable; your body will adapt within the first day.", local_tip: "Kempegowda International Airport has growing international connections; Ethiopian Airlines offers the most direct routing via Addis Ababa to JRO.", peak_flight_season: "October-March (pleasant weather) and May-June (tech sector holidays)", priority: "medium" },
+  { slug: "osaka", city: "Osaka", country: "Japan", continent: "Asia", transport_method: "Flight to JRO via Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u00a5160,000 - \u00a5260,000", flight_duration: "18-22 hours (1-2 stops)", timezone_diff: "UTC+9 (6 hours ahead of EAT)", currency: "JPY (\u00a5)", best_airlines: "Qatar Airways, Emirates, Turkish Airlines", airport_code: "KIX", jet_lag_tip: "A 6-hour westward shift is easier than eastward; delay your bedtime gradually before departure.", local_tip: "Kansai International Airport sits on a man-made island in Osaka Bay; the Haruka Express connects to Shin-Osaka in 50 minutes.", peak_flight_season: "March-April (cherry blossom) and July-August (summer holidays)", priority: "low" },
+  { slug: "chennai", city: "Chennai", country: "India", continent: "Asia", transport_method: "Flight to JRO via Addis Ababa", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20b950,000 - \u20b980,000", flight_duration: "9-12 hours (1 stop)", timezone_diff: "UTC+5:30 (2.5 hours ahead of EAT)", currency: "INR (\u20b9)", best_airlines: "Ethiopian Airlines, Air India, SriLankan Airlines", airport_code: "MAA", jet_lag_tip: "Only 2.5 hours of difference makes this one of the easiest time zone adjustments for a long-haul trip.", local_tip: "Chennai Airport has direct Ethiopian Airlines service to Addis Ababa; it is one of the most efficient South Indian gateways to East Africa.", peak_flight_season: "October-March (Northeast monsoon retreat) and May-June (summer holidays)", priority: "low" },
+
+  // --- Oceania ---
+  { slug: "melbourne", city: "Melbourne", country: "Australia", continent: "Oceania", transport_method: "Flight to JRO via Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "$1,250 - $1,850 AUD", flight_duration: "20-24 hours (1-2 stops)", timezone_diff: "UTC+11 (8 hours ahead of EAT)", currency: "AUD (A$)", best_airlines: "Qatar Airways, Emirates, Etihad Airways", airport_code: "MEL", jet_lag_tip: "Fly westbound through Doha to travel with the sun; the 8-hour shift is easier going west than east.", local_tip: "Melbourne Tullamarine has excellent Qatar Airways connections via Doha; the SkyBus takes 30 minutes from Southern Cross Station.", peak_flight_season: "June-August (Australian winter / Kilimanjaro dry season)", priority: "medium" },
+  { slug: "brisbane", city: "Brisbane", country: "Australia", continent: "Oceania", transport_method: "Flight to JRO via Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "$1,300 - $1,900 AUD", flight_duration: "21-25 hours (1-2 stops)", timezone_diff: "UTC+10 (7 hours ahead of EAT)", currency: "AUD (A$)", best_airlines: "Qatar Airways, Emirates, Singapore Airlines", airport_code: "BNE", jet_lag_tip: "A 7-hour westward shift; start delaying your bedtime 1 hour per day for a week before departure.", local_tip: "Brisbane Airport has direct Qatar Airways flights to Doha; the Airtrain connects to the CBD in 20 minutes.", peak_flight_season: "June-September (Australian winter escape)", priority: "low" },
+  { slug: "perth", city: "Perth", country: "Australia", continent: "Oceania", transport_method: "Flight to JRO via Doha or Mauritius", visa_requirements: "$50 Tourist Visa", estimated_cost: "$1,100 - $1,700 AUD", flight_duration: "17-21 hours (1-2 stops)", timezone_diff: "UTC+8 (5 hours ahead of EAT)", currency: "AUD (A$)", best_airlines: "Qatar Airways, Emirates, South African Airways", airport_code: "PER", jet_lag_tip: "Perth is only 5 hours ahead of EAT, making it the easiest Australian city to adjust from for a Kilimanjaro climb.", local_tip: "Perth Airport Terminal 1 handles international flights; the Doha routing via Qatar Airways is the fastest option to East Africa.", peak_flight_season: "June-August (winter escape) and December (summer holidays)", priority: "low" },
+  { slug: "auckland", city: "Auckland", country: "New Zealand", continent: "Oceania", transport_method: "Flight to JRO via Doha or Perth", visa_requirements: "$50 Tourist Visa", estimated_cost: "$1,500 - $2,200 NZD", flight_duration: "24-28 hours (2 stops)", timezone_diff: "UTC+13 (10 hours ahead of EAT)", currency: "NZD (NZ$)", best_airlines: "Qatar Airways, Emirates, Singapore Airlines", airport_code: "AKL", jet_lag_tip: "With a 10-hour difference, plan a stopover in Doha or Dubai to break the journey and ease adjustment.", local_tip: "Auckland Airport has direct flights to several Gulf hubs; Emirates via Dubai often has competitive fares to East Africa.", peak_flight_season: "June-August (NZ winter / Kilimanjaro dry season) and December-January (summer holidays)", priority: "medium" },
+  { slug: "christchurch", city: "Christchurch", country: "New Zealand", continent: "Oceania", transport_method: "Flight to JRO via Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "$1,600 - $2,300 NZD", flight_duration: "25-30 hours (2-3 stops)", timezone_diff: "UTC+13 (10 hours ahead of EAT)", currency: "NZD (NZ$)", best_airlines: "Qatar Airways, Emirates, Singapore Airlines", airport_code: "CHC", jet_lag_tip: "A 10-hour shift requires planning; consider a 1-night stopover in a hub city and use melatonin at local bedtime.", local_tip: "Christchurch International has limited direct long-haul options; connect through Auckland or Sydney for the best routing to East Africa.", peak_flight_season: "June-August (NZ winter) and December-January (summer holidays)", priority: "low" },
+
+  // --- Africa ---
+  {
+    slug: "johannesburg",
+    city: "Johannesburg",
+    country: "South Africa",
+    continent: "Africa",
+    transport_method: "Direct flight to JRO via Air Link or via Nairobi",
+    visa_requirements: "Visa-free for SA Citizens",
+    estimated_cost: "R7,000 - R12,000",
+    flight_duration: "4-5 hours (direct)",
+    timezone_diff: "UTC+2 (1 hour behind EAT)",
+    currency: "ZAR (R)",
+    best_airlines: "Airlink, Kenya Airways, Ethiopian Airlines",
+    airport_code: "JNB",
+    jet_lag_tip: "Only 1 hour of difference means no jet lag at all; you will be on Kilimanjaro time immediately.",
+    local_tip: "OR Tambo International has direct Airlink flights to JRO; the Gautrain connects to Sandton and Pretoria in 15 minutes.",
+    peak_flight_season: "December-January (SA summer holidays) and June-July (school holidays)",
+    priority: "high",
+    faqs: [
+      { question: "Is there a direct flight from Johannesburg to Kilimanjaro?", answer: "Yes, Airlink operates direct flights from OR Tambo International to JRO, taking just 4-5 hours. This makes Johannesburg one of the most convenient departure points in Africa." },
+      { question: "Can South Africans combine Kilimanjaro with a Zanzibar beach holiday?", answer: "Absolutely. After your climb, take a short domestic flight from JRO to Zanzibar for a tropical beach recovery. Many SA travelers build this into a 2-week itinerary." },
+      { question: "What is Johannesburg's altitude advantage for Kilimanjaro climbers?", answer: "Johannesburg sits at 1,750m above sea level, giving residents a natural head start on acclimatization compared to climbers from sea-level cities." },
+    ],
+  },
+  { slug: "lagos", city: "Lagos", country: "Nigeria", continent: "Africa", transport_method: "Flight to JRO via Addis Ababa or Nairobi", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20a6800k - 1.2M", flight_duration: "8-11 hours (1 stop)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "NGN (\u20a6)", best_airlines: "Ethiopian Airlines, Kenya Airways, Air Peace", airport_code: "LOS", jet_lag_tip: "A minor 2-hour shift eastward; simply wake up a bit earlier than usual on arrival day.", local_tip: "Murtala Muhammed International Terminal handles Ethiopian Airlines flights; arrive early due to Lagos traffic congestion.", peak_flight_season: "December-January (Detty December festive season)", priority: "medium" },
+  { slug: "cairo", city: "Cairo", country: "Egypt", continent: "Africa", transport_method: "Flight to JRO via Addis Ababa or Nairobi", visa_requirements: "$50 Tourist Visa", estimated_cost: "EGP 15,000 - 25,000", flight_duration: "6-9 hours (1 stop)", timezone_diff: "UTC+2 (1 hour behind EAT)", currency: "EGP (E\u00a3)", best_airlines: "Ethiopian Airlines, EgyptAir, Kenya Airways", airport_code: "CAI", jet_lag_tip: "Only 1 hour of difference; no adjustment needed at all.", local_tip: "Cairo International Terminal 3 handles Star Alliance flights including Ethiopian Airlines; the airport is 20km from central Cairo.", peak_flight_season: "October-April (Egyptian tourism season)", priority: "medium" },
+  {
+    slug: "addis-ababa",
+    city: "Addis Ababa",
+    country: "Ethiopia",
+    continent: "Africa",
+    transport_method: "Direct flight to JRO via Ethiopian Airlines",
+    visa_requirements: "Visa on arrival / EAC protocols",
+    estimated_cost: "$300 - $500",
+    flight_duration: "2 hours (direct)",
+    timezone_diff: "UTC+3 (same as EAT)",
+    currency: "ETB (Br)",
+    best_airlines: "Ethiopian Airlines",
+    airport_code: "ADD",
+    jet_lag_tip: "Same timezone as Kilimanjaro, so zero jet lag to worry about.",
+    local_tip: "Bole International Airport is Ethiopian Airlines' massive hub; the new terminal has excellent lounge facilities for transit passengers.",
+    peak_flight_season: "September-October (Meskel festival) and January (Timkat festival)",
+    priority: "medium",
+    faqs: [
+      { question: "Does Addis Ababa's high altitude help with Kilimanjaro acclimatization?", answer: "Yes, Addis Ababa sits at 2,355m above sea level, making it one of the highest capital cities in the world. Living or spending time here provides excellent natural pre-acclimatization for Kilimanjaro." },
+      { question: "How often does Ethiopian Airlines fly from Addis to JRO?", answer: "Ethiopian Airlines operates multiple daily flights from Bole International to JRO, with flight times of just 2 hours. This frequency makes scheduling very flexible." },
+      { question: "Can I do a layover city tour in Addis Ababa before heading to Kilimanjaro?", answer: "Ethiopian Airlines offers free city tours and transit hotel stays for passengers with layovers over 6 hours. Visit the National Museum or try traditional Ethiopian coffee before your onward flight." },
+    ],
+  },
+  { slug: "entebbe", city: "Entebbe", country: "Uganda", continent: "Africa", transport_method: "Direct flight to JRO via Air Tanzania or Uganda Airlines", visa_requirements: "Visa-free (EAC)", estimated_cost: "$250 - $400", flight_duration: "1.5-2 hours (direct)", timezone_diff: "UTC+3 (same as EAT)", currency: "UGX (USh)", best_airlines: "Uganda Airlines, Air Tanzania, Kenya Airways", airport_code: "EBB", jet_lag_tip: "Same timezone; no jet lag concerns at all.", local_tip: "Entebbe Airport sits on the shores of Lake Victoria; combine your Kilimanjaro trip with gorilla trekking in Bwindi.", peak_flight_season: "June-September (dry season for gorilla trekking combo trips)", priority: "low" },
+  { slug: "kigali", city: "Kigali", country: "Rwanda", continent: "Africa", transport_method: "Direct flight to JRO via RwandAir", visa_requirements: "Visa-free (EAC)", estimated_cost: "$200 - $350", flight_duration: "1.5-2 hours (direct)", timezone_diff: "UTC+2 (1 hour behind EAT)", currency: "RWF (FRw)", best_airlines: "RwandAir, Kenya Airways", airport_code: "KGL", jet_lag_tip: "Only 1 hour of difference; no adjustment needed.", local_tip: "Kigali International Airport is compact and efficient; combine Kilimanjaro with a visit to the Volcanoes National Park for mountain gorillas.", peak_flight_season: "June-September (dry season) and December-February (short dry season)", priority: "low" },
+  {
+    slug: "dar-es-salaam",
+    city: "Dar es Salaam",
+    country: "Tanzania",
+    continent: "Africa",
+    transport_method: "Direct flight to JRO (Air Tanzania/Precision) or Luxury Bus",
+    visa_requirements: "Local / Resident",
+    estimated_cost: "$50 - $150",
+    flight_duration: "1-1.5 hours (direct flight) or 8-10 hours (bus)",
+    timezone_diff: "UTC+3 (same as EAT)",
+    currency: "TZS (TSh)",
+    best_airlines: "Air Tanzania, Precision Air, Fastjet",
+    airport_code: "DAR",
+    jet_lag_tip: "You are already in Tanzania; no time change whatsoever.",
+    local_tip: "Julius Nyerere International Airport has frequent domestic flights to JRO; alternatively, luxury buses depart from Ubungo terminal.",
+    peak_flight_season: "June-September (dry season tourism peak)",
+    priority: "medium",
+    faqs: [
+      { question: "Should I fly or take the bus from Dar es Salaam to Kilimanjaro?", answer: "Flying takes just 1-1.5 hours and costs $50-$150 on Air Tanzania or Precision Air. The luxury bus takes 8-10 hours but is significantly cheaper if you are on a tight budget." },
+      { question: "Which bus companies run from Dar es Salaam to Arusha/Moshi?", answer: "Dar Lux, Kilimanjaro Express, and Ratco operate luxury buses from Ubungo terminal to Arusha and Moshi. Book morning departures to arrive before dark." },
+      { question: "Can I combine a Kilimanjaro climb with a Zanzibar trip from Dar?", answer: "Yes, Dar es Salaam is the perfect base for both. Take a short ferry or flight to Zanzibar before or after your climb, then fly domestically to JRO for the mountain." },
+    ],
+  },
+  {
+    slug: "accra",
+    city: "Accra",
+    country: "Ghana",
+    continent: "Africa",
+    transport_method: "Flight to JRO via Addis Ababa or Nairobi",
+    visa_requirements: "$50 Tourist Visa",
+    estimated_cost: "GHS 6,000 - 9,000",
+    flight_duration: "9-12 hours (1 stop)",
+    timezone_diff: "UTC+0 (3 hours behind EAT)",
+    currency: "GHS (GH\u20b5)",
+    best_airlines: "Ethiopian Airlines, Kenya Airways, Africa World Airlines",
+    airport_code: "ACC",
+    jet_lag_tip: "Shift your sleep schedule 1 hour earlier for 3 days before departure to ease the 3-hour eastward change.",
+    local_tip: "Kotoka International Airport Terminal 3 is the modern international terminal; Ethiopian Airlines offers the most efficient West Africa to East Africa routing.",
+    peak_flight_season: "December-January (Detty December / Year of Return events)",
+    priority: "medium",
+    faqs: [
+      { question: "What is the best flight route from Accra to Kilimanjaro?", answer: "The most efficient route is via Addis Ababa with Ethiopian Airlines, offering the shortest total travel time for West African climbers." },
+      { question: "Do Ghanaians need a visa for Tanzania?", answer: "Yes, Ghanaian citizens require a tourist visa for Tanzania, which can be obtained online via the e-visa portal for $50." },
+    ],
+  },
+  { slug: "casablanca", city: "Casablanca", country: "Morocco", continent: "Africa", transport_method: "Flight to JRO via Istanbul or Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "7,000 - 11,000 MAD", flight_duration: "12-16 hours (1-2 stops)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "MAD (\u062f.\u0645.)", best_airlines: "Turkish Airlines, Qatar Airways, Royal Air Maroc", airport_code: "CMN", jet_lag_tip: "Only a 2-hour shift eastward; minimal adjustment needed.", local_tip: "Mohammed V International Airport has Royal Air Maroc connections, but Turkish Airlines via Istanbul often offers better routing to JRO.", peak_flight_season: "June-August (summer) and March-April (spring)", priority: "low" },
+  { slug: "nairobi-central", city: "Westlands/Nairobi", country: "Kenya", continent: "Africa", transport_method: "Expert-curated shuttle service or local flight", visa_requirements: "National/Resident", estimated_cost: "KSH 5,000 - 25,000", flight_duration: "1 hour (flight) or 6-7 hours (shuttle)", timezone_diff: "UTC+3 (same as EAT)", currency: "KES (KSh)", best_airlines: "Safarilink, AirKenya, Jambojet", airport_code: "WIL", jet_lag_tip: "No time change; you are already on Kilimanjaro time.", local_tip: "Wilson Airport in Langata is closer to Westlands than JKIA; Safarilink flights depart early morning for a same-day arrival at JRO.", peak_flight_season: "July-October (safari high season) and December-January (holidays)", priority: "medium" },
+  { slug: "mombasa-beach", city: "Nyali/Mombasa", country: "Kenya", continent: "Africa", transport_method: "Coastal connector flight direct to JRO", visa_requirements: "National/Resident", estimated_cost: "KSH 12,000 - 22,000", flight_duration: "1 hour (direct flight)", timezone_diff: "UTC+3 (same as EAT)", currency: "KES (KSh)", best_airlines: "Safarilink, Fly540, Jambojet", airport_code: "MBA", jet_lag_tip: "Same timezone; no jet lag to worry about at all.", local_tip: "Combine a beach holiday in Nyali or Diani with your Kilimanjaro climb for the ultimate Kenya-Tanzania adventure.", peak_flight_season: "December-January (holiday season) and July-August (European tourist peak)", priority: "low" },
+  { slug: "lusaka", city: "Lusaka", country: "Zambia", continent: "Africa", transport_method: "Flight to JRO via Nairobi", visa_requirements: "Visa-free for SADC", estimated_cost: "ZMW 8,000 - 12,000", flight_duration: "4-6 hours (1 stop)", timezone_diff: "UTC+2 (1 hour behind EAT)", currency: "ZMW (ZK)", best_airlines: "Kenya Airways, Ethiopian Airlines, Proflight Zambia", airport_code: "LUN", jet_lag_tip: "Only 1 hour of difference; no adjustment needed.", local_tip: "Kenneth Kaunda International Airport has Kenya Airways connections via Nairobi; combine with a Victoria Falls side trip.", peak_flight_season: "May-October (dry season for safari and Victoria Falls)", priority: "low" },
+  { slug: "harare", city: "Harare", country: "Zimbabwe", continent: "Africa", transport_method: "Flight to JRO via Nairobi", visa_requirements: "Visa-free for SADC", estimated_cost: "USD 400 - 700", flight_duration: "5-7 hours (1 stop)", timezone_diff: "UTC+2 (1 hour behind EAT)", currency: "USD ($)", best_airlines: "Kenya Airways, Ethiopian Airlines, Fastjet", airport_code: "HRE", jet_lag_tip: "Just 1 hour of time difference; you will be on Tanzanian time immediately.", local_tip: "Robert Gabriel Mugabe International Airport has Kenya Airways connections to Nairobi with onward flights to JRO.", peak_flight_season: "May-October (Zimbabwe dry season)", priority: "low" },
+  { slug: "mauritius", city: "Port Louis", country: "Mauritius", continent: "Africa", transport_method: "Flight to JRO via Nairobi", visa_requirements: "Visa-free", estimated_cost: "MUR 25,000 - 40,000", flight_duration: "6-8 hours (1 stop)", timezone_diff: "UTC+4 (1 hour ahead of EAT)", currency: "MUR (Rs)", best_airlines: "Air Mauritius, Kenya Airways, Ethiopian Airlines", airport_code: "MRU", jet_lag_tip: "Only 1 hour ahead of EAT; no jet lag preparation needed.", local_tip: "Sir Seewoosagur Ramgoolam Airport has Air Mauritius connections via Nairobi; combine a Kilimanjaro climb with a Mauritius beach recovery.", peak_flight_season: "November-April (Mauritius summer/beach season)", priority: "low" },
+
+  // --- South America ---
+  { slug: "sao-paulo", city: "Sao Paulo", country: "Brazil", continent: "South America", transport_method: "Flight to JRO via Addis Ababa", visa_requirements: "$50 Tourist Visa", estimated_cost: "R$ 5,000 - 8,000", flight_duration: "18-22 hours (1 stop)", timezone_diff: "UTC-3 (6 hours behind EAT)", currency: "BRL (R$)", best_airlines: "Ethiopian Airlines, Emirates, Turkish Airlines", airport_code: "GRU", jet_lag_tip: "Shift your bedtime 1 hour earlier each night for nearly a week to bridge the 6-hour gap before departure.", local_tip: "Guarulhos Airport (GRU) has direct Ethiopian Airlines flights to Addis Ababa, the fastest routing from South America to East Africa.", peak_flight_season: "July (winter break) and December-February (summer holidays)", priority: "medium" },
+  { slug: "buenos-aires", city: "Buenos Aires", country: "Argentina", continent: "South America", transport_method: "Flight to JRO via Addis Ababa", visa_requirements: "$50 Tourist Visa", estimated_cost: "$1,200 - $1,800", flight_duration: "20-24 hours (1-2 stops)", timezone_diff: "UTC-3 (6 hours behind EAT)", currency: "ARS ($)", best_airlines: "Ethiopian Airlines, Emirates, Turkish Airlines", airport_code: "EZE", jet_lag_tip: "A 6-hour eastward shift; start waking up earlier each day for a week before your trip.", local_tip: "Ezeiza Airport handles international flights; connect through Sao Paulo or Addis Ababa for the most efficient East Africa routing.", peak_flight_season: "July (winter break) and December-January (summer holidays)", priority: "low" },
+  { slug: "bogota", city: "Bogota", country: "Colombia", continent: "South America", transport_method: "Flight to JRO via Madrid or Istanbul", visa_requirements: "$50 Tourist Visa", estimated_cost: "$1,300 - $1,900", flight_duration: "22-26 hours (2 stops)", timezone_diff: "UTC-5 (8 hours behind EAT)", currency: "COP ($)", best_airlines: "Turkish Airlines, Avianca, Iberia", airport_code: "BOG", jet_lag_tip: "An 8-hour shift is significant; start adjusting your sleep 4-5 days before and consider melatonin supplements.", local_tip: "Bogota's altitude of 2,640m gives excellent pre-acclimatization for Kilimanjaro; El Dorado Airport connects well via Madrid or Istanbul.", peak_flight_season: "June-August (summer holidays) and December (holiday season)", priority: "low" },
+  { slug: "lima", city: "Lima", country: "Peru", continent: "South America", transport_method: "Flight to JRO via Madrid", visa_requirements: "$50 Tourist Visa", estimated_cost: "$1,400 - $2,000", flight_duration: "24-28 hours (2 stops)", timezone_diff: "UTC-5 (8 hours behind EAT)", currency: "PEN (S/.)", best_airlines: "Iberia, LATAM, Turkish Airlines", airport_code: "LIM", jet_lag_tip: "With an 8-hour difference, consider a 1-night stopover in Madrid to break the journey and ease time zone adjustment.", local_tip: "Jorge Chavez Airport has LATAM and Iberia connections to Madrid; combine with high-altitude training in Cusco for Kilimanjaro prep.", peak_flight_season: "June-August (dry season) and December-January (summer holidays)", priority: "low" },
+  { slug: "santiago", city: "Santiago", country: "Chile", continent: "South America", transport_method: "Flight to JRO via Madrid", visa_requirements: "$50 Tourist Visa", estimated_cost: "$1,400 - $2,100", flight_duration: "24-28 hours (2 stops)", timezone_diff: "UTC-4 (7 hours behind EAT)", currency: "CLP ($)", best_airlines: "Iberia, LATAM, Air France", airport_code: "SCL", jet_lag_tip: "A 7-hour shift eastward; gradually wake up earlier for a week before departure and get bright morning light.", local_tip: "Arturo Merino Benitez Airport connects well through Madrid with Iberia; LATAM also offers excellent transatlantic options.", peak_flight_season: "July (winter break) and December-February (summer holidays)", priority: "low" },
+
+  // --- Rest of World Hubs ---
+  {
+    slug: "istanbul",
+    city: "Istanbul",
+    country: "Turkey",
+    continent: "Europe",
+    transport_method: "Direct flight to JRO via Turkish Airlines",
+    visa_requirements: "$50 Tourist Visa",
+    estimated_cost: "$600 - $900",
+    flight_duration: "6-7 hours (direct)",
+    timezone_diff: "UTC+3 (same as EAT)",
+    currency: "TRY (\u20ba)",
+    best_airlines: "Turkish Airlines",
+    airport_code: "IST",
+    jet_lag_tip: "Same timezone as Kilimanjaro; no jet lag at all.",
+    local_tip: "Istanbul Airport (IST) is Turkish Airlines' mega-hub with direct JRO flights; the Istanbul Havalimani metro connects to the city center.",
+    peak_flight_season: "June-September (summer tourism) and December (holiday travel)",
+    priority: "high",
+    faqs: [
+      { question: "Does Turkish Airlines fly direct from Istanbul to Kilimanjaro?", answer: "Yes, Turkish Airlines operates direct flights from Istanbul Airport (IST) to JRO, taking just 6-7 hours. This makes Istanbul one of the fastest connection points to Kilimanjaro from anywhere in the world." },
+      { question: "Why is Istanbul such a popular transit hub for Kilimanjaro travelers?", answer: "Istanbul Airport connects to over 300 destinations worldwide and shares the same UTC+3 timezone as Kilimanjaro, meaning zero jet lag. Turkish Airlines also offers competitive fares and excellent in-flight service." },
+      { question: "Can I do a free Istanbul stopover on the way to Kilimanjaro?", answer: "Turkish Airlines offers a free Touristanbul program for passengers with layovers between 6-24 hours, including guided city tours. It is an excellent way to explore Istanbul before your climb." },
+    ],
+  },
+  {
+    slug: "doha",
+    city: "Doha",
+    country: "Qatar",
+    continent: "Middle East",
+    transport_method: "Direct flight to JRO via Qatar Airways",
+    visa_requirements: "$50-$100 Tourist Visa",
+    estimated_cost: "QAR 2,000 - 3,500",
+    flight_duration: "5-6 hours (direct)",
+    timezone_diff: "UTC+3 (same as EAT)",
+    currency: "QAR (\ufdfc)",
+    best_airlines: "Qatar Airways",
+    airport_code: "DOH",
+    jet_lag_tip: "Same timezone; zero jet lag, making Doha the perfect transit hub for Kilimanjaro.",
+    local_tip: "Hamad International Airport is consistently rated the world's best; Qatar Airways operates direct flights to JRO multiple times per week.",
+    peak_flight_season: "October-April (cooler Gulf months)",
+    priority: "high",
+    faqs: [
+      { question: "How often does Qatar Airways fly direct from Doha to JRO?", answer: "Qatar Airways operates direct flights from Hamad International to JRO multiple times per week, with the flight taking only 5-6 hours. Check the schedule as frequency varies by season." },
+      { question: "Is Hamad International a good airport for long layovers?", answer: "Hamad International is consistently rated among the world's best airports, featuring a hotel, swimming pool, spa, and extensive dining options. It is one of the most comfortable airports for transit passengers worldwide." },
+      { question: "Can Qatar residents train for Kilimanjaro in the desert heat?", answer: "Train early morning or in air-conditioned gyms during summer. The heat acclimatization from Gulf living can actually benefit your cardiovascular fitness, but focus on stair climbing and hiking for altitude-specific preparation." },
+    ],
+  },
+  { slug: "moscow", city: "Moscow", country: "Russia", continent: "Europe", transport_method: "Flight to JRO via Addis Ababa or Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "70k - 110k RUB", flight_duration: "12-16 hours (1-2 stops)", timezone_diff: "UTC+3 (same as EAT)", currency: "RUB (\u20bd)", best_airlines: "Ethiopian Airlines, Turkish Airlines, Qatar Airways", airport_code: "SVO", jet_lag_tip: "Same timezone as Kilimanjaro; no time adjustment needed at all.", local_tip: "Sheremetyevo Airport handles most international flights; Turkish Airlines via Istanbul offers the most reliable current routing to East Africa.", peak_flight_season: "June-August (summer) and December-January (New Year holidays)", priority: "medium" },
+  { slug: "denpasar", city: "Bali", country: "Indonesia", continent: "Asia", transport_method: "Flight to JRO via Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "IDR 14M - 20M", flight_duration: "16-20 hours (1-2 stops)", timezone_diff: "UTC+8 (5 hours ahead of EAT)", currency: "IDR (Rp)", best_airlines: "Qatar Airways, Emirates, Singapore Airlines", airport_code: "DPS", jet_lag_tip: "A 5-hour westward shift; delay your bedtime by 1 hour per day for 5 days before departure.", local_tip: "Ngurah Rai Airport has growing international connections; Qatar Airways via Doha offers the most efficient routing to JRO from Bali.", peak_flight_season: "July-August (peak tourism) and December-January (holiday season)", priority: "low" },
+  { slug: "manai", city: "Manai", country: "UAE", continent: "Middle East", transport_method: "Flight to JRO via Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "AED 1,800 - 3,000", flight_duration: "7-9 hours (1 stop via Doha)", timezone_diff: "UTC+4 (1 hour ahead of EAT)", currency: "AED (\u062f.\u0625)", best_airlines: "Qatar Airways, FlyDubai, Emirates", airport_code: "DXB", jet_lag_tip: "Only 1 hour ahead; virtually no jet lag to worry about.", local_tip: "Connect through nearby Dubai or Doha airports for the widest selection of flights to JRO.", peak_flight_season: "October-March (cooler Gulf weather)", priority: "low" },
+
+  // --- Additional Final Batch ---
+  { slug: "las-vegas", city: "Las Vegas", country: "USA", continent: "North America", transport_method: "Flight to JRO via London", visa_requirements: "$100 Tanzanian Visa", estimated_cost: "$1,300 - $1,850", flight_duration: "22-26 hours (2 stops)", timezone_diff: "UTC-8 (11 hours behind EAT)", currency: "USD ($)", best_airlines: "British Airways, Virgin Atlantic, KLM", airport_code: "LAS", jet_lag_tip: "With an 11-hour difference, plan to arrive 2 days early in Tanzania; use blackout curtains and melatonin to reset your clock.", local_tip: "Harry Reid International Airport has British Airways connections via London; the Strip is just 10 minutes from the terminal.", peak_flight_season: "March (March Madness/spring break) and October-December (convention season)", priority: "low" },
+  { slug: "nashville", city: "Nashville", country: "USA", continent: "North America", transport_method: "Flight to JRO via Doha", visa_requirements: "$100 Tanzanian Visa", estimated_cost: "$1,150 - $1,600", flight_duration: "20-24 hours (1-2 stops)", timezone_diff: "UTC-6 (9 hours behind EAT)", currency: "USD ($)", best_airlines: "Qatar Airways, Turkish Airlines, Delta", airport_code: "BNA", jet_lag_tip: "Start going to bed 1 hour earlier for at least 4 days before departure to ease the 9-hour time shift.", local_tip: "Nashville International has limited direct long-haul flights; connect through a major hub like Atlanta or Washington DC for Africa-bound flights.", peak_flight_season: "June-August (summer music festivals) and October (fall tourism)", priority: "low" },
+  { slug: "orlando", city: "Orlando", country: "USA", continent: "North America", transport_method: "Flight to JRO via Istanbul", visa_requirements: "$100 Tanzanian Visa", estimated_cost: "$1,100 - $1,550", flight_duration: "19-23 hours (1-2 stops)", timezone_diff: "UTC-5 (8 hours behind EAT)", currency: "USD ($)", best_airlines: "Turkish Airlines, Emirates, British Airways", airport_code: "MCO", jet_lag_tip: "Spend time outdoors in bright morning sunlight upon arrival in Tanzania to help reset your internal clock across the 8-hour shift.", local_tip: "Orlando International has growing international connections; Turkish Airlines offers service via Istanbul for efficient JRO routing.", peak_flight_season: "June-August (summer/theme park season) and December (holiday travel)", priority: "low" },
+  { slug: "austin", city: "Austin", country: "USA", continent: "North America", transport_method: "Flight to JRO via London", visa_requirements: "$100 Tanzanian Visa", estimated_cost: "$1,200 - $1,700", flight_duration: "21-25 hours (2 stops)", timezone_diff: "UTC-6 (9 hours behind EAT)", currency: "USD ($)", best_airlines: "British Airways, KLM, Lufthansa", airport_code: "AUS", jet_lag_tip: "Use the long travel day to sleep on the transatlantic leg and arrive in East Africa ready for local bedtime.", local_tip: "Austin-Bergstrom Airport has limited direct European flights; connect through London, Dallas, or Houston for Africa routing.", peak_flight_season: "March (SXSW) and June-August (summer)", priority: "low" },
+  { slug: "lyon", city: "Lyon", country: "France", continent: "Europe", transport_method: "Flight to JRO via Addis Ababa", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20ac800 - \u20ac1,150", flight_duration: "12-15 hours (1-2 stops)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "EUR (\u20ac)", best_airlines: "Ethiopian Airlines, Turkish Airlines, Air France", airport_code: "LYS", jet_lag_tip: "Only a 2-hour shift; your body will adjust naturally during the travel day.", local_tip: "Lyon-Saint Exupery Airport is compact; connect via Paris CDG or Istanbul for the best options to East Africa.", peak_flight_season: "July-August (French summer holidays)", priority: "low" },
+  { slug: "hamburg", city: "Hamburg", country: "Germany", continent: "Europe", transport_method: "Flight to JRO via Istanbul", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20ac800 - \u20ac1,100", flight_duration: "12-15 hours (1 stop)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "EUR (\u20ac)", best_airlines: "Turkish Airlines, Condor, Lufthansa", airport_code: "HAM", jet_lag_tip: "Minimal 2-hour difference; no special preparation needed.", local_tip: "Hamburg Airport has frequent Turkish Airlines flights to Istanbul; the S-Bahn connects to Hamburg Hauptbahnhof in 25 minutes.", peak_flight_season: "June-August (German summer holidays)", priority: "low" },
+  { slug: "cologne", city: "Cologne", country: "Germany", continent: "Europe", transport_method: "Flight to JRO via Istanbul", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20ac780 - \u20ac1,050", flight_duration: "12-15 hours (1 stop)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "EUR (\u20ac)", best_airlines: "Turkish Airlines, Eurowings, Lufthansa", airport_code: "CGN", jet_lag_tip: "A trivial 2-hour shift; no jet lag adjustment needed.", local_tip: "Cologne Bonn Airport has regular Turkish Airlines service to Istanbul; the RE express train reaches Cologne Hauptbahnhof in 15 minutes.", peak_flight_season: "June-August (summer) and November-December (Christmas market season)", priority: "low" },
+  { slug: "luxembourg", city: "Luxembourg City", country: "Luxembourg", continent: "Europe", transport_method: "Flight to JRO via Paris", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u20ac850 - \u20ac1,200", flight_duration: "13-16 hours (1-2 stops)", timezone_diff: "UTC+1 (2 hours behind EAT)", currency: "EUR (\u20ac)", best_airlines: "Luxair, Turkish Airlines, Ethiopian Airlines", airport_code: "LUX", jet_lag_tip: "Only 2 hours of time difference; adjust effortlessly upon arrival.", local_tip: "Luxembourg Findel Airport is one of Europe's smallest international airports; connect via Paris CDG or Frankfurt for the best African routes.", peak_flight_season: "July-August (summer holidays)", priority: "low" },
+  { slug: "bristol", city: "Bristol", country: "UK", continent: "Europe", transport_method: "Flight to JRO via Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u00a3700 - \u00a31,000", flight_duration: "14-17 hours (1-2 stops)", timezone_diff: "UTC+0 (3 hours behind EAT)", currency: "GBP (\u00a3)", best_airlines: "Qatar Airways, easyJet, Turkish Airlines", airport_code: "BRS", jet_lag_tip: "A 3-hour shift is minor; adjust your bedtime slightly earlier for a few days before departure.", local_tip: "Bristol Airport is smaller with limited long-haul options; connect through London Heathrow or Manchester for the best East Africa routing.", peak_flight_season: "June-September (UK summer holidays)", priority: "low" },
+  { slug: "nagoya", city: "Nagoya", country: "Japan", continent: "Asia", transport_method: "Flight to JRO via Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u00a5170,000 - \u00a5270,000", flight_duration: "18-22 hours (1-2 stops)", timezone_diff: "UTC+9 (6 hours ahead of EAT)", currency: "JPY (\u00a5)", best_airlines: "Qatar Airways, Emirates, Turkish Airlines", airport_code: "NGO", jet_lag_tip: "A 6-hour westward shift; gradually delay your sleep time for almost a week before departure.", local_tip: "Chubu Centrair Airport sits on an artificial island in Ise Bay; the Meitetsu train connects to Nagoya Station in 28 minutes.", peak_flight_season: "July-August (summer holidays) and December-January (New Year)", priority: "low" },
+  { slug: "guangzhou", city: "Guangzhou", country: "China", continent: "Asia", transport_method: "Flight to JRO via Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "\u00a56,500 - \u00a59,500", flight_duration: "16-20 hours (1-2 stops)", timezone_diff: "UTC+8 (5 hours ahead of EAT)", currency: "CNY (\u00a5)", best_airlines: "Qatar Airways, China Southern, Ethiopian Airlines", airport_code: "CAN", jet_lag_tip: "A 5-hour westward shift; delay your bedtime gradually for 5 days before departure.", local_tip: "Baiyun Airport is a China Southern hub; connect via Doha or Addis Ababa for the most efficient routing to JRO.", peak_flight_season: "October (Golden Week) and January-February (Chinese New Year)", priority: "low" },
+  { slug: "muscat", city: "Muscat", country: "Oman", continent: "Middle East", transport_method: "Flight to JRO via Doha", visa_requirements: "$50 Tourist Visa", estimated_cost: "OMR 250 - 450", flight_duration: "7-10 hours (1 stop)", timezone_diff: "UTC+4 (1 hour ahead of EAT)", currency: "OMR (\ufdfc)", best_airlines: "Oman Air, Qatar Airways, Emirates", airport_code: "MCT", jet_lag_tip: "Only 1 hour of difference; no jet lag adjustment needed at all.", local_tip: "Muscat International Airport has Oman Air connections to Doha and Dubai for onward travel; the airport is 30km from the city center.", peak_flight_season: "October-March (Omani winter tourism season)", priority: "low" },
+  { slug: "amman", city: "Amman", country: "Jordan", continent: "Middle East", transport_method: "Flight to JRO via Addis Ababa", visa_requirements: "$50 Tourist Visa", estimated_cost: "JOD 500 - 800", flight_duration: "8-11 hours (1 stop)", timezone_diff: "UTC+2 (1 hour behind EAT)", currency: "JOD (\u062f.\u0627)", best_airlines: "Ethiopian Airlines, Royal Jordanian, Turkish Airlines", airport_code: "AMM", jet_lag_tip: "Just 1 hour of difference; your body will be on Tanzanian time almost immediately.", local_tip: "Queen Alia International Airport has Ethiopian Airlines connections to Addis Ababa; combine with a Petra visit before your Kilimanjaro climb.", peak_flight_season: "March-May (spring) and September-November (autumn tourism)", priority: "low" },
+  { slug: "windhoek", city: "Windhoek", country: "Namibia", continent: "Africa", transport_method: "Flight to JRO via Nairobi", visa_requirements: "Visa-free (SADC)", estimated_cost: "NAD 12,000 - 18,000", flight_duration: "6-9 hours (1 stop)", timezone_diff: "UTC+2 (1 hour behind EAT)", currency: "NAD (N$)", best_airlines: "Kenya Airways, Ethiopian Airlines, Air Namibia", airport_code: "WDH", jet_lag_tip: "Only 1 hour behind EAT; no jet lag preparation needed.", local_tip: "Hosea Kutako International Airport is 45km from Windhoek; Kenya Airways connects via Nairobi for the best JRO routing.", peak_flight_season: "May-October (Namibian dry season for safari)", priority: "low" },
+  { slug: "gaborone", city: "Gaborone", country: "Botswana", continent: "Africa", transport_method: "Flight to JRO via Nairobi", visa_requirements: "Visa-free (SADC)", estimated_cost: "PULA 8,000 - 12,000", flight_duration: "5-8 hours (1 stop)", timezone_diff: "UTC+2 (1 hour behind EAT)", currency: "BWP (P)", best_airlines: "Kenya Airways, Ethiopian Airlines, Air Botswana", airport_code: "GBE", jet_lag_tip: "Just 1 hour of difference; no adjustment needed at all.", local_tip: "Sir Seretse Khama Airport is compact; connect via Johannesburg or Nairobi for the best routing to JRO.", peak_flight_season: "May-October (Botswana dry season for Okavango Delta)", priority: "low" },
+];
+
+export const faqs: FAQ[] = [
+  {
+    question: "Do I need a visa to climb Kilimanjaro from Kenya?",
+    answer:
+      "Yes, most foreign nationals require a Tanzanian visa ($50-$100 USD). If you are an EAC citizen, it is visa-free. If you are an expat living in Kenya, you still need a visa but the process is straightforward via the Tanzanian e-Visa portal.",
+  },
+  {
+    question: "What is the best month to climb?",
+    answer:
+      "The best months are January, February, July, August, and September. These months offer the clearest skies and driest conditions. June and October are also good shoulder months.",
+  },
+  {
+    question: "How fit do I need to be?",
+    answer:
+      "You don't need to be an elite athlete, but you should be in good cardiovascular shape. We recommend 3-4 months of training, including hiking with a weighted pack and stair climbing.",
+  },
+  {
+    question: "What is the success rate of reaching Uhuru Peak?",
+    answer:
+      "Our team maintains a 95%+ success rate on 7-8 day routes like Lemosho and Northern Circuit. Shorter routes like Marangu have lower success rates (around 65%) due to rapid ascent.",
+  },
+  {
+    question: "Is it safe for solo travelers?",
+    answer:
+      "Absolutely. We can pair you with a friendly group of like-minded adventurers or arrange a private trek with a dedicated lead guide and support team.",
+  },
 ];
 
 export function getRouteBySlug(slug: string) {
-  return climbingRoutes.find(r => r.slug === slug);
+  return climbingRoutes.find((r) => r.slug === slug);
 }
 
 export function getMonthBySlug(slug: string) {
-  return climbingMonths.find(m => m.slug === slug);
+  return climbingMonths.find((m) => m.slug === slug);
 }
 
 export function getOriginBySlug(slug: string) {
-  return travelOrigins.find(o => o.slug === slug);
+  return travelOrigins.find((o) => o.slug === slug);
 }
