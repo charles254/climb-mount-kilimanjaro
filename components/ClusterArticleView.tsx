@@ -95,7 +95,7 @@ export default function ClusterArticleView({ slug }: Props) {
                 </div>
                 <div>
                   <p className="text-white text-sm font-bold uppercase tracking-widest">{currentArticle.author.name}</p>
-                  <p className="text-slate-500 text-[10px] font-black uppercase tracking-[0.2em]">{currentArticle.author.role}</p>
+                  <p className="text-slate-400 text-[11px] font-black uppercase tracking-[0.2em]">{currentArticle.author.role}</p>
                 </div>
               </div>
             )}
@@ -182,7 +182,7 @@ export default function ClusterArticleView({ slug }: Props) {
               </div>
             </div>
 
-            <div className="bg-amber-600 rounded-3xl p-8 text-white relative overflow-hidden group">
+            <div className="bg-amber-700 rounded-3xl p-8 text-white relative overflow-hidden group">
               <div className="relative z-10">
                 <h3 className="text-2xl font-black mb-4 leading-tight uppercase italic">Ready to stand on Uhuru Peak?</h3>
                 <p className="text-amber-100 mb-8 font-medium">Get a custom itinerary and expert guide for your 2026 climb.</p>

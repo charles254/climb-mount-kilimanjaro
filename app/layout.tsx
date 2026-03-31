@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Outfit } from "next/font/google";
 import dynamic from "next/dynamic";
 import "./globals.css";
@@ -19,6 +19,12 @@ const outfit = Outfit({
   weight: ["700", "800", "900"],
   variable: "--font-outfit",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   title: {

@@ -146,7 +146,7 @@ export default function ContactForm({
         disabled={status === "LOADING"}
         className={`w-full py-4 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed uppercase tracking-widest ${
           variant === "dark"
-          ? "bg-amber-600 hover:bg-amber-700 text-white"
+          ? "bg-amber-700 hover:bg-amber-800 text-white"
           : "bg-slate-900 hover:bg-slate-800 text-white"
         }`}
       >

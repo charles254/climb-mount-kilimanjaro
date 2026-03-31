@@ -193,7 +193,7 @@ export default function Navbar() {
           ))}
           <Link 
             href="/contact" 
-            className="block w-full bg-amber-600 text-white py-5 rounded-2xl text-center text-sm font-black uppercase tracking-[0.2em]"
+            className="block w-full bg-amber-700 text-white py-5 rounded-2xl text-center text-sm font-black uppercase tracking-[0.2em]"
             onClick={() => setIsOpen(false)}
           >
             Book Your Climb

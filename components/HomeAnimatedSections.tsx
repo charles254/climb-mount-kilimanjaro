@@ -197,7 +197,7 @@ export function RouteCards() {
             </div>
             <Link
               href={`/routes/${route.slug}`}
-              className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white py-3 rounded-xl font-semibold transition-all group-hover:bg-amber-600"
+              className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white py-3 rounded-xl font-semibold transition-all group-hover:bg-amber-700"
             >
               View Experience <ChevronRight className="h-4 w-4" />
             </Link>

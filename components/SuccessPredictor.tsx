@@ -138,7 +138,7 @@ export default function SuccessPredictor() {
             </button>
             <button 
               onClick={() => setShowLeadForm(true)}
-              className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2"
+              className="bg-amber-700 hover:bg-amber-800 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2"
             >
               Get Personalized Itinerary <ChevronRight className="h-5 w-5" />
             </button>
@@ -328,7 +328,7 @@ export default function SuccessPredictor() {
         ) : (
           <button 
             onClick={() => setShowResult(true)}
-            className="flex-[2] bg-amber-600 hover:bg-amber-700 text-white px-4 py-4 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2"
+            className="flex-[2] bg-amber-700 hover:bg-amber-800 text-white px-4 py-4 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2"
           >
             Calculate My Chance <Trophy className="h-5 w-5" />
           </button>
