@@ -1,0 +1,8 @@
+node_modules
+.next
+.git
+.gitignore
+.agents
+.claude
+*.md
+lighthouse-report.json
