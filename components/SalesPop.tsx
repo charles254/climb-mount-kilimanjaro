@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ShoppingBag, Users } from "lucide-react";
+import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion";
+import { ShoppingBag, X } from "lucide-react";
 
 const RECENT_BOOKINGS = [
   { name: "John", city: "London", route: "Lemosho 8 Days", time: "2 mins ago" },
@@ -36,9 +36,10 @@ export default function SalesPop() {
   const booking = RECENT_BOOKINGS[index];
 
   return (
+    <LazyMotion features={domAnimation}>
     <AnimatePresence>
       {isVisible && (
-        <motion.div
+        <m.div
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: -100, opacity: 0 }}
@@ -54,18 +55,20 @@ export default function SalesPop() {
             <p className="text-slate-400 text-xs truncate">
               Just booked <span className="text-amber-500 font-bold">{booking.route}</span>
             </p>
-            <p className="text-slate-500 text-[10px] uppercase font-black mt-1 tracking-widest">
+            <p className="text-slate-400 text-[11px] uppercase font-black mt-1 tracking-widest">
               Verified Booking • {booking.time}
             </p>
           </div>
-          <button 
+          <button
             onClick={() => setIsVisible(false)}
-            className="text-slate-600 hover:text-white transition-colors"
+            className="text-slate-400 hover:text-white transition-colors"
+            aria-label="Dismiss notification"
           >
-            <Users className="h-4 w-4" />
+            <X className="h-4 w-4" />
           </button>
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
+    </LazyMotion>
   );
 }

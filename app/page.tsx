@@ -4,8 +4,10 @@ import { ArrowRight } from "lucide-react";
 import { climbingRoutes, faqs } from "@/lib/pseo-data";
 import FAQSchema from "@/components/FAQSchema";
 import ReviewSchema from "@/components/ReviewSchema";
-import ContactForm from "@/components/ContactForm";
-import FAQAccordion from "@/components/FAQAccordion";
+import dynamic from "next/dynamic";
+
+const ContactForm = dynamic(() => import("@/components/ContactForm"));
+const FAQAccordion = dynamic(() => import("@/components/FAQAccordion"));
 import HomeHero from "@/components/HomeHero";
 import { FeaturesSection, TestimonialsGrid, QuizSection, RouteCards } from "@/components/HomeAnimatedSections";
 

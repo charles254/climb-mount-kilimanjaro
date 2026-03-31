@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useMemo } from "react";
 import { Search as SearchIcon, X, ArrowRight, Mountain, FileText, Compass, History } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { climbingRoutes } from "@/lib/pseo-data";
 import { topicalClusters } from "@/lib/topical-cluster-data";
@@ -95,11 +95,12 @@ export default function Search({ isOpen, onClose }: { isOpen: boolean, onClose: 
   }, [onClose]);
 
   return (
+    <LazyMotion features={domAnimation}>
     <AnimatePresence>
       {isOpen && (
         <>
           {/* Backdrop */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -108,7 +109,7 @@ export default function Search({ isOpen, onClose }: { isOpen: boolean, onClose: 
           />
 
           {/* Search Panel */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.95, y: -20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
@@ -195,9 +196,10 @@ export default function Search({ isOpen, onClose }: { isOpen: boolean, onClose: 
               </div>
               <p className="text-[10px] font-black text-slate-800 uppercase tracking-[0.3em]">Summit Search v1.0</p>
             </div>
-          </motion.div>
+          </m.div>
         </>
       )}
     </AnimatePresence>
+    </LazyMotion>
   );
 }

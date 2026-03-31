@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Mountain, Compass, Dumbbell, Shield, DollarSign, Cloud, Home, ArrowRight, ChevronRight, CheckCircle2 } from "lucide-react";
 import { topicalClusters } from "@/lib/topical-cluster-data";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 
 const clusterIcons = {
   routes: Compass,
@@ -18,6 +18,7 @@ const clusterIcons = {
 
 export default function UltimateGuide() {
   return (
+    <LazyMotion features={domAnimation}>
     <div className="flex flex-col min-h-screen bg-slate-950">
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
@@ -33,7 +34,7 @@ export default function UltimateGuide() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -45,7 +46,7 @@ export default function UltimateGuide() {
             <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-medium">
               Everything you need to know about planning, preparing, and successfully summiting the roof of Africa.
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -168,5 +169,6 @@ export default function UltimateGuide() {
         </div>
       </section>
     </div>
+    </LazyMotion>
   );
 }

@@ -5,7 +5,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { Mountain, Shield, Users, CheckCircle2, ChevronRight, MessageCircle, Star } from "lucide-react";
 import { climbingRoutes } from "@/lib/pseo-data";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 
 const SuccessPredictor = dynamic(() => import("@/components/SuccessPredictor"), { ssr: false });
 
@@ -29,9 +29,10 @@ export function FeaturesSection() {
   ];
 
   return (
+    <LazyMotion features={domAnimation}>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
       {features.map((feature, idx) => (
-        <motion.div
+        <m.div
           key={idx}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,9 +48,10 @@ export function FeaturesSection() {
           </div>
           <h3 className="text-xl font-bold text-white mb-4 relative z-10 font-display uppercase tracking-tight">{feature.title}</h3>
           <p className="text-slate-400 leading-relaxed relative z-10" dangerouslySetInnerHTML={{ __html: feature.desc }} />
-        </motion.div>
+        </m.div>
       ))}
     </div>
+    </LazyMotion>
   );
 }
 
@@ -79,9 +81,10 @@ const testimonials = [
 
 export function TestimonialsGrid() {
   return (
+    <LazyMotion features={domAnimation}>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       {testimonials.map((testimonial, idx) => (
-        <motion.div
+        <m.div
           key={idx}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -117,16 +120,18 @@ export function TestimonialsGrid() {
               <MessageCircle className="w-12 h-12" />
             </div>
           </div>
-        </motion.div>
+        </m.div>
       ))}
     </div>
+    </LazyMotion>
   );
 }
 
 export function QuizSection() {
   return (
+    <LazyMotion features={domAnimation}>
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
@@ -151,19 +156,21 @@ export function QuizSection() {
             <p className="text-slate-200"><strong className="text-white">Personalized Tips:</strong> Get real-time advice on gear and preparation based on your experience level.</p>
           </div>
         </div>
-      </motion.div>
+      </m.div>
       <div id="predictor">
         <SuccessPredictor />
       </div>
     </div>
+    </LazyMotion>
   );
 }
 
 export function RouteCards() {
   return (
+    <LazyMotion features={domAnimation}>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {climbingRoutes.slice(0, 3).map((route, idx) => (
-        <motion.div
+        <m.div
           key={route.slug}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -195,8 +202,9 @@ export function RouteCards() {
               View Experience <ChevronRight className="h-4 w-4" />
             </Link>
           </div>
-        </motion.div>
+        </m.div>
       ))}
     </div>
+    </LazyMotion>
   );
 }

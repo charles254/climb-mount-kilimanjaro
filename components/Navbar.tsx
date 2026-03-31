@@ -4,7 +4,7 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { Mountain, Menu, X, ChevronDown, Compass, Shield, Heart, Search as SearchIcon } from 'lucide-react';
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { LazyMotion, domAnimation, m, AnimatePresence } from 'framer-motion';
 
 const Search = dynamic(() => import('./Search'), { ssr: false });
 
@@ -44,6 +44,7 @@ export default function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
+    <LazyMotion features={domAnimation}>
     <nav className="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-white/10 py-2">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
@@ -79,7 +80,7 @@ export default function Navbar() {
               {/* Mega Dropdown */}
               <AnimatePresence>
               {isGuideOpen && (
-                <motion.div 
+                <m.div 
                   initial={{ opacity: 0, y: 15, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
@@ -89,7 +90,7 @@ export default function Navbar() {
                 >
                   <div className="grid grid-cols-3 gap-8">
                     {guideGroups.map((group, idx) => (
-                      <motion.div 
+                      <m.div 
                         key={group.label} 
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -111,10 +112,10 @@ export default function Navbar() {
                           </Link>
                         ))}
                       </div>
-                      </motion.div>
+                      </m.div>
                     ))}
                   </div>
-                </motion.div>
+                </m.div>
               )}
               </AnimatePresence>
             </div>
@@ -127,7 +128,7 @@ export default function Navbar() {
               >
                 <SearchIcon className="h-5 w-5 group-hover:scale-110 transition-transform" />
               </button>
-              <Link href="/contact" className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all transform hover:scale-105 shadow-xl shadow-amber-900/20 active:scale-95">
+              <Link href="/contact" className="bg-amber-700 hover:bg-amber-800 text-white px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all transform hover:scale-105 shadow-xl shadow-amber-900/20 active:scale-95">
                 Book Your Climb
               </Link>
             </div>
@@ -155,7 +156,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <AnimatePresence>
       {isOpen && (
-        <motion.div 
+        <m.div 
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
@@ -198,11 +199,12 @@ export default function Navbar() {
             Book Your Climb
           </Link>
         </div>
-        </motion.div>
+        </m.div>
       )}
       </AnimatePresence>
 
       <Search isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </nav>
+    </LazyMotion>
   );
 }

@@ -5,7 +5,7 @@ import { topicalClusters } from "@/lib/topical-cluster-data";
 import { articleContentRegistry } from "@/lib/articles/registry";
 import { ArrowLeft, ChevronRight, Mountain, Shield, CheckCircle2 } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import Image from "next/image";
 import FAQSchema from "@/components/FAQSchema";
 import CostBreakdownTable from "./CostBreakdownTable";
@@ -73,12 +73,13 @@ export default function ClusterArticleView({ slug }: Props) {
   const articleImage = imageMap[slug];
   
   return (
+    <LazyMotion features={domAnimation}>
     <div className="flex flex-col min-h-screen bg-slate-950">
 
       <div className="max-w-7xl mx-auto px-4 py-20 flex flex-col lg:flex-row gap-16">
         {/* Main Content */}
         <article className="lg:w-2/3">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             key={slug} // Force reanimation on slug change
@@ -156,7 +157,7 @@ export default function ClusterArticleView({ slug }: Props) {
               </div>
               {slug === "cost-breakdown" && <CostBreakdownTable />}
             </div>
-          </motion.div>
+          </m.div>
         </article>
 
         {/* Sidebar */}
@@ -249,5 +250,6 @@ export default function ClusterArticleView({ slug }: Props) {
         </div>
       </section>
     </div>
+    </LazyMotion>
   );
 }

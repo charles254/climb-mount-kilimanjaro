@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Shield, CheckCircle2, Users, ArrowRight } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { LazyMotion, domAnimation, m, useScroll, useTransform } from "framer-motion";
 
 export default function HomeHero() {
   const { scrollY } = useScroll();
@@ -11,8 +11,9 @@ export default function HomeHero() {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   return (
+    <LazyMotion features={domAnimation}>
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      <motion.div
+      <m.div
         style={{ y: y1 }}
         className="absolute inset-0 z-0"
       >
@@ -22,15 +23,16 @@ export default function HomeHero() {
           fill
           priority
           fetchPriority="high"
+          quality={60}
           sizes="100vw"
           placeholder="blur"
           blurDataURL="data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoIAAgAAkA4JZQCdAEO/hepgAAA/v3sv+H9Rf/L8CPWX5pH/kuBHaH84v/ufzn/a/8z9l/YA//7sA//+7AP/4AAAA=="
           className="object-cover scale-110"
         />
         <div className="absolute inset-0 bg-slate-950/60" />
-      </motion.div>
+      </m.div>
 
-      <motion.div
+      <m.div
         style={{ opacity }}
         className="relative z-10 max-w-7xl mx-auto px-4 text-center mt-32 md:mt-40 lg:mt-48"
       >
@@ -56,7 +58,7 @@ export default function HomeHero() {
           </Link>
         </div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
@@ -80,8 +82,9 @@ export default function HomeHero() {
             </div>
             <span className="text-white/80 text-sm font-bold uppercase tracking-widest">Nairobi Logistics Hub</span>
           </div>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </section>
+    </LazyMotion>
   );
 }

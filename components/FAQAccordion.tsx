@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { FAQ } from "@/lib/pseo-data";
 
@@ -13,6 +13,7 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
+    <LazyMotion features={domAnimation}>
     <div className="space-y-4">
       {items.map((faq, idx) => (
         <div 
@@ -33,17 +34,17 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
                 {faq.question}
               </span>
             </div>
-            <motion.div
+            <m.div
               animate={{ rotate: openIndex === idx ? 180 : 0 }}
               transition={{ duration: 0.3 }}
             >
               <ChevronDown className={`h-5 w-5 ${openIndex === idx ? "text-amber-500" : "text-slate-600"}`} />
-            </motion.div>
+            </m.div>
           </button>
           
           <AnimatePresence>
             {openIndex === idx && (
-              <motion.div
+              <m.div
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
@@ -53,11 +54,12 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
                 <div className="px-6 pb-6 pt-2 text-slate-300 leading-relaxed border-t border-slate-800/50 mt-2">
                   {faq.answer}
                 </div>
-              </motion.div>
+              </m.div>
             )}
           </AnimatePresence>
         </div>
       ))}
     </div>
+    </LazyMotion>
   );
 }

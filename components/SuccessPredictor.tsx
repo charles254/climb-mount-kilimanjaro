@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion";
 import { climbingRoutes } from "@/lib/pseo-data";
 import { 
   ChevronRight, 
@@ -68,6 +68,7 @@ export default function SuccessPredictor() {
 
   if (showResult) {
     return (
+      <LazyMotion features={domAnimation}>
       <div className="bg-slate-900 rounded-3xl p-8 border border-amber-500/20 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 p-4 opacity-10">
           <Trophy className="h-32 w-32 text-amber-500" />
@@ -87,7 +88,7 @@ export default function SuccessPredictor() {
                 cx="96"
                 cy="96"
               />
-              <motion.circle
+              <m.circle
                 className="text-amber-500"
                 strokeWidth="8"
                 strokeDasharray={440}
@@ -151,7 +152,7 @@ export default function SuccessPredictor() {
 
           <AnimatePresence>
             {showLeadForm && (
-              <motion.div 
+              <m.div 
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
@@ -174,15 +175,17 @@ export default function SuccessPredictor() {
                   variant="dark"
                   className="text-left"
                 />
-              </motion.div>
+              </m.div>
             )}
           </AnimatePresence>
         </div>
       </div>
+      </LazyMotion>
     );
   }
 
   return (
+    <LazyMotion features={domAnimation}>
     <div className="bg-slate-900 rounded-3xl p-8 border border-slate-800 shadow-xl min-h-[500px] flex flex-col">
       <div className="flex justify-between items-center mb-8">
         <h3 className="text-xl font-bold text-white uppercase tracking-wider flex items-center gap-2">
@@ -200,7 +203,7 @@ export default function SuccessPredictor() {
 
       <div className="flex-grow relative overflow-hidden">
         <AnimatePresence mode="wait" custom={step}>
-          <motion.div
+          <m.div
             key={step}
             custom={step}
             variants={variants}
@@ -302,7 +305,7 @@ export default function SuccessPredictor() {
                 </div>
               </div>
             )}
-          </motion.div>
+          </m.div>
         </AnimatePresence>
       </div>
 
@@ -332,5 +335,6 @@ export default function SuccessPredictor() {
         )}
       </div>
     </div>
+    </LazyMotion>
   );
 }
