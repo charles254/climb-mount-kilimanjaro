@@ -22,8 +22,8 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | KiliGo",
-    default: "Climb Mount Kilimanjaro | KiliGo",
+    template: "%s",
+    default: "Climb Mount Kilimanjaro",
   },
   description: "Climb Mount Kilimanjaro with top-rated local guides. Best success rates, premium safety, and specialized treks from Nairobi.",
   keywords: "Climb Mount Kilimanjaro, Mount Kilimanjaro guide, Kilimanjaro treks, best time to climb Kilimanjaro, Kilimanjaro routes, climb Kili from Nairobi",

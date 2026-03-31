@@ -10,7 +10,7 @@ import HomeHero from "@/components/HomeHero";
 import { FeaturesSection, TestimonialsGrid, QuizSection, RouteCards } from "@/components/HomeAnimatedSections";
 
 export const metadata: Metadata = {
-  title: "Climb Mount Kilimanjaro | Expert Guided Treks",
+  title: "Climb Mount Kilimanjaro",
   description: "Summit Kilimanjaro with 95%+ success rates. WFR-certified guides, small groups, and seamless Nairobi logistics. Get your free custom itinerary.",
   alternates: { canonical: "/" },
   openGraph: {
