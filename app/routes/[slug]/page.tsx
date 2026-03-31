@@ -54,7 +54,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     keywords: `${route.name} route, Kilimanjaro treks, best Kilimanjaro routes, acclimatization ${route.name}`,
     alternates: {
       canonical: `/routes/${route.slug}`
-    }
+    },
+    openGraph: {
+      title: `${route.name} — Kilimanjaro Route Guide`,
+      description: `${route.name}: ${route.success_rate} success rate, ${route.duration}, ${route.difficulty} difficulty. Complete climbing guide.`,
+      images: [{ url: "/images/rugged_kilimanjaro_hero.webp", width: 1200, height: 630, alt: `${route.name} on Mount Kilimanjaro` }],
+    },
   };
 }
 

@@ -141,9 +141,10 @@ export default function Navbar() {
             >
               <SearchIcon className="h-6 w-6" />
             </button>
-            <button 
+            <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-slate-300 hover:text-white p-2"
+              aria-label="Toggle menu"
             >
               {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
             </button>

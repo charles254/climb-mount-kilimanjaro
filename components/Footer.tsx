@@ -19,13 +19,13 @@ export default function Footer() {
               The premier resource for <strong className="text-white">high-altitude expeditions</strong>. We provide the data, gear guides, and tactical expertise for a successful <strong className="text-white">summit journey</strong>.
             </p>
             <div className="flex gap-4">
-              <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer nofollow" className="bg-slate-900 p-2.5 rounded-lg hover:text-amber-500 transition-all border border-white/5 shadow-xl">
+              <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer nofollow" aria-label="Follow us on Instagram" className="bg-slate-900 p-2.5 rounded-lg hover:text-amber-500 transition-all border border-white/5 shadow-xl">
                 <Instagram className="h-5 w-5" />
               </Link>
-              <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer nofollow" className="bg-slate-900 p-2.5 rounded-lg hover:text-amber-500 transition-all border border-white/5 shadow-xl">
+              <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer nofollow" aria-label="Follow us on Facebook" className="bg-slate-900 p-2.5 rounded-lg hover:text-amber-500 transition-all border border-white/5 shadow-xl">
                 <Facebook className="h-5 w-5" />
               </Link>
-              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer nofollow" className="bg-slate-900 p-2.5 rounded-lg hover:text-amber-500 transition-all border border-white/5 shadow-xl">
+              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer nofollow" aria-label="Follow us on Twitter" className="bg-slate-900 p-2.5 rounded-lg hover:text-amber-500 transition-all border border-white/5 shadow-xl">
                 <Twitter className="h-5 w-5" />
               </Link>
             </div>
@@ -65,7 +65,7 @@ export default function Footer() {
 
         {/* Global Footer Bottom */}
         <div className="mt-20 pt-10 border-t border-white/5 flex flex-col lg:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-6 text-[10px] font-black uppercase tracking-widest text-slate-500">
+          <div className="flex items-center gap-6 text-[10px] font-black uppercase tracking-widest text-slate-400">
             <div className="flex items-center gap-2">
               <ShieldCheck className="h-4 w-4 text-amber-500/50" />
               95% Success Rate
@@ -76,7 +76,7 @@ export default function Footer() {
             </div>
           </div>
           
-          <div className="flex flex-wrap justify-center gap-8 text-[10px] uppercase font-bold tracking-widest text-slate-500">
+          <div className="flex flex-wrap justify-center gap-8 text-[10px] uppercase font-bold tracking-widest text-slate-400">
             <Link href="/about" className="hover:text-amber-500 transition-colors">About Us</Link>
             <Link href="/privacy-policy" className="hover:text-amber-500 transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-amber-500 transition-colors">Terms of Service</Link>

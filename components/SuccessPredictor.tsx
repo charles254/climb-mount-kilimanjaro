@@ -231,7 +231,7 @@ export default function SuccessPredictor() {
                         <Mountain className={`h-5 w-5 ${routeSlug === route.slug ? 'text-amber-500' : 'text-slate-500'}`} />
                         <div>
                           <p className="font-bold">{route.name}</p>
-                          <p className="text-xs opacity-60">Base Success: {route.success_rate}</p>
+                          <p className="text-xs text-slate-400">Base Success: {route.success_rate}</p>
                         </div>
                       </div>
                       {routeSlug === route.slug && <CheckCircle2 className="h-5 w-5 text-amber-500" />}
@@ -292,7 +292,7 @@ export default function SuccessPredictor() {
                       }`}
                     >
                       <h5 className="font-bold text-lg mb-1">{exp}</h5>
-                      <p className="text-xs opacity-60">
+                      <p className="text-xs text-slate-400">
                         {exp === "Beginner" && "Occasional hiker, first high altitude trek."}
                         {exp === "Intermediate" && "Regular hiker, familiar with multi-day treks."}
                         {exp === "Advanced" && "Experienced climber, comfortable with extreme conditions."}

@@ -137,14 +137,14 @@ export default function Home() {
       <section className="py-40 bg-amber-600 cv-auto">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Ready to stand on top of the world?</h2>
-          <p className="text-xl text-amber-100 mb-10">Get a custom <strong>Kilimanjaro itinerary</strong> and quote for your <strong>summit journey</strong>. Our logistics hub in <strong>Nairobi</strong> and <strong>Moshi</strong> handles everything from gear to <strong>National Park permits</strong>.</p>
+          <p className="text-xl text-white/90 mb-10">Get a custom <strong>Kilimanjaro itinerary</strong> and quote for your <strong>summit journey</strong>. Our logistics hub in <strong>Nairobi</strong> and <strong>Moshi</strong> handles everything from gear to <strong>National Park permits</strong>.</p>
           <ContactForm
             source="Homepage Bottom"
             variant="light"
             className="max-w-2xl mx-auto"
-            footerClassName="text-amber-100/90"
+            footerClassName="text-white/80"
           />
-          <p className="mt-6 text-sm text-amber-100/80 font-medium">No spam. Only altitude and adventure.</p>
+          <p className="mt-6 text-sm text-white/80 font-medium">No spam. Only altitude and adventure.</p>
         </div>
       </section>
     </div>

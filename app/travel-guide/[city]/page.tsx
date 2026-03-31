@@ -31,6 +31,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: `/travel-guide/${city}`
     },
+    openGraph: {
+      title: `Climb Kilimanjaro from ${origin.city}`,
+      description: `Travel guide: ${origin.city} to Kilimanjaro. ${origin.flight_duration}, visa info, and best airlines.`,
+      images: [{ url: "/images/rugged_kilimanjaro_hero.webp", width: 1200, height: 630, alt: `Climb Kilimanjaro from ${origin.city}` }],
+    },
     ...(robots ? { robots } : {}),
   };
 }

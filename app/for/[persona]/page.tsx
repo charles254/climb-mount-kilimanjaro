@@ -27,6 +27,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: persona.description,
     keywords: `climb Kilimanjaro ${persona.name.toLowerCase()}, Kilimanjaro for ${persona.name.toLowerCase()}, ${persona.name.toLowerCase()} Kilimanjaro guide`,
     alternates: { canonical: `/for/${slug}` },
+    openGraph: {
+      title: `Climb Kilimanjaro for ${persona.name}`,
+      description: persona.description.slice(0, 160),
+      images: [{ url: "/images/rugged_kilimanjaro_hero.webp", width: 1200, height: 630, alt: `Kilimanjaro Guide for ${persona.name}` }],
+    },
   };
 }
 
