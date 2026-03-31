@@ -41,7 +41,7 @@ export default function PrivacyPolicy() {
 
           <section>
             <h2 className="text-xl font-bold text-white mb-4 uppercase tracking-wider">4. Contact Us</h2>
-            <p>If you have questions about this Privacy Policy, please contact us at info@kilimanjaroquest.com.</p>
+            <p>If you have questions about this Privacy Policy, please contact us at info@kiligo.net.</p>
           </section>
         </div>
       </div>

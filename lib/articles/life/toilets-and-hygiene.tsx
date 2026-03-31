@@ -23,7 +23,7 @@ export const ToiletsAndHygieneArticle = () => {
             <ShieldCheck className="text-amber-500" /> Private Toilet Tents
           </h3>
           <p className="text-sm">
-            At Kilimanjaro Quest, we include private portable toilet tents on almost all our treks. These are exclusively for your group, cleaned twice daily, and provide a much more sanitary (and dignified) experience.
+            At KiliGo, we include private portable toilet tents on almost all our treks. These are exclusively for your group, cleaned twice daily, and provide a much more sanitary (and dignified) experience.
           </p>
         </div>
         <div className="bg-slate-900/50 p-8 rounded-2xl border border-slate-800">

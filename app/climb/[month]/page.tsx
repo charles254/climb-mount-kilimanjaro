@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `Climb Kilimanjaro in ${monthData.month_name}`,
-    description: `Expert guide to climbing Mount Kilimanjaro in ${monthData.month_name}. Weather, success rates, and crowd levels for your summit quest.`,
+    description: `Expert guide to climbing Mount Kilimanjaro in ${monthData.month_name}. Weather, success rates, and crowd levels for your summit journey.`,
     keywords: `climb Kilimanjaro in ${monthData.month_name}, ${monthData.month_name} weather Kilimanjaro, best month to climb Kilimanjaro`,
     alternates: {
       canonical: `/climb/${monthData.slug}`
@@ -80,7 +80,7 @@ export default async function ClimbPage({ params }: Props) {
               Climb Kilimanjaro in <span className="text-amber-500">{month.month_name}</span>
             </h1>
             <p className="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto font-medium">
-              Master your <strong>summit quest</strong> with our data-driven guide to <strong>{month.month_name} conditions</strong> on Mount Kilimanjaro.
+              Master your <strong>summit journey</strong> with our data-driven guide to <strong>{month.month_name} conditions</strong> on Mount Kilimanjaro.
             </p>
           </div>
 
@@ -121,7 +121,7 @@ export default async function ClimbPage({ params }: Props) {
 
             <h2 className="text-3xl font-bold text-white mb-6 font-display italic tracking-tight">Temperature Expectations</h2>
             <p className="text-slate-400 leading-relaxed mb-8 font-medium">
-              Temperatures vary significantly between the base of the mountain and <strong>Uhuru Peak</strong>. In {month.month_name}, here is what you can expect during your <strong>summit quest</strong>:
+              Temperatures vary significantly between the base of the mountain and <strong>Uhuru Peak</strong>. In {month.month_name}, here is what you can expect during your <strong>summit journey</strong>:
             </p>
             <div className="flex flex-col sm:flex-row gap-6 mb-12">
               <div className="flex-1 bg-slate-800/30 p-8 rounded-2xl border border-slate-700/50 text-center backdrop-blur-md ring-1 ring-white/5">
@@ -164,14 +164,14 @@ export default async function ClimbPage({ params }: Props) {
             "description": `Detailed guide on the weather, crowds, and conditions for climbing Kilimanjaro in ${month.month_name}.`,
             "author": {
               "@type": "Organization",
-              "name": "Kilimanjaro Quest"
+              "name": "KiliGo"
             },
             "publisher": {
               "@type": "Organization",
-              "name": "Kilimanjaro Quest",
+              "name": "KiliGo",
               "logo": {
                 "@type": "ImageObject",
-                "url": "${SITE_URL}/icon.png"
+                "url": `${SITE_URL}/icon.png`
               }
             },
             "datePublished": "2024-01-01",

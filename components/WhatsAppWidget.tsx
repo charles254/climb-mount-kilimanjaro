@@ -5,7 +5,7 @@ import { MessageCircle } from "lucide-react";
 import { CONFIG } from "@/lib/config";
 
 export default function WhatsAppWidget() {
-  const message = encodeURIComponent("Hi Kilimanjaro Quest! I'm interested in climbing Mount Kilimanjaro. Can you help me with some details?");
+  const message = encodeURIComponent("Hi KiliGo! I'm interested in climbing Mount Kilimanjaro. Can you help me with some details?");
   const whatsappUrl = `https://wa.me/${CONFIG.WHATSAPP_NUMBER.replace(/\+/g, '')}?text=${message}`;
 
   return (

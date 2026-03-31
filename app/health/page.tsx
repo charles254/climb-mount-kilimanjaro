@@ -5,8 +5,8 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Kilimanjaro Altitude Sickness: Prevention, Diamox & Safety Guide",
-  description: "Everything you need to know about altitude sickness on Kilimanjaro. AMS symptoms, Diamox dosage, prevention strategies, required vaccinations, and travel insurance for 2026.",
+  title: "Kilimanjaro Altitude Sickness & Safety Guide",
+  description: "Altitude sickness on Kilimanjaro: AMS symptoms, Diamox dosage, prevention strategies, vaccinations, and travel insurance.",
   keywords: "kilimanjaro altitude sickness, diamox kilimanjaro, AMS prevention kilimanjaro, kilimanjaro vaccinations, kilimanjaro travel insurance, altitude sickness symptoms",
   alternates: { canonical: "/health" },
 };
@@ -24,7 +24,7 @@ export default function HealthSafetyIndex() {
             "@type": "CollectionPage",
             "name": "Kilimanjaro Health & Altitude Safety",
             "description": "Expert advice on health and safety for your Kilimanjaro climb.",
-            "url": "${SITE_URL}/health",
+            "url": `${SITE_URL}/health`,
             "mainEntity": {
               "@type": "ItemList",
               "itemListElement": healthCluster?.articles.map((article, index) => ({
@@ -41,7 +41,7 @@ export default function HealthSafetyIndex() {
         {/* Hero Section */}
         <div className="text-center mb-20">
           <h1 className="text-4xl md:text-7xl font-black text-white mb-6 uppercase italic tracking-tighter font-display">
-            Health <span className="text-amber-500">& Altitude Safety</span>
+            Kilimanjaro Health <span className="text-amber-500">& Altitude Safety</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed italic">
             Acclimatization is the only way to the sumit. Master your <span className="text-white font-bold">physiology</span> and understand <span className="text-white font-bold">AMS</span> before stepping on the mountain.

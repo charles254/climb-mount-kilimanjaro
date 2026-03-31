@@ -6,10 +6,15 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Kilimanjaro Routes Compared: Success Rates, Difficulty & Duration",
-  description: "Compare all 5 Kilimanjaro climbing routes side by side. Lemosho (95%), Machame (85%), Marangu (65%), Northern Circuit (98%) and Rongai. Find the best route for your fitness level.",
+  title: "Kilimanjaro Routes: Success Rates & Difficulty",
+  description: "Compare all Kilimanjaro climbing routes. Lemosho (95%), Machame (85%), Marangu (65%), Northern Circuit (98%) and Rongai side by side.",
   keywords: "kilimanjaro routes, best kilimanjaro route, kilimanjaro route comparison, lemosho vs machame, kilimanjaro success rates by route, kilimanjaro route difficulty",
   alternates: { canonical: "/routes" },
+  openGraph: {
+    title: "Kilimanjaro Routes Compared: Success Rates & Difficulty",
+    description: "Compare all Kilimanjaro routes side by side. Find the best route for your fitness level and schedule.",
+    images: [{ url: "/images/rugged_kilimanjaro_hero.webp", width: 1200, height: 630, alt: "Kilimanjaro Climbing Routes Overview" }],
+  },
 };
 
 export default function RoutesIndex() {
@@ -25,7 +30,7 @@ export default function RoutesIndex() {
             "@type": "CollectionPage",
             "name": "Kilimanjaro Climbing Routes Guide",
             "description": "Compare all Mount Kilimanjaro climbing routes for difficulty and success.",
-            "url": "${SITE_URL}/routes",
+            "url": `${SITE_URL}/routes`,
             "mainEntity": {
               "@type": "ItemList",
               "itemListElement": routesCluster?.articles.map((article, index) => ({

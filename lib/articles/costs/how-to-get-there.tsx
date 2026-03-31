@@ -56,7 +56,7 @@ export const HowToGetThereArticle = () => {
 
       <h2 className="text-3xl font-bold mt-16 mb-6 text-white">Airport Transfers</h2>
       <p>
-        At Kilimanjaro Quest, we normally include private airport transfers in our packages. A guide will meet you at the arrivals gate with a sign and take you directly to your hotel in Moshi.
+        At KiliGo, we normally include private airport transfers in our packages. A guide will meet you at the arrivals gate with a sign and take you directly to your hotel in Moshi.
       </p>
 
       <p className="text-center italic text-slate-500 mb-12">

@@ -5,8 +5,8 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "How to Train for Kilimanjaro: Fitness, Preparation & Difficulty",
-  description: "How hard is it to climb Kilimanjaro? Get our 12-week training plan, understand fitness requirements, and learn mental preparation strategies for summit night success.",
+  title: "How to Train for Kilimanjaro: Fitness Guide",
+  description: "How hard is Kilimanjaro? Get our 12-week training plan, fitness requirements, and mental preparation strategies for summit night.",
   keywords: "how to train for kilimanjaro, how hard is it to climb kilimanjaro, kilimanjaro training plan, kilimanjaro fitness requirements, kilimanjaro preparation, kilimanjaro difficulty",
   alternates: { canonical: "/preparation" },
 };
@@ -23,8 +23,8 @@ export default function PreparationIndex() {
             "@context": "https://schema.org",
             "@type": "CollectionPage",
             "name": "Kilimanjaro Preparation & Training Guide",
-            "description": "How to prepare physically and mentally for your Kilimanjaro quest.",
-            "url": "${SITE_URL}/preparation",
+            "description": "How to prepare physically and mentally for your Kilimanjaro journey.",
+            "url": `${SITE_URL}/preparation`,
             "mainEntity": {
               "@type": "ItemList",
               "itemListElement": prepCluster?.articles.map((article, index) => ({
@@ -41,10 +41,10 @@ export default function PreparationIndex() {
         {/* Hero Section */}
         <div className="text-center mb-20">
           <h1 className="text-4xl md:text-7xl font-black text-white mb-6 uppercase italic tracking-tighter font-display">
-            Preparation <span className="text-amber-500">& Training</span>
+            Kilimanjaro Preparation <span className="text-amber-500">& Training</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed italic">
-            Success at <span className="text-white font-bold italic tracking-tighter">5,895m</span> isn't luck—it's earned in the weeks leading up to your <span className="text-white font-bold uppercase italic shadow-sm tracking-tight text-xl">summit quest</span>.
+            Success at <span className="text-white font-bold italic tracking-tighter">5,895m</span> isn't luck—it's earned in the weeks leading up to your <span className="text-white font-bold uppercase italic shadow-sm tracking-tight text-xl">summit journey</span>.
           </p>
         </div>
 

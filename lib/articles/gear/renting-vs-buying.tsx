@@ -46,7 +46,7 @@ export const RentingVsBuyingArticle = () => {
       <div className="bg-amber-100/10 border-l-4 border-amber-500 p-8 my-16 rounded-r-2xl">
         <h3 className="text-xl font-bold text-white mb-4 uppercase italic leading-none">The Rental Gear Quality Check</h3>
         <p className="text-slate-300 m-0 font-medium">
-          If you rent in Moshi or Arusha, check every zipper, snap, and seam before leaving the store. At Kilimanjaro Quest, we inspect all rental gear weekly to maintain international safety standards.
+          If you rent in Moshi or Arusha, check every zipper, snap, and seam before leaving the store. At KiliGo, we inspect all rental gear weekly to maintain international safety standards.
         </p>
       </div>
 

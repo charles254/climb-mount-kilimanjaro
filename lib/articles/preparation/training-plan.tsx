@@ -150,7 +150,7 @@ export const TrainingPlanArticle = () => (
     </section>
 
     <p className="text-center text-xs text-slate-500 mt-12 mb-20 uppercase tracking-[0.2em]">
-      Professional Training Guide Content © 2026 Kilimanjaro Quest Expedition Team
+      Professional Training Guide Content © 2026 KiliGo Expedition Team
     </p>
   </div>
 );

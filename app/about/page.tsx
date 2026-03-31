@@ -5,10 +5,15 @@ import Image from "next/image";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "About Kilimanjaro Quest: Our Story, Guides & Mission",
-  description: "Meet the team behind Kilimanjaro Quest. Nairobi-based expedition company with WFR-certified guides, 95%+ summit success rate, and 500+ successful climbs since 2018.",
+  title: "About KiliGo: Our Story, Guides & Mission",
+  description: "Meet the KiliGo team. Nairobi-based expedition company with WFR-certified guides, 95%+ summit success rate, and 500+ climbs.",
   keywords: "about kilimanjaro quest, kilimanjaro guides nairobi, kilimanjaro tour company, WFR certified guides, kilimanjaro expedition team",
   alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About KiliGo: Our Story, Guides & Mission",
+    description: "Meet the KiliGo team. Nairobi-based expedition company with WFR-certified guides and 95%+ summit success rate.",
+    images: [{ url: "/images/rugged_kilimanjaro_hero.webp", width: 1200, height: 630, alt: "KiliGo Team on Kilimanjaro" }],
+  },
 };
 
 export default function AboutPage() {
@@ -20,12 +25,12 @@ export default function AboutPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "AboutPage",
-            "name": "About Kilimanjaro Quest",
-            "description": "Learn about Kilimanjaro Quest, the Nairobi-based expedition company specializing in guided Kilimanjaro treks.",
+            "name": "About KiliGo",
+            "description": "Learn about KiliGo, the Nairobi-based expedition company specializing in guided Kilimanjaro treks.",
             "url": `${SITE_URL}/about`,
             "mainEntity": {
               "@type": "TravelAgency",
-              "name": "Kilimanjaro Quest",
+              "name": "KiliGo",
               "foundingDate": "2018",
               "foundingLocation": {
                 "@type": "Place",
@@ -37,7 +42,7 @@ export default function AboutPage() {
                 "maxValue": 30
               },
               "areaServed": "Mount Kilimanjaro, Tanzania",
-              "slogan": "The Quest Awaits"
+              "slogan": "Summit Awaits"
             }
           })
         }}
@@ -47,7 +52,7 @@ export default function AboutPage() {
         {/* Hero */}
         <div className="text-center mb-20">
           <h1 className="text-4xl md:text-7xl font-black text-white mb-6 uppercase italic tracking-tighter font-display">
-            About <span className="text-amber-500">Kilimanjaro Quest</span>
+            About <span className="text-amber-500">KiliGo</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
             We are a Nairobi-based expedition company built by climbers, for climbers. Every trek we lead is a personal quest to get you safely to the roof of Africa.
@@ -61,7 +66,7 @@ export default function AboutPage() {
               <h2 className="text-3xl font-black text-white mb-6 uppercase italic tracking-tighter font-display">Our Story</h2>
               <div className="space-y-4 text-slate-300 leading-relaxed">
                 <p>
-                  Kilimanjaro Quest was born from a simple frustration: too many climbers were failing to summit because of poorly planned itineraries, underpaid guides, and cut-rate operators who prioritized volume over safety.
+                  KiliGo was born from a simple frustration: too many climbers were failing to summit because of poorly planned itineraries, underpaid guides, and cut-rate operators who prioritized volume over safety.
                 </p>
                 <p>
                   Founded in Nairobi in 2018, we set out to build a different kind of expedition company — one where <strong className="text-white">every guide is WFR-certified</strong>, every route is chosen for optimal acclimatization, and every climber gets the attention they deserve.
@@ -74,7 +79,7 @@ export default function AboutPage() {
             <div className="relative h-80 rounded-3xl overflow-hidden border border-slate-800">
               <Image
                 src="/images/rugged_kilimanjaro_hero.webp"
-                alt="Kilimanjaro Quest team at Uhuru Peak summit - Mount Kilimanjaro"
+                alt="KiliGo team at Uhuru Peak summit - Mount Kilimanjaro"
                 fill
                 className="object-cover"
                 loading="lazy"
@@ -171,7 +176,7 @@ export default function AboutPage() {
                 <div className="relative h-56 w-full">
                   <Image
                     src={member.image}
-                    alt={`${member.name}, ${member.role} at Kilimanjaro Quest`}
+                    alt={`${member.name}, ${member.role} at KiliGo`}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"

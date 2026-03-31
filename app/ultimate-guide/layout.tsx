@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/ultimate-guide",
   },
+  openGraph: {
+    title: "The Ultimate Guide to Climbing Kilimanjaro",
+    description: "Everything you need to know about climbing Kilimanjaro — routes, gear, training, health, costs, and logistics.",
+    images: [{ url: "/images/rugged_kilimanjaro_hero.webp", width: 1200, height: 630, alt: "Mount Kilimanjaro Ultimate Climbing Guide" }],
+  },
 };
 
 export default function UltimateGuideLayout({

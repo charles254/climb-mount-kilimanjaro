@@ -104,7 +104,7 @@ export const CostBreakdownArticle = () => {
           <CheckCircle2 className="h-6 w-6" /> The KPAP Standard
         </h4>
         <p className="text-slate-300 text-sm leading-relaxed m-0">
-          Always look for companies that are certified members of the <strong>Kilimanjaro Porters Assistance Project (KPAP)</strong>. KPAP is an independent watchdog that audits climbs to ensure porters receive fair wages, three meals a day, proper carrying weight limits (strictly 15kg/33lbs), and adequate sleeping conditions. Kilimanjaro Quest strictly adheres to all KPAP ethical guidelines.
+          Always look for companies that are certified members of the <strong>Kilimanjaro Porters Assistance Project (KPAP)</strong>. KPAP is an independent watchdog that audits climbs to ensure porters receive fair wages, three meals a day, proper carrying weight limits (strictly 15kg/33lbs), and adequate sleeping conditions. KiliGo strictly adheres to all KPAP ethical guidelines.
         </p>
       </div>
 

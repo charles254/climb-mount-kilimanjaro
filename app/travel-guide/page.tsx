@@ -5,8 +5,8 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "How to Get to Kilimanjaro: Flights, Visas & Travel from 70+ Cities",
-  description: "Plan your journey to Mount Kilimanjaro from anywhere in the world. Flights to JRO, Tanzania visa requirements, transport from Nairobi, and logistics from 70+ global cities.",
+  title: "How to Get to Kilimanjaro: Flights & Visas",
+  description: "Plan your journey to Kilimanjaro from anywhere. Flights to JRO, Tanzania visa info, and transport logistics from 100+ cities.",
   keywords: "how to get to kilimanjaro, flights to kilimanjaro, kilimanjaro from nairobi, tanzania visa requirements, JRO airport, kilimanjaro travel guide, climb kilimanjaro from",
   alternates: { canonical: "/travel-guide" },
 };
@@ -31,7 +31,7 @@ export default function TravelGuideIndex() {
             "@type": "CollectionPage",
             "name": "Kilimanjaro Logistics & Travel Hub",
             "description": "Expert advice on traveling to Mount Kilimanjaro from all over the world.",
-            "url": "${SITE_URL}/travel-guide",
+            "url": `${SITE_URL}/travel-guide`,
             "mainEntity": {
               "@type": "ItemList",
               "itemListElement": travelOrigins.map((origin, index) => ({
@@ -48,7 +48,7 @@ export default function TravelGuideIndex() {
         {/* Hero Section */}
         <div className="text-center mb-20">
           <h1 className="text-4xl md:text-7xl font-black text-white mb-6 uppercase italic tracking-tighter font-display">
-            Logistics <span className="text-amber-500">& Travel Guide</span>
+            Kilimanjaro Travel <span className="text-amber-500">& Logistics Guide</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed italic">
             Getting to the <span className="text-white font-bold">"Roof of Africa"</span> requires precision planning. Whether you're flying directly to <span className="text-white">Kilimanjaro</span> or connecting via <span className="text-white">Nairobi</span>, we've mapped out every route.

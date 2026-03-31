@@ -16,8 +16,38 @@ interface Props {
   slug: string;
 }
 
+const imageMap: Record<string, string> = {
+  'training-plan': 'kilimanjaro_training_hiker_1773766461652.png',
+  'ultimate-packing-list': 'kilimanjaro_gear_flatlay_packing_list_1773766481421.png',
+  'ams-guide': 'kilimanjaro_ams_medical_kit_1773766504435.png',
+  'diamox-guide': 'kilimanjaro_ams_medical_kit_1773766504435.png',
+  'best-route-beginners': 'images/articles/beginner-route-guide.webp',
+  'lemosho-vs-machame': 'images/articles/lemosho-vs-machame.webp',
+  'marangu-guide': 'images/articles/marangu-guide.webp',
+  'northern-circuit-guide': 'images/articles/northern-circuit-guide.webp',
+  'umbwe-guide': 'umbwe-guide.png',
+  'cost-breakdown': 'images/articles/cost-breakdown.webp',
+  'cheap-tours-danger': 'images/articles/cheap-tours-danger.webp',
+  'tipping-guide': 'images/articles/tipping-guide.webp',
+  'best-time': 'images/articles/best-time-guide.webp',
+  'rainy-season': 'images/articles/northern-circuit-guide.webp',
+  'athlete-requirement': 'kilimanjaro_training_hiker_1773766461652.png',
+  'mental-preparation': 'images/hiker-1.png',
+  'best-boots': 'kilimanjaro_gear_flatlay_packing_list_1773766481421.png',
+  'how-hard-is-it': 'images/hiker-2.png',
+  'climate-zones': 'images/articles/northern-circuit-guide.webp',
+  'day-in-life': 'images/hiker-1.png',
+  'food-and-nutrition': 'images/articles/northern-circuit-guide.webp',
+  'toilets-and-hygiene': 'images/hiker-2.png',
+  'porters-role': 'images/hiker-3.png',
+  'how-to-get-there': 'images/articles/northern-circuit-guide.webp',
+  'visa-requirements': 'images/articles/best-time-guide.webp',
+  'summit-night-gear': 'kilimanjaro_gear_flatlay_packing_list_1773766481421.png',
+  'renting-vs-buying': 'kilimanjaro_training_hiker_1773766461652.png',
+  'sleeping-bags': 'kilimanjaro_gear_flatlay_packing_list_1773766481421.png'
+};
+
 export default function ClusterArticleView({ slug }: Props) {
-  // Find the article across all clusters
   let currentArticle = null;
   let currentCluster = null;
 
@@ -40,39 +70,6 @@ export default function ClusterArticleView({ slug }: Props) {
 
   const otherArticles = currentCluster.articles.filter(a => a.slug !== slug);
   const ArticleComponent = articleContentRegistry[slug];
-
-  // Map slugs to generated images
-  const imageMap: Record<string, string> = {
-    'training-plan': 'kilimanjaro_training_hiker_1773766461652.png',
-    'ultimate-packing-list': 'kilimanjaro_gear_flatlay_packing_list_1773766481421.png',
-    'ams-guide': 'kilimanjaro_ams_medical_kit_1773766504435.png',
-    'diamox-guide': 'kilimanjaro_ams_medical_kit_1773766504435.png',
-    'best-route-beginners': 'images/articles/beginner-route-guide.png',
-    'lemosho-vs-machame': 'images/articles/lemosho-vs-machame.png',
-    'marangu-guide': 'images/articles/marangu-guide.png',
-    'northern-circuit-guide': 'images/articles/northern-circuit-guide.png',
-    'umbwe-guide': 'umbwe-guide.png',
-    'cost-breakdown': 'images/articles/cost-breakdown.png',
-    'cheap-tours-danger': 'images/articles/cheap-tours-danger.png',
-    'tipping-guide': 'images/articles/tipping-guide.png',
-    'best-time': 'images/articles/best-time-guide.png',
-    'rainy-season': 'images/articles/northern-circuit-guide.png',
-    'athlete-requirement': 'kilimanjaro_training_hiker_1773766461652.png',
-    'mental-preparation': 'images/hiker-1.png',
-    'best-boots': 'kilimanjaro_gear_flatlay_packing_list_1773766481421.png',
-    'how-hard-is-it': 'images/hiker-2.png',
-    'climate-zones': 'images/articles/northern-circuit-guide.png',
-    'day-in-life': 'images/hiker-1.png',
-    'food-and-nutrition': 'images/articles/northern-circuit-guide.png',
-    'toilets-and-hygiene': 'images/hiker-2.png',
-    'porters-role': 'images/hiker-3.png',
-    'how-to-get-there': 'images/articles/northern-circuit-guide.png',
-    'visa-requirements': 'images/articles/best-time-guide.png',
-    'summit-night-gear': 'kilimanjaro_gear_flatlay_packing_list_1773766481421.png',
-    'renting-vs-buying': 'kilimanjaro_training_hiker_1773766461652.png',
-    'sleeping-bags': 'kilimanjaro_gear_flatlay_packing_list_1773766481421.png'
-  };
-
   const articleImage = imageMap[slug];
   
   return (
@@ -111,7 +108,7 @@ export default function ClusterArticleView({ slug }: Props) {
                 <div className="relative w-full h-[400px] mb-12 rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10">
                   <Image 
                     src={`/${articleImage}`} 
-                    alt={`${currentArticle.title} - Kilimanjaro Quest Guide`} 
+                    alt={`${currentArticle.title} - KiliGo Guide`} 
                     fill
                     className="object-cover"
                     priority
@@ -225,18 +222,18 @@ export default function ClusterArticleView({ slug }: Props) {
             "description": currentArticle.description,
             "author": {
               "@type": "Person",
-              "name": currentArticle.author?.name || "Kilimanjaro Quest Expert"
+              "name": currentArticle.author?.name || "KiliGo Expert"
             },
             "publisher": {
               "@type": "Organization",
-              "name": "Kilimanjaro Quest",
+              "name": "KiliGo",
               "logo": {
                 "@type": "ImageObject",
                 "url": `${SITE_URL}/icon.png`
               }
             },
-            "datePublished": "2024-01-01",
-            "dateModified": new Date().toISOString().split('T')[0],
+            "datePublished": "2025-01-15",
+            "dateModified": "2025-06-01",
             "mainEntityOfPage": {
               "@type": "WebPage",
               "@id": `${SITE_URL}/${currentCluster.slug}/${currentArticle.slug}`

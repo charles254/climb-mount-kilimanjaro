@@ -14,7 +14,7 @@ export const RainySeasonArticle = () => {
         <CloudRain className="text-amber-500" /> The Reality of Wet Season Treks
       </h2>
       <p>
-        The "Long Rains" (April and May) see significant precipitation on the southern slopes. While many companies shut down operations during this time, 'Kilimanjaro Quest' specializes in northern approaches like the <strong>Rongai Route</strong>, which stays significantly drier.
+        The "Long Rains" (April and May) see significant precipitation on the southern slopes. While many companies shut down operations during this time, 'KiliGo' specializes in northern approaches like the <strong>Rongai Route</strong>, which stays significantly drier.
       </p>
 
       <div className="grid md:grid-cols-2 gap-8 my-12">

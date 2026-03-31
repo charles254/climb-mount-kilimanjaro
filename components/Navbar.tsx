@@ -1,45 +1,47 @@
 "use client";
 
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { Mountain, Menu, X, ChevronDown, Compass, Shield, Heart, Search as SearchIcon } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Search from './Search';
+
+const Search = dynamic(() => import('./Search'), { ssr: false });
+
+const guideGroups = [
+  {
+    label: "Expertise",
+    icon: <Compass className="h-4 w-4" />,
+    items: [
+      { label: "Climbing Routes", href: "/routes" },
+      { label: "Best Time to Climb", href: "/climb" },
+      { label: "Travel Logistics", href: "/travel-guide" }
+    ]
+  },
+  {
+    label: "Preparation",
+    icon: <Shield className="h-4 w-4" />,
+    items: [
+      { label: "Gear Guide", href: "/gear" },
+      { label: "Training & Prep", href: "/preparation" },
+      { label: "Health & Safety", href: "/health" }
+    ]
+  },
+  {
+    label: "Experience",
+    icon: <Heart className="h-4 w-4" />,
+    items: [
+      { label: "Costs & Budget", href: "/costs" },
+      { label: "Life on Mountain", href: "/life" },
+      { label: "Ultimate Guide", href: "/ultimate-guide" }
+    ]
+  }
+];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isGuideOpen, setIsGuideOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-
-  const guideGroups = [
-    {
-      label: "Expertise",
-      icon: <Compass className="h-4 w-4" />,
-      items: [
-        { label: "Climbing Routes", href: "/routes" },
-        { label: "Best Time to Climb", href: "/climb" },
-        { label: "Travel Logistics", href: "/travel-guide" }
-      ]
-    },
-    {
-      label: "Preparation",
-      icon: <Shield className="h-4 w-4" />,
-      items: [
-        { label: "Gear Guide", href: "/gear" },
-        { label: "Training & Prep", href: "/preparation" },
-        { label: "Health & Safety", href: "/health" }
-      ]
-    },
-    {
-      label: "Experience",
-      icon: <Heart className="h-4 w-4" />,
-      items: [
-        { label: "Costs & Budget", href: "/costs" },
-        { label: "Life on Mountain", href: "/life" },
-        { label: "Ultimate Guide", href: "/ultimate-guide" }
-      ]
-    }
-  ];
 
   return (
     <nav className="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-white/10 py-2">
@@ -50,8 +52,8 @@ export default function Navbar() {
             <Link href="/" className="flex items-center space-x-2 group">
               <Mountain className="h-9 w-9 text-amber-500 transition-transform group-hover:scale-110" />
               <div className="flex flex-col">
-                <span className="text-xl font-black text-white tracking-widest leading-none">KILIMANJARO</span>
-                <span className="text-[10px] font-bold text-amber-500 tracking-[0.3em] uppercase">The Quest Awaits</span>
+                <span className="text-xl font-black text-white tracking-widest leading-none">KILIGO</span>
+                <span className="text-[10px] font-bold text-amber-500 tracking-[0.3em] uppercase">Summit Awaits</span>
               </div>
             </Link>
           </div>

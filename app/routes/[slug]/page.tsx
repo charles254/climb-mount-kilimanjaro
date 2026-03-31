@@ -213,14 +213,14 @@ export default async function RoutePage({ params }: Props) {
             "description": route.description,
             "author": {
               "@type": "Organization",
-              "name": "Kilimanjaro Quest"
+              "name": "KiliGo"
             },
             "publisher": {
               "@type": "Organization",
-              "name": "Kilimanjaro Quest",
+              "name": "KiliGo",
               "logo": {
                 "@type": "ImageObject",
-                "url": "${SITE_URL}/icon.png"
+                "url": `${SITE_URL}/icon.png`
               }
             },
             "datePublished": "2024-01-01",

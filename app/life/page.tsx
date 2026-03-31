@@ -5,8 +5,8 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "What Is It Like to Climb Kilimanjaro? Daily Life on the Mountain",
-  description: "What to expect day-by-day on Kilimanjaro. Mountain food and nutrition, toilet facilities, hygiene tips, the crucial role of porters, and a realistic daily schedule.",
+  title: "Life on Kilimanjaro: What to Expect Daily",
+  description: "Day-by-day life on Kilimanjaro. Mountain food, toilet facilities, hygiene tips, the role of porters, and a realistic daily schedule.",
   keywords: "what is it like to climb kilimanjaro, kilimanjaro food, kilimanjaro toilets, kilimanjaro porters, day by day kilimanjaro, life on kilimanjaro",
   alternates: { canonical: "/life" },
 };
@@ -24,7 +24,7 @@ export default function LifeOnMountainIndex() {
             "@type": "CollectionPage",
             "name": "Life on Kilimanjaro Hub",
             "description": "Insights into the daily life, food, and hygiene while climbing Mount Kilimanjaro.",
-            "url": "${SITE_URL}/life",
+            "url": `${SITE_URL}/life`,
             "mainEntity": {
               "@type": "ItemList",
               "itemListElement": lifeCluster?.articles.map((article, index) => ({
@@ -41,7 +41,7 @@ export default function LifeOnMountainIndex() {
         {/* Hero Section */}
         <div className="text-center mb-20">
           <h1 className="text-4xl md:text-7xl font-black text-white mb-6 uppercase italic tracking-tighter font-display">
-            Life <span className="text-amber-500">& Daily Reality</span>
+            Life on <span className="text-amber-500">Kilimanjaro</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed italic">
             Behind the spectacular views lies the <span className="text-white font-bold tracking-widest italic">rough reality</span>. Master the daily routine and learn how <span className="text-white font-bold italic text-amber-500 uppercase">luxury</span> is defined at 4,000m.

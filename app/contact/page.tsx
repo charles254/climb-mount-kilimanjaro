@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Book Your Kilimanjaro Climb: Expert Guides in Nairobi",
-  description: "Contact Kilimanjaro Quest's expert guides in Nairobi for custom trek quotes, detailed itineraries, and 2026 expedition booking. 95% summit success rate.",
+  description: "Contact KiliGo's expert guides in Nairobi for custom trek quotes, detailed itineraries, and 2026 expedition booking. 95% summit success rate.",
   keywords: "book kilimanjaro trek, kilimanjaro tour operators, contact kilimanjaro guides, kilimanjaro guided tour, kilimanjaro nairobi, custom kilimanjaro quotes",
   alternates: { canonical: "/contact" },
 };
@@ -15,7 +15,7 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 uppercase tracking-tight">
-            Book Your <span className="text-amber-500">Summit</span>
+            Book Your Kilimanjaro <span className="text-amber-500">Summit</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto">
             Ready to start your Kilimanjaro adventure? Get in touch with our expert guides in Nairobi for a custom quote and detailed itinerary.
@@ -44,7 +44,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-white font-bold mb-1 uppercase tracking-wider">Email Us</h3>
-                    <p className="text-slate-400 font-medium">expeditions@kilimanjaroquest.com</p>
+                    <p className="text-slate-400 font-medium">expeditions@kiligo.net</p>
                   </div>
                 </div>
 

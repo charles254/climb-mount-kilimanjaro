@@ -11,12 +11,12 @@ export default function Footer() {
             <div className="flex items-center space-x-2 mb-6 group">
               <Mountain className="h-8 w-8 text-amber-500 transition-transform group-hover:scale-110" />
               <div className="flex flex-col">
-                <span className="text-xl font-black text-white tracking-widest leading-none">KILIMANJARO</span>
-                <span className="text-[10px] font-bold text-amber-500 tracking-[0.3em] uppercase">The Quest Awaits</span>
+                <span className="text-xl font-black text-white tracking-widest leading-none">KILIGO</span>
+                <span className="text-[10px] font-bold text-amber-500 tracking-[0.3em] uppercase">Summit Awaits</span>
               </div>
             </div>
             <p className="text-sm leading-relaxed max-w-sm mb-8 italic">
-              The premier resource for <strong className="text-white">high-altitude expeditions</strong>. We provide the data, gear guides, and tactical expertise for a successful <strong className="text-white">summit quest</strong>.
+              The premier resource for <strong className="text-white">high-altitude expeditions</strong>. We provide the data, gear guides, and tactical expertise for a successful <strong className="text-white">summit journey</strong>.
             </p>
             <div className="flex gap-4">
               <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer nofollow" className="bg-slate-900 p-2.5 rounded-lg hover:text-amber-500 transition-all border border-white/5 shadow-xl">
@@ -80,7 +80,7 @@ export default function Footer() {
             <Link href="/about" className="hover:text-amber-500 transition-colors">About Us</Link>
             <Link href="/privacy-policy" className="hover:text-amber-500 transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-amber-500 transition-colors">Terms of Service</Link>
-            <span>&copy; {new Date().getFullYear()} KILIMANJARO QUEST</span>
+            <span>&copy; {new Date().getFullYear()} KILIGO</span>
           </div>
         </div>
       </div>

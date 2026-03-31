@@ -5,8 +5,8 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "How Much Does It Cost to Climb Kilimanjaro? 2026 Price Guide",
-  description: "Complete cost breakdown for climbing Kilimanjaro in 2026. Park fees ($1,310+), guide salaries, gear, tipping etiquette, and why cheap tours are dangerous. Budget $2,200-$7,000.",
+  title: "How Much Does Kilimanjaro Cost? 2026 Prices",
+  description: "Kilimanjaro cost breakdown: park fees ($1,310+), guide salaries, gear, tipping, and why cheap tours are dangerous. Budget $2,200-$7,000.",
   keywords: "kilimanjaro cost, how much does it cost to climb kilimanjaro, kilimanjaro climb cost, kilimanjaro park fees, kilimanjaro tipping guide, cheap kilimanjaro tour",
   alternates: { canonical: "/costs" },
 };
@@ -24,7 +24,7 @@ export default function CostsIndex() {
             "@type": "CollectionPage",
             "name": "Kilimanjaro Climbing Costs & Budget Breakdown",
             "description": "Transparent pricing guide for climbing Mount Kilimanjaro.",
-            "url": "${SITE_URL}/costs",
+            "url": `${SITE_URL}/costs`,
             "mainEntity": {
               "@type": "ItemList",
               "itemListElement": costCluster?.articles.map((article, index) => ({
@@ -41,7 +41,7 @@ export default function CostsIndex() {
         {/* Hero Section */}
         <div className="text-center mb-20">
           <h1 className="text-4xl md:text-7xl font-black text-white mb-6 uppercase italic tracking-tighter font-display">
-            Costs <span className="text-amber-500">& Budget Breakdown</span>
+            Kilimanjaro Costs <span className="text-amber-500">& Budget</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed italic">
             Climbing Kilimanjaro is a major investment. We provide full <span className="text-white font-bold tracking-tight">financial transparency</span> into where your <span className="text-white font-bold italic">money goes</span>.

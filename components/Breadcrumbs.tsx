@@ -28,7 +28,7 @@ export default function Breadcrumbs() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "${SITE_URL}"
+        "item": SITE_URL
       },
       ...breadcrumbs.map((crumb, index) => ({
         "@type": "ListItem",

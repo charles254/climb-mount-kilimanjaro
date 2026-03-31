@@ -8,14 +8,15 @@ interface ElevationProfileProps {
   data: ElevationDay[];
 }
 
+const metersToFeet = (m: number) => Math.round(m * 3.28084);
+
 export default function ElevationProfile({ data }: ElevationProfileProps) {
   const [hoveredDay, setHoveredDay] = useState<ElevationDay | null>(null);
 
   if (!data || data.length === 0) return null;
 
   const maxAlt = Math.max(...data.map(d => d.altitude), 5895);
-  const minAlt = Math.min(...data.map(d => d.altitude), 1800);
-  
+
   const width = 800;
   const height = 300;
   const padding = 40;
@@ -25,8 +26,6 @@ export default function ElevationProfile({ data }: ElevationProfileProps) {
 
   const points = data.map((d, i) => `${getX(i)},${getY(d.altitude)}`).join(" ");
   const areaPoints = `${points} ${getX(data.length - 1)},${height - padding} ${getX(0)},${height - padding}`;
-
-  const metersToFeet = (m: number) => Math.round(m * 3.28084);
 
   return (
     <div className="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 relative overflow-hidden group">

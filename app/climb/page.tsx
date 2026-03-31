@@ -5,8 +5,8 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Best Time to Climb Kilimanjaro: Month-by-Month Weather Guide",
-  description: "When is the best time to climb Kilimanjaro? Complete month-by-month weather breakdown, dry vs rainy seasons, crowd levels, and summit success rates for 2026.",
+  title: "Best Time to Climb Kilimanjaro: Monthly Guide",
+  description: "When is the best time to climb Kilimanjaro? Month-by-month weather, dry vs rainy seasons, crowd levels, and summit success rates.",
   keywords: "best time to climb kilimanjaro, kilimanjaro weather by month, kilimanjaro climbing seasons, kilimanjaro dry season, kilimanjaro rainy season, when to climb kilimanjaro",
   alternates: { canonical: "/climb" },
 };
@@ -22,7 +22,7 @@ export default function ClimbSeasonsIndex() {
             "@type": "CollectionPage",
             "name": "Kilimanjaro Climbing Calendar",
             "description": "Monthly guide to weather and conditions for climbing Mount Kilimanjaro.",
-            "url": "${SITE_URL}/climb",
+            "url": `${SITE_URL}/climb`,
             "mainEntity": {
               "@type": "ItemList",
               "itemListElement": climbingMonths.map((month, index) => ({
@@ -39,7 +39,7 @@ export default function ClimbSeasonsIndex() {
         {/* Hero Section */}
         <div className="text-center mb-20">
           <h1 className="text-4xl md:text-7xl font-black text-white mb-6 uppercase italic tracking-tighter font-display">
-            The Best Time <span className="text-amber-500">to Climb</span>
+            Best Time to Climb <span className="text-amber-500">Kilimanjaro</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed italic">
             Weather is the <span className="text-white font-bold italic tracking-tighter">ultimate gatekeeper</span> of the summit. Choose your window with <span className="text-white font-bold uppercase italic shadow-sm tracking-tight text-xl">precision</span>.

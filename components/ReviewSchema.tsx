@@ -4,7 +4,7 @@ export default function ReviewSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
-    "name": "Kilimanjaro Quest",
+    "name": "KiliGo",
     "url": SITE_URL,
     "aggregateRating": {
       "@type": "AggregateRating",

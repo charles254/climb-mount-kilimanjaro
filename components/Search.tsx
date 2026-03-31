@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { Search as SearchIcon, X, ArrowRight, Mountain, FileText, Compass, History } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
@@ -16,7 +16,6 @@ interface SearchResult {
 
 export default function Search({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<SearchResult[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -28,39 +27,34 @@ export default function Search({ isOpen, onClose }: { isOpen: boolean, onClose: 
     }
   }, [isOpen]);
 
-  useEffect(() => {
-    if (!query.trim()) {
-      setResults([]);
-      return;
-    }
+  const results = useMemo(() => {
+    if (!query.trim()) return [];
 
     const q = query.toLowerCase();
     const qTokens = q.split(/\s+/).filter(t => t.length > 0);
-    const results: (SearchResult & { score: number })[] = [];
+    const scored: (SearchResult & { score: number })[] = [];
 
     const getScore = (title: string, desc: string, slug: string) => {
       let score = 0;
       const lowerTitle = title.toLowerCase();
       const lowerDesc = desc.toLowerCase();
-      
+
       qTokens.forEach(token => {
         if (lowerTitle.includes(token)) score += 10;
         if (lowerDesc.includes(token)) score += 3;
         if (slug.toLowerCase().includes(token)) score += 5;
       });
 
-      // Bonus for exact multi-word match
       if (lowerTitle.includes(q)) score += 20;
       if (lowerDesc.includes(q)) score += 10;
-      
+
       return score;
     };
 
-    // Search Routes
     climbingRoutes.forEach(route => {
       const score = getScore(route.name, route.description, route.slug);
       if (score > 0) {
-        results.push({
+        scored.push({
           title: route.name,
           description: route.description,
           href: `/routes/${route.slug}`,
@@ -70,12 +64,11 @@ export default function Search({ isOpen, onClose }: { isOpen: boolean, onClose: 
       }
     });
 
-    // Search Articles
     topicalClusters.forEach(cluster => {
       cluster.articles.forEach(article => {
         const score = getScore(article.title, article.description, article.slug);
         if (score > 0) {
-          results.push({
+          scored.push({
             title: article.title,
             description: article.description,
             href: `/${cluster.slug}/${article.slug}`,
@@ -86,12 +79,10 @@ export default function Search({ isOpen, onClose }: { isOpen: boolean, onClose: 
       });
     });
 
-    // Sort by score and take top matches
-    const matches = results
+    return scored
       .sort((a, b) => b.score - a.score)
+      .slice(0, 8)
       .map(({ score, ...rest }) => rest);
-
-    setResults(matches.slice(0, 8));
   }, [query]);
 
   // Handle ESC key

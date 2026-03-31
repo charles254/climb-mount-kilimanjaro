@@ -86,7 +86,7 @@ export const UmbweArticle = () => {
 
       <div className="bg-slate-900 rounded-2xl p-8 border border-red-500/20 my-12">
         <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-          <Info className="text-amber-500" /> Expert Warning from Kilimanjaro Quest
+          <Info className="text-amber-500" /> Expert Warning from KiliGo
         </h3>
         <p className="text-gray-400">
           We do not recommend the Umbwe route for beginners or anyone who hasn't climbed above 4,000 meters before. If this is your first "big mountain," please consider our <Link href="/routes/lemosho" className="text-amber-500 hover:underline">Lemosho 8-day guide</Link> or the <Link href="/routes/northern-circuit" className="text-amber-500 hover:underline">Northern Circuit</Link>. Acclimatization is a biological process that cannot be rushed by fitness alone.
