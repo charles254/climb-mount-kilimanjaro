@@ -44,7 +44,7 @@ export default function HomeHero() {
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
           <Link
             href="/contact"
-            className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-lg text-lg font-bold transition-all transform hover:scale-105 flex items-center justify-center gap-2 shadow-xl shadow-amber-600/20 w-full sm:w-64"
+            className="bg-amber-800 hover:bg-amber-900 text-white px-8 py-4 rounded-lg text-lg font-bold transition-all transform hover:scale-105 flex items-center justify-center gap-2 shadow-xl shadow-amber-800/20 w-full sm:w-64"
           >
             Start Your Journey <ArrowRight className="h-5 w-5" />
           </Link>

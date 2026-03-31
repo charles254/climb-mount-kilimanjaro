@@ -134,7 +134,7 @@ export default function Home() {
       </section>
 
       {/* Lead Capture */}
-      <section className="py-40 bg-amber-600 cv-auto">
+      <section className="py-40 bg-amber-800 cv-auto">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Ready to stand on top of the world?</h2>
           <p className="text-xl text-white mb-10">Get a custom <strong>Kilimanjaro itinerary</strong> and quote for your <strong>summit journey</strong>. Our logistics hub in <strong>Nairobi</strong> and <strong>Moshi</strong> handles everything from gear to <strong>National Park permits</strong>.</p>
