@@ -33,6 +33,9 @@ export const metadata: Metadata = {
   },
   description: "Climb Mount Kilimanjaro with top-rated local guides. Best success rates, premium safety, and specialized treks from Nairobi.",
   keywords: "Climb Mount Kilimanjaro, Mount Kilimanjaro guide, Kilimanjaro treks, best time to climb Kilimanjaro, Kilimanjaro routes, climb Kili from Nairobi",
+  verification: {
+    google: "JPNe0xFvKkZan6QHESSVax3kk9Tf6I4FTmYjZyUBPAY",
+  },
   metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: "/",
