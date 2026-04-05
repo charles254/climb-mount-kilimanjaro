@@ -25,7 +25,7 @@ export default function UltimateGuide() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero.png"
-            alt="The Ultimate Guide to Climbing Mount Kilimanjaro"
+            alt="Panoramic view of Mount Kilimanjaro from Shira Plateau showing all five climate zones"
             fill
             priority
             className="object-cover opacity-40 scale-105"
@@ -41,7 +41,7 @@ export default function UltimateGuide() {
           >
             <h1 className="text-4xl md:text-7xl font-black text-white mb-6 font-display uppercase italic tracking-tighter leading-none">
               The Ultimate Guide to <br />
-              <span className="text-amber-500">Climbing Mount Kilimanjaro</span>
+              <span className="text-amber-500">Climbing Mount Kilimanjaro in 2026</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-medium">
               Everything you need to know about planning, preparing, and successfully summiting the roof of Africa.

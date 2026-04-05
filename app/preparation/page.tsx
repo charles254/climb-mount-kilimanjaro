@@ -5,9 +5,9 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "How to Train for Kilimanjaro: Fitness Guide",
-  description: "How hard is Kilimanjaro? Get our 12-week training plan, fitness requirements, and mental preparation strategies for summit night.",
-  keywords: "how to train for kilimanjaro, how hard is it to climb kilimanjaro, kilimanjaro training plan, kilimanjaro fitness requirements, kilimanjaro preparation, kilimanjaro difficulty",
+  title: "How to Train for Kilimanjaro — 12-Week Fitness Plan & Difficulty Guide",
+  description: "Is Kilimanjaro hard? Get a 12-week training plan with stair workouts, pack-loaded hikes, and mental resilience drills. Covers fitness requirements for all 6 routes and summit night preparation.",
+  keywords: "how to train for kilimanjaro, how hard is it to climb kilimanjaro, kilimanjaro training plan, kilimanjaro fitness requirements, kilimanjaro preparation, kilimanjaro difficulty, VO2 max, weighted pack training",
   alternates: { canonical: "/preparation" },
 };
 
@@ -41,7 +41,8 @@ export default function PreparationIndex() {
         {/* Hero Section */}
         <div className="text-center mb-20">
           <h1 className="text-4xl md:text-7xl font-black text-white mb-6 uppercase italic tracking-tighter font-display">
-            Kilimanjaro Preparation <span className="text-amber-500">& Training</span>
+            How to Train for <span className="text-amber-500">Kilimanjaro</span>
+            <span className="block text-2xl md:text-4xl text-slate-400 mt-2 not-italic tracking-tight">Preparation & Fitness Guide</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed italic">
             Success at <span className="text-white font-bold italic tracking-tighter">5,895m</span> isn't luck—it's earned in the weeks leading up to your <span className="text-white font-bold uppercase italic shadow-sm tracking-tight text-xl">summit journey</span>.

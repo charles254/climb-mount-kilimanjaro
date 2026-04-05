@@ -5,9 +5,9 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Kilimanjaro Altitude Sickness & Safety Guide",
-  description: "Altitude sickness on Kilimanjaro: AMS symptoms, Diamox dosage, prevention strategies, vaccinations, and travel insurance.",
-  keywords: "kilimanjaro altitude sickness, diamox kilimanjaro, AMS prevention kilimanjaro, kilimanjaro vaccinations, kilimanjaro travel insurance, altitude sickness symptoms",
+  title: "Kilimanjaro Altitude Sickness — AMS Symptoms, Diamox & Prevention Guide",
+  description: "How to prevent altitude sickness on Kilimanjaro: AMS warning signs, Diamox dosage protocol (125-250mg), acclimatization strategies, required vaccinations, and travel insurance recommendations.",
+  keywords: "kilimanjaro altitude sickness, diamox kilimanjaro, AMS prevention kilimanjaro, kilimanjaro vaccinations, kilimanjaro travel insurance, altitude sickness symptoms, HACE, HAPE, pulse oximetry, acetazolamide",
   alternates: { canonical: "/health" },
 };
 
@@ -41,10 +41,11 @@ export default function HealthSafetyIndex() {
         {/* Hero Section */}
         <div className="text-center mb-20">
           <h1 className="text-4xl md:text-7xl font-black text-white mb-6 uppercase italic tracking-tighter font-display">
-            Kilimanjaro Health <span className="text-amber-500">& Altitude Safety</span>
+            Kilimanjaro <span className="text-amber-500">Altitude Sickness</span>
+            <span className="block text-2xl md:text-4xl text-slate-400 mt-2 not-italic tracking-tight">Health & Safety Guide</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed italic">
-            Acclimatization is the only way to the sumit. Master your <span className="text-white font-bold">physiology</span> and understand <span className="text-white font-bold">AMS</span> before stepping on the mountain.
+            Acclimatization is the only way to the summit. Master your <span className="text-white font-bold">physiology</span> and understand <span className="text-white font-bold">AMS</span> before stepping on the mountain.
           </p>
         </div>
 
@@ -54,7 +55,7 @@ export default function HealthSafetyIndex() {
             <div className="bg-amber-500/10 p-3 rounded-xl w-fit mb-6 group-hover:bg-amber-500 transition-colors">
               <Activity className="h-6 w-6 text-amber-500 group-hover:text-white" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-4 uppercase italic tracking-tight italic">AMS Prevention</h3>
+            <h3 className="text-xl font-bold text-white mb-4 uppercase italic tracking-tight italic">Acute Mountain Sickness Prevention</h3>
             <p className="text-slate-400 text-sm leading-relaxed mb-6 font-medium">
               Learn the science of oxygen deprivation and the "Climb High, Sleep Low" protocol we use for 95%+ success.
             </p>
@@ -64,7 +65,7 @@ export default function HealthSafetyIndex() {
             <div className="bg-blue-500/10 p-3 rounded-xl w-fit mb-6 group-hover:bg-blue-500 transition-colors">
               <ShieldPlus className="h-6 w-6 text-blue-500 group-hover:text-white" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-4 uppercase italic tracking-tight italic">Medical Prep</h3>
+            <h3 className="text-xl font-bold text-white mb-4 uppercase italic tracking-tight italic">Pre-Climb Medical Preparation</h3>
             <p className="text-slate-400 text-sm leading-relaxed mb-6 font-medium font-sans">
               From Diamox prescriptions to essential vaccinations required for Tanzania. Don't leave your health to luck.
             </p>
@@ -74,7 +75,7 @@ export default function HealthSafetyIndex() {
             <div className="bg-amber-500/10 p-3 rounded-xl w-fit mb-6 group-hover:bg-amber-500 transition-colors">
               <Heart className="h-6 w-6 text-amber-500 group-hover:text-white" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-4 uppercase italic tracking-tight italic text-xl">Rescue Protocols</h3>
+            <h3 className="text-xl font-bold text-white mb-4 uppercase italic tracking-tight italic text-xl">High-Altitude Rescue & Evacuation Protocols</h3>
             <p className="text-slate-400 text-sm leading-relaxed mb-6 font-medium">
               WFR certified guides and emergency oxygen are standard. Understand how we handle high-altitude evacuation.
             </p>

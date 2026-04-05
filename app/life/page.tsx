@@ -5,9 +5,9 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Life on Kilimanjaro: What to Expect Daily",
-  description: "Day-by-day life on Kilimanjaro. Mountain food, toilet facilities, hygiene tips, the role of porters, and a realistic daily schedule.",
-  keywords: "what is it like to climb kilimanjaro, kilimanjaro food, kilimanjaro toilets, kilimanjaro porters, day by day kilimanjaro, life on kilimanjaro",
+  title: "What Is It Like to Climb Kilimanjaro? — Daily Camp Life & Food Guide",
+  description: "What to expect on Kilimanjaro day by day: camp setup, mountain meals, toilet and hygiene facilities, porter roles, wake-up routines, and summit night schedule from base to Uhuru Peak.",
+  keywords: "what is it like to climb kilimanjaro, kilimanjaro food, kilimanjaro toilets, kilimanjaro porters, day by day kilimanjaro, life on kilimanjaro, kilimanjaro camp, summit night schedule",
   alternates: { canonical: "/life" },
 };
 
@@ -42,6 +42,7 @@ export default function LifeOnMountainIndex() {
         <div className="text-center mb-20">
           <h1 className="text-4xl md:text-7xl font-black text-white mb-6 uppercase italic tracking-tighter font-display">
             Life on <span className="text-amber-500">Kilimanjaro</span>
+            <span className="block text-2xl md:text-4xl text-slate-400 mt-2 not-italic tracking-tight">What to Expect Each Day</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed italic">
             Behind the spectacular views lies the <span className="text-white font-bold tracking-widest italic">rough reality</span>. Master the daily routine and learn how <span className="text-white font-bold italic text-amber-500 uppercase">luxury</span> is defined at 4,000m.

@@ -5,14 +5,14 @@ import Image from "next/image";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "About KiliGo: Our Story, Guides & Mission",
-  description: "Meet the KiliGo team. Nairobi-based expedition company with WFR-certified guides, 95%+ summit success rate, and 500+ climbs.",
-  keywords: "about kilimanjaro quest, kilimanjaro guides nairobi, kilimanjaro tour company, WFR certified guides, kilimanjaro expedition team",
+  title: "About KiliGo — Nairobi Kilimanjaro Guides With 500+ Successful Summits",
+  description: "Meet KiliGo, a Nairobi-based Kilimanjaro expedition company founded in 2018. WFR-certified guides, 500+ successful summits, KPAP-certified porter welfare, and an ethical small-group approach.",
+  keywords: "about KiliGo, kilimanjaro guides nairobi, kilimanjaro tour company, WFR certified guides, kilimanjaro expedition team, KPAP certified, ethical kilimanjaro operator",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About KiliGo: Our Story, Guides & Mission",
-    description: "Meet the KiliGo team. Nairobi-based expedition company with WFR-certified guides and 95%+ summit success rate.",
-    images: [{ url: "/images/rugged_kilimanjaro_hero.webp", width: 1200, height: 630, alt: "KiliGo Team on Kilimanjaro" }],
+    title: "About KiliGo — Nairobi Kilimanjaro Guides With 500+ Successful Summits",
+    description: "Meet KiliGo, a Nairobi-based Kilimanjaro expedition company with WFR-certified guides and 500+ successful summits.",
+    images: [{ url: "/images/rugged_kilimanjaro_hero.webp", width: 1200, height: 630, alt: "KiliGo expedition team at Uhuru Peak summit on Mount Kilimanjaro" }],
   },
 };
 
@@ -53,6 +53,7 @@ export default function AboutPage() {
         <div className="text-center mb-20">
           <h1 className="text-4xl md:text-7xl font-black text-white mb-6 uppercase italic tracking-tighter font-display">
             About <span className="text-amber-500">KiliGo</span>
+            <span className="block text-2xl md:text-4xl text-slate-400 mt-2 not-italic tracking-tight">Your Kilimanjaro Expedition Team</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
             We are a Nairobi-based expedition company built by climbers, for climbers. Every trek we lead is a personal quest to get you safely to the roof of Africa.
@@ -79,7 +80,7 @@ export default function AboutPage() {
             <div className="relative h-80 rounded-3xl overflow-hidden border border-slate-800">
               <Image
                 src="/images/rugged_kilimanjaro_hero.webp"
-                alt="KiliGo team at Uhuru Peak summit - Mount Kilimanjaro"
+                alt="KiliGo expedition team celebrating at the Uhuru Peak summit sign on Mount Kilimanjaro"
                 fill
                 className="object-cover"
                 loading="lazy"

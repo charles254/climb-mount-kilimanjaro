@@ -5,9 +5,9 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Best Time to Climb Kilimanjaro: Monthly Guide",
-  description: "When is the best time to climb Kilimanjaro? Month-by-month weather, dry vs rainy seasons, crowd levels, and summit success rates.",
-  keywords: "best time to climb kilimanjaro, kilimanjaro weather by month, kilimanjaro climbing seasons, kilimanjaro dry season, kilimanjaro rainy season, when to climb kilimanjaro",
+  title: "Best Time to Climb Kilimanjaro (2026) — Month-by-Month Weather Guide",
+  description: "Find the best month to climb Kilimanjaro in 2026. Dry season windows (Jan-Mar, Jun-Oct), rainfall data, crowd levels, temperature ranges, and summit success rates for each month.",
+  keywords: "best time to climb kilimanjaro, kilimanjaro weather by month, kilimanjaro climbing seasons, kilimanjaro dry season, kilimanjaro rainy season, when to climb kilimanjaro, long rains, short rains",
   alternates: { canonical: "/climb" },
 };
 
@@ -40,6 +40,7 @@ export default function ClimbSeasonsIndex() {
         <div className="text-center mb-20">
           <h1 className="text-4xl md:text-7xl font-black text-white mb-6 uppercase italic tracking-tighter font-display">
             Best Time to Climb <span className="text-amber-500">Kilimanjaro</span>
+            <span className="block text-2xl md:text-4xl text-slate-400 mt-2 not-italic tracking-tight">2026 Season Guide</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed italic">
             Weather is the <span className="text-white font-bold italic tracking-tighter">ultimate gatekeeper</span> of the summit. Choose your window with <span className="text-white font-bold uppercase italic shadow-sm tracking-tight text-xl">precision</span>.
@@ -52,7 +53,7 @@ export default function ClimbSeasonsIndex() {
             <div className="bg-amber-500/10 p-3 rounded-xl w-fit mb-6 group-hover:bg-amber-500 transition-colors">
               <CloudSun className="h-6 w-6 text-amber-500 group-hover:text-white" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-4 uppercase italic tracking-tight italic text-xl">Dry Seasons</h3>
+            <h3 className="text-xl font-bold text-white mb-4 uppercase italic tracking-tight italic text-xl">Kilimanjaro Dry Seasons (Best Months)</h3>
             <p className="text-slate-400 text-sm leading-relaxed mb-6 font-medium">
               January-March and June-October offer clear skies and the highest summit success rates.
             </p>
@@ -62,7 +63,7 @@ export default function ClimbSeasonsIndex() {
             <div className="bg-blue-500/10 p-3 rounded-xl w-fit mb-6 group-hover:bg-blue-500 transition-colors">
               <Thermometer className="h-6 w-6 text-blue-500 group-hover:text-white" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-4 uppercase italic tracking-tight italic text-xl">Temperature Profile</h3>
+            <h3 className="text-xl font-bold text-white mb-4 uppercase italic tracking-tight italic text-xl">Kilimanjaro Temperature by Altitude</h3>
             <p className="text-slate-400 text-sm leading-relaxed mb-6 font-medium font-sans">
               From humid 30°C rainforests to -20°C arctic summits. Learn how temperature fluctuates by month.
             </p>
@@ -72,7 +73,7 @@ export default function ClimbSeasonsIndex() {
             <div className="bg-amber-500/10 p-3 rounded-xl w-fit mb-6 group-hover:bg-amber-500 transition-colors">
               <Info className="h-6 w-6 text-amber-500 group-hover:text-white" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-4 uppercase italic tracking-tight italic text-xl">Crowd Levels</h3>
+            <h3 className="text-xl font-bold text-white mb-4 uppercase italic tracking-tight italic text-xl">Trail Crowd Levels by Month</h3>
             <p className="text-slate-400 text-sm leading-relaxed mb-6 font-medium">
               Balance perfect weather against trail traffic. Monthly insights into the busiest and quietest times.
             </p>

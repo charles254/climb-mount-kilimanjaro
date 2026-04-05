@@ -5,9 +5,9 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "How Much Does Kilimanjaro Cost? 2026 Prices",
-  description: "Kilimanjaro cost breakdown: park fees ($1,310+), guide salaries, gear, tipping, and why cheap tours are dangerous. Budget $2,200-$7,000.",
-  keywords: "kilimanjaro cost, how much does it cost to climb kilimanjaro, kilimanjaro climb cost, kilimanjaro park fees, kilimanjaro tipping guide, cheap kilimanjaro tour",
+  title: "Kilimanjaro Climb Cost in 2026 — Full Price Breakdown ($2,200-$7,000)",
+  description: "Complete Kilimanjaro cost breakdown for 2026: park fees ($1,310+), guide and porter wages, gear rental, tipping etiquette, and travel logistics. Budget $2,200-$7,000 depending on route and duration.",
+  keywords: "kilimanjaro cost, how much does it cost to climb kilimanjaro, kilimanjaro climb cost, kilimanjaro park fees, kilimanjaro tipping guide, cheap kilimanjaro tour, KINAPA fees, crew tips, equipment rental",
   alternates: { canonical: "/costs" },
 };
 
@@ -41,7 +41,7 @@ export default function CostsIndex() {
         {/* Hero Section */}
         <div className="text-center mb-20">
           <h1 className="text-4xl md:text-7xl font-black text-white mb-6 uppercase italic tracking-tighter font-display">
-            Kilimanjaro Costs <span className="text-amber-500">& Budget</span>
+            How Much Does It Cost to <span className="text-amber-500">Climb Kilimanjaro?</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed italic">
             Climbing Kilimanjaro is a major investment. We provide full <span className="text-white font-bold tracking-tight">financial transparency</span> into where your <span className="text-white font-bold italic">money goes</span>.
@@ -54,7 +54,7 @@ export default function CostsIndex() {
             <div className="bg-amber-500/10 p-3 rounded-xl w-fit mb-6 group-hover:bg-amber-500 transition-colors">
               <DollarSign className="h-6 w-6 text-amber-500 group-hover:text-white" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-4 uppercase italic tracking-tight italic">Park Fees (50%)</h3>
+            <h3 className="text-xl font-bold text-white mb-4 uppercase italic tracking-tight italic">KINAPA Park Fees Breakdown</h3>
             <p className="text-slate-400 text-sm leading-relaxed mb-6 font-medium">
               Over half of your trek cost goes directly to KINAPA for permits, rescue services, and mountain conservation.
             </p>
@@ -64,7 +64,7 @@ export default function CostsIndex() {
             <div className="bg-blue-500/10 p-3 rounded-xl w-fit mb-6 group-hover:bg-blue-500 transition-colors">
               <TrendingUp className="h-6 w-6 text-blue-500 group-hover:text-white" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-4 uppercase italic tracking-tight italic">Guide & Porter Wages</h3>
+            <h3 className="text-xl font-bold text-white mb-4 uppercase italic tracking-tight italic">Guide & Porter Wage Standards</h3>
             <p className="text-slate-400 text-sm leading-relaxed mb-6 font-medium font-sans">
               Ethical climbing means paying fair, standardized wages to the crew that carries your success to the top.
             </p>
@@ -74,7 +74,7 @@ export default function CostsIndex() {
             <div className="bg-amber-500/10 p-3 rounded-xl w-fit mb-6 group-hover:bg-amber-500 transition-colors">
               <Receipt className="h-6 w-6 text-amber-500 group-hover:text-white" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-4 uppercase italic tracking-tight italic">Logistics Hub</h3>
+            <h3 className="text-xl font-bold text-white mb-4 uppercase italic tracking-tight italic">Travel & Visa Logistics Costs</h3>
             <p className="text-slate-400 text-sm leading-relaxed mb-6 font-medium">
               Flights to JRO, shuttles from Nairobi, and visa processing are vital budget considerations for expats and international trekkers.
             </p>

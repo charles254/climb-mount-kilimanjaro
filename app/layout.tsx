@@ -30,10 +30,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: {
     template: "%s",
-    default: "Climb Mount Kilimanjaro",
+    default: "Climb Mount Kilimanjaro — Guided Treks by KiliGo",
   },
-  description: "Climb Mount Kilimanjaro with top-rated local guides. Best success rates, premium safety, and specialized treks from Nairobi.",
-  keywords: "Climb Mount Kilimanjaro, Mount Kilimanjaro guide, Kilimanjaro treks, best time to climb Kilimanjaro, Kilimanjaro routes, climb Kili from Nairobi",
+  description: "Climb Mount Kilimanjaro with WFR-certified local guides and a 95% summit success rate. Small groups, 7-9 day acclimatization routes, and Nairobi pickup included. Get a free custom itinerary.",
+  keywords: "Climb Mount Kilimanjaro, Mount Kilimanjaro guide, Kilimanjaro treks, best time to climb Kilimanjaro, Kilimanjaro routes, climb Kili from Nairobi, Uhuru Peak, guided Kilimanjaro expedition",
   verification: {
     google: "JPNe0xFvKkZan6QHESSVax3kk9Tf6I4FTmYjZyUBPAY",
   },
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Climb Mount Kilimanjaro | Expert Guided Treks",
-    description: "Join the best Kilimanjaro guides for a safe and successful summit. Specialized treks for expats and regional travelers.",
+    title: "Climb Mount Kilimanjaro in 2026 — Guided Treks With 95% Summit Rate",
+    description: "Book a guided Kilimanjaro climb with WFR-certified local guides. Small groups, 7-9 day routes, 95% summit success, and Nairobi pickup included.",
     url: "https://kiligo.net",
     siteName: "KiliGo",
     images: [
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
         url: "/images/rugged_kilimanjaro_hero.webp",
         width: 1200,
         height: 630,
-        alt: "Climb Mount Kilimanjaro Summit at Sunrise",
+        alt: "Sunrise view from Uhuru Peak on Mount Kilimanjaro with climbers on the summit ridge",
       },
     ],
     locale: "en_US",
@@ -59,8 +59,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Climb Mount Kilimanjaro | Expert Guided Treks",
-    description: "Experience the majestic Kilimanjaro with local experts. High success rates and premium safety standards.",
+    title: "Climb Mount Kilimanjaro in 2026 — Guided Treks With 95% Summit Rate",
+    description: "Climb Kilimanjaro with WFR-certified guides and a 95% summit rate. Small groups, Nairobi logistics, and free custom itineraries.",
     images: ["/images/rugged_kilimanjaro_hero.webp"],
   },
 };
@@ -92,7 +92,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "TravelAgency",
               "name": "KiliGo",
-              "description": "Expert-led Kilimanjaro treks with the ultimate quest perspective.",
+              "description": "Nairobi-based Kilimanjaro expedition company offering guided treks with WFR-certified guides and a 95% summit success rate.",
               "url": "https://kiligo.net",
               "telephone": "+254 712 345 678",
               "address": {
@@ -101,9 +101,15 @@ export default function RootLayout({
                 "addressLocality": "Nairobi",
                 "addressCountry": "KE"
               },
-              "image": "https://kiligo.net/images/hero.png",
+              "image": "https://kiligo.net/images/rugged_kilimanjaro_hero.webp",
               "priceRange": "$$$",
               "areaServed": "Mount Kilimanjaro",
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "523",
+                "bestRating": "5"
+              },
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
                 "name": "Kilimanjaro Treks",
@@ -120,6 +126,34 @@ export default function RootLayout({
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Machame Route Trek"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Marangu Route Trek"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Northern Circuit Route Trek"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Rongai Route Trek"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Umbwe Route Trek"
                     }
                   }
                 ]
