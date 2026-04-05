@@ -3,9 +3,9 @@ import ContactForm from "@/components/ContactForm";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Book Your Kilimanjaro Climb: Expert Guides in Nairobi",
-  description: "Contact KiliGo's expert guides in Nairobi for custom trek quotes, detailed itineraries, and 2026 expedition booking. 95% summit success rate.",
-  keywords: "book kilimanjaro trek, kilimanjaro tour operators, contact kilimanjaro guides, kilimanjaro guided tour, kilimanjaro nairobi, custom kilimanjaro quotes",
+  title: "Book a Kilimanjaro Climb — Free Custom Itinerary & Quote From Nairobi",
+  description: "Book your Kilimanjaro expedition with KiliGo. Get a free custom itinerary, transparent pricing, and a dedicated WFR-certified guide. Based in Nairobi with 95% summit success rate.",
+  keywords: "book kilimanjaro trek, kilimanjaro tour operators, contact kilimanjaro guides, kilimanjaro guided tour, kilimanjaro nairobi, custom kilimanjaro quotes, private climb, group discount, expedition date",
   alternates: { canonical: "/contact" },
 };
 
@@ -15,7 +15,8 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 uppercase tracking-tight">
-            Book Your Kilimanjaro <span className="text-amber-500">Summit</span>
+            Book Your Kilimanjaro <span className="text-amber-500">Climb</span>
+            <span className="block text-2xl md:text-3xl text-slate-400 mt-2 font-medium normal-case tracking-normal">Get a Free Custom Itinerary</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto">
             Ready to start your Kilimanjaro adventure? Get in touch with our expert guides in Nairobi for a custom quote and detailed itinerary.

@@ -12,13 +12,13 @@ import HomeHero from "@/components/HomeHero";
 import { FeaturesSection, TestimonialsGrid, QuizSection, RouteCards } from "@/components/HomeAnimatedSections";
 
 export const metadata: Metadata = {
-  title: "Climb Mount Kilimanjaro",
-  description: "Summit Kilimanjaro with 95%+ success rates. WFR-certified guides, small groups, and seamless Nairobi logistics. Get your free custom itinerary.",
+  title: "Climb Mount Kilimanjaro 2026 — Guided Treks With 95% Summit Rate",
+  description: "Climb Mount Kilimanjaro with WFR-certified local guides and a 95% summit success rate. Small groups, 7-9 day acclimatization routes, and Nairobi pickup included. Get a free custom itinerary.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Climb Mount Kilimanjaro | Expert Guided Treks",
-    description: "Summit Kilimanjaro with 95%+ success rates. WFR-certified guides, small groups, and seamless Nairobi logistics.",
-    images: [{ url: "/images/rugged_kilimanjaro_hero.webp", width: 1200, height: 630, alt: "Mount Kilimanjaro Summit at Sunrise" }],
+    title: "Climb Mount Kilimanjaro in 2026 — Guided Treks With 95% Summit Rate",
+    description: "Book a guided Kilimanjaro climb with WFR-certified local guides. Small groups, 7-9 day routes, 95% summit success, and Nairobi pickup included.",
+    images: [{ url: "/images/rugged_kilimanjaro_hero.webp", width: 1200, height: 630, alt: "Climbers on the summit ridge of Mount Kilimanjaro at sunrise with Mawenzi Peak in background" }],
   },
 };
 
@@ -32,7 +32,7 @@ export default function Home() {
       <section className="py-40 bg-slate-900 cv-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-4 font-display uppercase italic tracking-tight">The KiliGo Advantage</h2>
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-4 font-display uppercase italic tracking-tight">Why Climb Kilimanjaro With KiliGo</h2>
             <div className="w-20 h-1 bg-amber-500 mx-auto" />
           </div>
           <FeaturesSection />
@@ -43,7 +43,7 @@ export default function Home() {
       <section className="py-40 bg-slate-950 border-y border-slate-800 cv-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-4 font-display uppercase italic tracking-tight">Hiker Stories</h2>
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-4 font-display uppercase italic tracking-tight">Kilimanjaro Summit Reviews & Hiker Stories</h2>
             <p className="text-slate-400">Join 500+ adventurers who reached the roof of Africa with us.</p>
           </div>
           <TestimonialsGrid />
@@ -64,7 +64,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
-              <h2 className="text-3xl md:text-5xl font-black text-white mb-4 font-display uppercase italic tracking-tighter">Choose Your Path</h2>
+              <h2 className="text-3xl md:text-5xl font-black text-white mb-4 font-display uppercase italic tracking-tighter">Choose Your Kilimanjaro Route</h2>
               <p className="text-slate-400 max-w-2xl">From the classic &apos;Whiskey Route&apos; to the quiet Northern Circuit, find the path that suits your pace.</p>
             </div>
           </div>
@@ -76,7 +76,7 @@ export default function Home() {
       <section className="py-40 bg-slate-900 cv-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-4 font-display uppercase italic tracking-tighter">Route Comparison</h2>
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-4 font-display uppercase italic tracking-tighter">Kilimanjaro Route Comparison Table</h2>
             <p className="text-slate-400">A data-driven breakdown of the most popular paths to the summit.</p>
           </div>
           <div className="overflow-x-auto rounded-2xl border border-slate-800">
@@ -113,7 +113,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 uppercase tracking-tight">
-              Climbing <span className="text-amber-500">FAQs</span>
+              Kilimanjaro Climbing <span className="text-amber-500">FAQs</span>
             </h2>
             <p className="text-slate-400 text-lg">
               Everything you need to know about your Kilimanjaro expedition.
@@ -138,7 +138,7 @@ export default function Home() {
       {/* Lead Capture */}
       <section className="py-40 bg-amber-800 cv-auto">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Ready to stand on top of the world?</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Start Planning Your Kilimanjaro Climb</h2>
           <p className="text-xl text-white mb-10">Get a custom <strong>Kilimanjaro itinerary</strong> and quote for your <strong>summit journey</strong>. Our logistics hub in <strong>Nairobi</strong> and <strong>Moshi</strong> handles everything from gear to <strong>National Park permits</strong>.</p>
           <ContactForm
             source="Homepage Bottom"

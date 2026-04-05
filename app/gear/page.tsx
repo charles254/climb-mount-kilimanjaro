@@ -5,9 +5,9 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Kilimanjaro Packing List & Gear Guide 2026",
-  description: "The definitive Kilimanjaro packing list. Layering systems, best boots, sleeping bags, summit night gear, and rent vs buy advice.",
-  keywords: "kilimanjaro packing list, what to wear climbing kilimanjaro, best boots for kilimanjaro, kilimanjaro gear, kilimanjaro sleeping bag, summit night gear kilimanjaro",
+  title: "Kilimanjaro Packing List 2026 — Essential Gear for Summit Night & Beyond",
+  description: "The complete Kilimanjaro packing list for 2026. Layering systems for -20°C summit night, waterproof boots, sleeping bags rated to 5,895m, and rent-vs-buy cost advice from experienced guides.",
+  keywords: "kilimanjaro packing list, what to wear climbing kilimanjaro, best boots for kilimanjaro, kilimanjaro gear, kilimanjaro sleeping bag, summit night gear kilimanjaro, trekking poles, headlamp, gaiters",
   alternates: { canonical: "/gear" },
 };
 
@@ -41,7 +41,8 @@ export default function GearGuideIndex() {
         {/* Hero Section */}
         <div className="text-center mb-20">
           <h1 className="text-4xl md:text-7xl font-black text-white mb-6 uppercase italic tracking-tighter font-display">
-            Kilimanjaro Gear <span className="text-amber-500">& Equipment</span>
+            Kilimanjaro <span className="text-amber-500">Packing List</span>
+            <span className="block text-2xl md:text-4xl text-slate-400 mt-2 not-italic tracking-tight">Essential Gear & Equipment Guide</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed italic">
             Surviving the <span className="text-white font-bold">arctic conditions</span> of Uhuru Peak starts with the right kit. Don't compromise on your safety—expert-curated <span className="text-white">summit gear</span>.

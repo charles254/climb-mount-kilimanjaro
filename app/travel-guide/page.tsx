@@ -5,9 +5,9 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "How to Get to Kilimanjaro: Flights & Visas",
-  description: "Plan your journey to Kilimanjaro from anywhere. Flights to JRO, Tanzania visa info, and transport logistics from 100+ cities.",
-  keywords: "how to get to kilimanjaro, flights to kilimanjaro, kilimanjaro from nairobi, tanzania visa requirements, JRO airport, kilimanjaro travel guide, climb kilimanjaro from",
+  title: "How to Get to Kilimanjaro — Flights to JRO, Visa Guide & Nairobi Transit",
+  description: "Plan your trip to Kilimanjaro from 100+ cities worldwide. Direct flights to JRO, Nairobi (NBO) transit options, Tanzania e-visa requirements, and overland shuttle logistics from Kenya.",
+  keywords: "how to get to kilimanjaro, flights to kilimanjaro, kilimanjaro from nairobi, tanzania visa requirements, JRO airport, kilimanjaro travel guide, climb kilimanjaro from, Tanzania e-visa, NBO transit",
   alternates: { canonical: "/travel-guide" },
 };
 
@@ -48,7 +48,8 @@ export default function TravelGuideIndex() {
         {/* Hero Section */}
         <div className="text-center mb-20">
           <h1 className="text-4xl md:text-7xl font-black text-white mb-6 uppercase italic tracking-tighter font-display">
-            Kilimanjaro Travel <span className="text-amber-500">& Logistics Guide</span>
+            How to Get to <span className="text-amber-500">Kilimanjaro</span>
+            <span className="block text-2xl md:text-4xl text-slate-400 mt-2 not-italic tracking-tight">Flights, Visas & Transfers</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed italic">
             Getting to the <span className="text-white font-bold">"Roof of Africa"</span> requires precision planning. Whether you're flying directly to <span className="text-white">Kilimanjaro</span> or connecting via <span className="text-white">Nairobi</span>, we've mapped out every route.

@@ -19,7 +19,7 @@ export default function HomeHero() {
       >
         <Image
           src="/images/rugged_kilimanjaro_hero.webp"
-          alt="Climb Mount Kilimanjaro Summit at Uhuru Peak during Sunrise"
+          alt="Hikers approaching Uhuru Peak summit on Mount Kilimanjaro at sunrise with glaciers visible"
           fill
           priority
           fetchPriority="high"
