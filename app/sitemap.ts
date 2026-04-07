@@ -3,6 +3,7 @@ import { climbingRoutes, climbingMonths, travelOrigins } from '@/lib/pseo-data';
 import { topicalClusters } from '@/lib/topical-cluster-data';
 import { generateComparisons } from '@/lib/route-comparisons';
 import { personas } from '@/lib/persona-data';
+import { hasDeepDive } from '@/lib/travel-deep-dives';
 import { SITE_URL } from '@/lib/config';
 
 const lastModified = new Date('2025-06-01');
@@ -24,9 +25,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  // Only include high/medium priority origins in sitemap (noindex low-value)
+  // Only include origins with enriched deep-dive content in sitemap
   const origins = travelOrigins
-    .filter((origin) => origin.priority !== 'low')
+    .filter((origin) => origin.priority !== 'low' && hasDeepDive(origin.slug))
     .map((origin) => ({
       url: `${baseUrl}/travel-guide/${origin.slug}`,
       lastModified,

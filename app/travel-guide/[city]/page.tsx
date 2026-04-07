@@ -1,9 +1,10 @@
 import { getOriginBySlug, travelOrigins, climbingRoutes } from "@/lib/pseo-data";
+import { getDeepDive } from "@/lib/travel-deep-dives";
 import { SITE_URL } from "@/lib/config";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Link from "next/link";
-import { MapPin, Bus, Plane, FileText, DollarSign, ArrowLeft, ArrowRight, Info, Clock, Globe, Mountain, Banknote } from "lucide-react";
+import { Plane, FileText, DollarSign, ArrowRight, Info, Clock, Globe, Mountain, MapPin, Lightbulb, Route, ChevronRight } from "lucide-react";
 import FAQAccordion from "@/components/FAQAccordion";
 import FAQSchema from "@/components/FAQSchema";
 
@@ -22,7 +23,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const origin = getOriginBySlug(city);
   if (!origin) return { title: "Origin Not Found" };
 
-  const robots = origin.priority === 'low' ? { index: false, follow: true } : undefined;
+  const deepDive = getDeepDive(city);
+  const hasEnrichedContent = !!deepDive;
+  const robots = (!hasEnrichedContent && origin.priority === 'low') ? { index: false, follow: true } : undefined;
 
   return {
     title: `Climb Kilimanjaro from ${origin.city} | Travel Guide`,
@@ -48,36 +51,93 @@ export default async function TravelOriginPage({ params }: Props) {
     notFound();
   }
 
-  const originFaqs = origin.faqs || [
-    { 
-      question: `What is the best way to travel from ${origin.city} to Kilimanjaro?`, 
-      answer: `The most common way to reach Kilimanjaro from ${origin.city} is by ${origin.transport_method.toLowerCase()}. Our team can help coordinate the final leg of your journey from the airport to your hotel.` 
+  const deepDive = getDeepDive(city);
+  const hasEnrichedContent = !!deepDive;
+
+  const originFaqs = deepDive?.faqs || origin.faqs || [
+    {
+      question: `What is the best way to travel from ${origin.city} to Kilimanjaro?`,
+      answer: `The most common way to reach Kilimanjaro from ${origin.city} is by ${origin.transport_method.toLowerCase()}. Our team can help coordinate the final leg of your journey from the airport to your hotel.`
     },
-    { 
-      question: `Do I need a visa for Tanzania if I'm traveling from ${origin.country}?`, 
-      answer: `For travelers from ${origin.country}, the requirements are: ${origin.visa_requirements}. We recommend applying for an e-visa at least 2 weeks before your departure.` 
+    {
+      question: `Do I need a visa for Tanzania if I'm traveling from ${origin.country}?`,
+      answer: `For travelers from ${origin.country}, the requirements are: ${origin.visa_requirements}. We recommend applying for an e-visa at least 2 weeks before your departure.`
     },
-    { 
-      question: `Can KiliGo help with my logistics in ${origin.city}?`, 
-      answer: `While we focus on the trek and regional transfers in East Africa, we provide all the necessary flight arrival information and documentation you'll need to present at ${origin.city} airports or border crossings.` 
+    {
+      question: `Can KiliGo help with my logistics in ${origin.city}?`,
+      answer: `While we focus on the trek and regional transfers in East Africa, we provide all the necessary flight arrival information and documentation you'll need to present at ${origin.city} airports or border crossings.`
     }
   ];
+
+  // Vary route recommendations by continent instead of always showing first 3
+  const continentRouteMap: Record<string, number[]> = {
+    "Africa": [0, 1, 2],
+    "Europe": [0, 2, 4],
+    "North America": [0, 1, 3],
+    "South America": [0, 3, 4],
+    "Asia": [1, 2, 3],
+    "Middle East": [0, 1, 4],
+    "Oceania": [0, 2, 3],
+  };
+  const routeIndices = continentRouteMap[origin.continent] || [0, 1, 2];
+  const recommendedRoutes = routeIndices
+    .filter(i => i < climbingRoutes.length)
+    .map(i => climbingRoutes[i]);
 
   return (
     <div className="bg-slate-950 min-h-screen pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
+
+          {/* Breadcrumb */}
+          <nav className="flex items-center gap-2 text-sm text-slate-500 mb-8">
+            <Link href="/" className="hover:text-amber-500 transition-colors">Home</Link>
+            <ChevronRight className="h-3 w-3" />
+            <Link href="/travel-guide" className="hover:text-amber-500 transition-colors">Travel Guide</Link>
+            <ChevronRight className="h-3 w-3" />
+            <span className="text-amber-500">{origin.city}</span>
+          </nav>
+
+          {/* Hero */}
           <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-amber-500/10 px-4 py-2 rounded-full mb-6 border border-amber-500/20">
+              <MapPin className="h-4 w-4 text-amber-500" />
+              <span className="text-amber-500 font-bold text-xs uppercase tracking-widest">{origin.country} &rarr; Tanzania</span>
+            </div>
             <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 uppercase tracking-tight">
               Climb Kilimanjaro from <span className="text-amber-500">{origin.city}</span>
             </h1>
             <p className="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
-              Your complete logistical roadmap for traveling <strong>{origin.city}</strong>, <strong>{origin.country}</strong> to the base of the world's highest free-standing mountain. Start your <strong>journey to Uhuru Peak</strong> with expert <strong>regional logistics</strong>.
+              Your complete travel guide from <strong>{origin.city}</strong>, <strong>{origin.country}</strong> to the base of Africa&apos;s highest peak.
             </p>
           </div>
 
-          {/* Primary Info Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          {/* Quick Stats Strip */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div className="bg-slate-900/80 p-4 rounded-xl border border-slate-800 text-center">
+              <Plane className="h-5 w-5 text-amber-500 mx-auto mb-2" />
+              <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">Flight Time</p>
+              <p className="text-white font-bold text-sm">{origin.flight_duration}</p>
+            </div>
+            <div className="bg-slate-900/80 p-4 rounded-xl border border-slate-800 text-center">
+              <DollarSign className="h-5 w-5 text-amber-500 mx-auto mb-2" />
+              <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">Est. Cost</p>
+              <p className="text-white font-bold text-sm">{origin.estimated_cost}</p>
+            </div>
+            <div className="bg-slate-900/80 p-4 rounded-xl border border-slate-800 text-center">
+              <Globe className="h-5 w-5 text-amber-500 mx-auto mb-2" />
+              <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">Time Zone</p>
+              <p className="text-white font-bold text-sm">{origin.timezone_diff}</p>
+            </div>
+            <div className="bg-slate-900/80 p-4 rounded-xl border border-slate-800 text-center">
+              <FileText className="h-5 w-5 text-amber-500 mx-auto mb-2" />
+              <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">Visa</p>
+              <p className="text-white font-bold text-sm truncate">{origin.visa_requirements.split('.')[0]}</p>
+            </div>
+          </div>
+
+          {/* Detailed Info Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
             <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 flex items-start gap-5">
               <div className="bg-amber-500/10 p-3 rounded-xl shrink-0">
                 <Plane className="h-5 w-5 text-amber-500" />
@@ -126,7 +186,7 @@ export default async function TravelOriginPage({ params }: Props) {
                 <Globe className="h-5 w-5 text-amber-500" />
               </div>
               <div>
-                <h3 className="text-sm font-bold text-white mb-1 uppercase tracking-wider">Time Zone</h3>
+                <h3 className="text-sm font-bold text-white mb-1 uppercase tracking-wider">Time Zone & Jet Lag</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">{origin.timezone_diff}</p>
                 <p className="text-amber-500/80 text-xs mt-2">{origin.jet_lag_tip}</p>
               </div>
@@ -143,13 +203,71 @@ export default async function TravelOriginPage({ params }: Props) {
             </div>
           </div>
 
-          {/* Cross-links: Recommended Routes */}
+          {/* Deep Dive Section — unique prose per city */}
+          {hasEnrichedContent && (
+            <section className="mb-16">
+              <div className="bg-gradient-to-br from-slate-900 to-slate-900/50 rounded-3xl border border-slate-800 p-8 md:p-10">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="bg-amber-500/10 p-2 rounded-lg">
+                    <Mountain className="h-5 w-5 text-amber-500" />
+                  </div>
+                  <h2 className="text-2xl font-bold text-white uppercase tracking-tight">
+                    {origin.city} to Kilimanjaro — <span className="text-amber-500">Deep Dive</span>
+                  </h2>
+                </div>
+                <div className="prose prose-invert prose-slate max-w-none">
+                  {deepDive.deep_dive.split('\n\n').map((paragraph, i) => (
+                    <p key={i} className="text-slate-300 leading-relaxed mb-4 last:mb-0">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* Travel Tips — unique per city */}
+          {hasEnrichedContent && deepDive.travel_tips.length > 0 && (
+            <section className="mb-16">
+              <h2 className="text-2xl font-bold text-white mb-6 uppercase tracking-tight">
+                <Lightbulb className="inline h-5 w-5 text-amber-500 mr-2" />
+                Travel Tips from <span className="text-amber-500">{origin.city}</span>
+              </h2>
+              <div className="space-y-3">
+                {deepDive.travel_tips.map((tip, i) => (
+                  <div key={i} className="bg-slate-900/60 p-4 rounded-xl border border-slate-800 flex items-start gap-4">
+                    <span className="bg-amber-500 text-slate-950 font-black text-xs w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                      {i + 1}
+                    </span>
+                    <p className="text-slate-300 text-sm leading-relaxed">{tip}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Recommended Layover */}
+          {hasEnrichedContent && deepDive.recommended_layover && (
+            <section className="mb-16">
+              <div className="bg-slate-900 rounded-2xl border border-amber-500/20 p-6 flex items-start gap-5">
+                <div className="bg-amber-500/10 p-3 rounded-xl shrink-0">
+                  <Route className="h-5 w-5 text-amber-500" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-white mb-1 uppercase tracking-wider">Recommended Layover</h3>
+                  <p className="text-slate-300 text-sm leading-relaxed">{deepDive.recommended_layover}</p>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* Cross-links: Recommended Routes — varied by continent */}
           <section className="mb-16">
             <h2 className="text-2xl font-bold text-white mb-6 uppercase tracking-tight">
-              Popular Routes from <span className="text-amber-500">{origin.city}</span> Travelers
+              Popular Routes for <span className="text-amber-500">{origin.continent}</span> Travelers
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {climbingRoutes.slice(0, 3).map((route) => (
+              {recommendedRoutes.map((route) => (
                 <Link
                   key={route.slug}
                   href={`/routes/${route.slug}`}
@@ -187,11 +305,11 @@ export default async function TravelOriginPage({ params }: Props) {
             </div>
           </section>
 
-          {/* Localized FAQ Section */}
+          {/* FAQ Section */}
           <div className="mb-16">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white uppercase tracking-tight mb-4">
-                Travel <span className="text-amber-500">FAQs</span>
+                {origin.city} Travel <span className="text-amber-500">FAQs</span>
               </h2>
               <p className="text-slate-400">Common questions for travelers from {origin.city}.</p>
             </div>
@@ -220,6 +338,7 @@ export default async function TravelOriginPage({ params }: Props) {
             </div>
           </section>
 
+          {/* CTA */}
           <div className="bg-amber-600 rounded-3xl p-10 text-center text-white mb-16">
             <h2 className="text-3xl font-bold mb-4">Start Planning Your Trek from {origin.city}</h2>
             <p className="text-amber-100 mb-8 max-w-xl mx-auto">Our specialized team in <strong>East Africa</strong> handles all <strong>regional logistics</strong>, border crossings, and <strong>Tanzanian visa</strong> transfers for our {origin.city} clients.</p>
@@ -238,8 +357,8 @@ export default async function TravelOriginPage({ params }: Props) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": `Climb Kilimanjaro ${origin.city}`,
-            "description": `Comprehensive logistical guide for climbing Kilimanjaro from ${origin.city}, including flights and visas.`,
+            "headline": `Climb Kilimanjaro from ${origin.city} — Travel Guide`,
+            "description": `Comprehensive logistical guide for climbing Kilimanjaro from ${origin.city}, including flights, visas, and travel tips.`,
             "author": {
               "@type": "Organization",
               "name": "KiliGo"
@@ -253,7 +372,7 @@ export default async function TravelOriginPage({ params }: Props) {
               }
             },
             "datePublished": "2025-01-15",
-            "dateModified": "2025-06-01",
+            "dateModified": "2026-04-07",
             "mainEntityOfPage": {
               "@type": "WebPage",
               "@id": `${SITE_URL}/travel-guide/${origin.slug}`

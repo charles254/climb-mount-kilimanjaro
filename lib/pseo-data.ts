@@ -51,6 +51,9 @@ export interface TravelOrigin {
   peak_flight_season: string;
   priority: "high" | "medium" | "low";
   faqs?: FAQ[];
+  deep_dive?: string;
+  travel_tips?: string[];
+  recommended_layover?: string;
 }
 
 export const climbingRoutes: ClimbingRoute[] = [
