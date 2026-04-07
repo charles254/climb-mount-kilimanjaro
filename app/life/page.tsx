@@ -5,8 +5,8 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "What Is It Like to Climb Kilimanjaro? — Daily Camp Life & Food Guide",
-  description: "What to expect on Kilimanjaro day by day: camp setup, mountain meals, toilet and hygiene facilities, porter roles, wake-up routines, and summit night schedule from base to Uhuru Peak.",
+  title: "Life on Kilimanjaro — Daily Camp Life & Food Guide",
+  description: "What to expect on Kilimanjaro day by day: camp setup, mountain meals, toilet facilities, porter roles, and summit night schedule to Uhuru Peak.",
   keywords: "what is it like to climb kilimanjaro, kilimanjaro food, kilimanjaro toilets, kilimanjaro porters, day by day kilimanjaro, life on kilimanjaro, kilimanjaro camp, summit night schedule",
   alternates: { canonical: "/life" },
 };

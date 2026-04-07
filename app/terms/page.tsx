@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service',
+  title: 'Terms of Service | KiliGo Kilimanjaro Treks',
   description:
     'Terms of service and booking conditions for Kilimanjaro expeditions. Read our cancellation policy, safety requirements, and insurance guidelines.',
   keywords: [

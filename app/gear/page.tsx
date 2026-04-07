@@ -5,8 +5,8 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Kilimanjaro Packing List 2026 — Essential Gear for Summit Night & Beyond",
-  description: "The complete Kilimanjaro packing list for 2026. Layering systems for -20°C summit night, waterproof boots, sleeping bags rated to 5,895m, and rent-vs-buy cost advice from experienced guides.",
+  title: "Kilimanjaro Packing List 2026 — Essential Gear",
+  description: "The complete Kilimanjaro packing list for 2026. Layering for summit night, waterproof boots, sleeping bags, and rent-vs-buy cost advice.",
   keywords: "kilimanjaro packing list, what to wear climbing kilimanjaro, best boots for kilimanjaro, kilimanjaro gear, kilimanjaro sleeping bag, summit night gear kilimanjaro, trekking poles, headlamp, gaiters",
   alternates: { canonical: "/gear" },
 };

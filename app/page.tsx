@@ -12,8 +12,8 @@ import HomeHero from "@/components/HomeHero";
 import { FeaturesSection, TestimonialsGrid, QuizSection, RouteCards } from "@/components/HomeAnimatedSections";
 
 export const metadata: Metadata = {
-  title: "Climb Mount Kilimanjaro 2026 — Guided Treks With 95% Summit Rate",
-  description: "Climb Mount Kilimanjaro with WFR-certified local guides and a 95% summit success rate. Small groups, 7-9 day acclimatization routes, and Nairobi pickup included. Get a free custom itinerary.",
+  title: "Climb Kilimanjaro 2026 — 95% Summit Rate | KiliGo",
+  description: "Book a guided Kilimanjaro trek for 2026. WFR-certified local guides, 7-9 day acclimatization routes, and free custom itinerary from Nairobi.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Climb Mount Kilimanjaro in 2026 — Guided Treks With 95% Summit Rate",

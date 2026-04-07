@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: "%s",
     default: "Climb Mount Kilimanjaro — Guided Treks by KiliGo",
   },
-  description: "Climb Mount Kilimanjaro with WFR-certified local guides and a 95% summit success rate. Small groups, 7-9 day acclimatization routes, and Nairobi pickup included. Get a free custom itinerary.",
+  description: "Climb Kilimanjaro with WFR-certified guides. 95% summit rate, small groups, 7-9 day routes, and Nairobi pickup included.",
   keywords: "Climb Mount Kilimanjaro, Mount Kilimanjaro guide, Kilimanjaro treks, best time to climb Kilimanjaro, Kilimanjaro routes, climb Kili from Nairobi, Uhuru Peak, guided Kilimanjaro expedition",
   verification: {
     google: "JPNe0xFvKkZan6QHESSVax3kk9Tf6I4FTmYjZyUBPAY",

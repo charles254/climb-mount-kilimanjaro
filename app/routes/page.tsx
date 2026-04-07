@@ -6,8 +6,8 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "All 6 Kilimanjaro Routes Compared — Success Rates, Days & Difficulty",
-  description: "Compare all 6 Kilimanjaro routes side by side: Lemosho (95% success), Machame (85%), Marangu (65%), Northern Circuit (98%), Rongai & Umbwe. Duration, difficulty, and best-fit guide.",
+  title: "6 Kilimanjaro Routes Compared — Success Rates & Days",
+  description: "Compare all 6 Kilimanjaro routes: Lemosho (95%), Machame (85%), Marangu (65%), Northern Circuit (98%), Rongai, and Umbwe. Duration and difficulty.",
   keywords: "kilimanjaro routes, best kilimanjaro route, kilimanjaro route comparison, lemosho vs machame, kilimanjaro success rates by route, kilimanjaro route difficulty, Barranco Wall, Shira Plateau",
   alternates: { canonical: "/routes" },
   openGraph: {

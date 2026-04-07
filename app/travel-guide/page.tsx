@@ -5,8 +5,8 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "How to Get to Kilimanjaro — Flights to JRO, Visa Guide & Nairobi Transit",
-  description: "Plan your trip to Kilimanjaro from 100+ cities worldwide. Direct flights to JRO, Nairobi (NBO) transit options, Tanzania e-visa requirements, and overland shuttle logistics from Kenya.",
+  title: "How to Get to Kilimanjaro — Flights & Visa Guide",
+  description: "Plan your trip to Kilimanjaro from 100+ cities. Direct flights to JRO, Nairobi transit options, Tanzania e-visa requirements, and shuttle logistics.",
   keywords: "how to get to kilimanjaro, flights to kilimanjaro, kilimanjaro from nairobi, tanzania visa requirements, JRO airport, kilimanjaro travel guide, climb kilimanjaro from, Tanzania e-visa, NBO transit",
   alternates: { canonical: "/travel-guide" },
 };

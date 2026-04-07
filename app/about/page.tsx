@@ -5,8 +5,8 @@ import Image from "next/image";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "About KiliGo — Nairobi Kilimanjaro Guides With 500+ Successful Summits",
-  description: "Meet KiliGo, a Nairobi-based Kilimanjaro expedition company founded in 2018. WFR-certified guides, 500+ successful summits, KPAP-certified porter welfare, and an ethical small-group approach.",
+  title: "About KiliGo — 500+ Kilimanjaro Summits Since 2018",
+  description: "Meet KiliGo, a Nairobi-based Kilimanjaro expedition company. WFR-certified guides, 500+ summits, KPAP-certified porter welfare, and ethical small groups.",
   keywords: "about KiliGo, kilimanjaro guides nairobi, kilimanjaro tour company, WFR certified guides, kilimanjaro expedition team, KPAP certified, ethical kilimanjaro operator",
   alternates: { canonical: "/about" },
   openGraph: {

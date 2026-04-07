@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy',
+  title: 'Privacy Policy | KiliGo Kilimanjaro Treks',
   description:
     'Our commitment to protecting your personal data during your Kilimanjaro expedition planning. Learn how we collect, use, and safeguard your information.',
   keywords: [

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Logistics & Travel Guide",
+  title: "Kilimanjaro Travel Guide | KiliGo",
   description: "Complete logistical roadmap for traveling to Mount Kilimanjaro from anywhere in the world. Flight options, regional transfers, and expert travel tips.",
 };
 

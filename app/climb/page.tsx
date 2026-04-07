@@ -5,8 +5,8 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Best Time to Climb Kilimanjaro (2026) — Month-by-Month Weather Guide",
-  description: "Find the best month to climb Kilimanjaro in 2026. Dry season windows (Jan-Mar, Jun-Oct), rainfall data, crowd levels, temperature ranges, and summit success rates for each month.",
+  title: "Best Time to Climb Kilimanjaro 2026 — Monthly Guide",
+  description: "Find the best month to climb Kilimanjaro in 2026. Dry season windows, rainfall data, crowd levels, and summit success rates for each month.",
   keywords: "best time to climb kilimanjaro, kilimanjaro weather by month, kilimanjaro climbing seasons, kilimanjaro dry season, kilimanjaro rainy season, when to climb kilimanjaro, long rains, short rains",
   alternates: { canonical: "/climb" },
 };

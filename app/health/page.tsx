@@ -5,8 +5,8 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Kilimanjaro Altitude Sickness — AMS Symptoms, Diamox & Prevention Guide",
-  description: "How to prevent altitude sickness on Kilimanjaro: AMS warning signs, Diamox dosage protocol (125-250mg), acclimatization strategies, required vaccinations, and travel insurance recommendations.",
+  title: "Kilimanjaro Altitude Sickness — Prevention Guide",
+  description: "How to prevent altitude sickness on Kilimanjaro: AMS warning signs, Diamox protocol, acclimatization strategies, vaccinations, and travel insurance.",
   keywords: "kilimanjaro altitude sickness, diamox kilimanjaro, AMS prevention kilimanjaro, kilimanjaro vaccinations, kilimanjaro travel insurance, altitude sickness symptoms, HACE, HAPE, pulse oximetry, acetazolamide",
   alternates: { canonical: "/health" },
 };

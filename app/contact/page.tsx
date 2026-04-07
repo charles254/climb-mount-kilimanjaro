@@ -3,8 +3,8 @@ import ContactForm from "@/components/ContactForm";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Book a Kilimanjaro Climb — Free Custom Itinerary & Quote From Nairobi",
-  description: "Book your Kilimanjaro expedition with KiliGo. Get a free custom itinerary, transparent pricing, and a dedicated WFR-certified guide. Based in Nairobi with 95% summit success rate.",
+  title: "Book Your Kilimanjaro Climb — Free Quote | KiliGo",
+  description: "Get a free Kilimanjaro itinerary and quote from KiliGo. Transparent pricing, dedicated WFR-certified guide, and 95% summit success rate from Nairobi.",
   keywords: "book kilimanjaro trek, kilimanjaro tour operators, contact kilimanjaro guides, kilimanjaro guided tour, kilimanjaro nairobi, custom kilimanjaro quotes, private climb, group discount, expedition date",
   alternates: { canonical: "/contact" },
 };

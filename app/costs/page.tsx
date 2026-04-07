@@ -5,8 +5,8 @@ import { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Kilimanjaro Climb Cost in 2026 — Full Price Breakdown ($2,200-$7,000)",
-  description: "Complete Kilimanjaro cost breakdown for 2026: park fees ($1,310+), guide and porter wages, gear rental, tipping etiquette, and travel logistics. Budget $2,200-$7,000 depending on route and duration.",
+  title: "Kilimanjaro Cost 2026 — Full Price Breakdown",
+  description: "Complete Kilimanjaro cost breakdown for 2026: park fees, guide wages, gear rental, tipping guide, and travel logistics. Budget $2,200-$7,000.",
   keywords: "kilimanjaro cost, how much does it cost to climb kilimanjaro, kilimanjaro climb cost, kilimanjaro park fees, kilimanjaro tipping guide, cheap kilimanjaro tour, KINAPA fees, crew tips, equipment rental",
   alternates: { canonical: "/costs" },
 };
