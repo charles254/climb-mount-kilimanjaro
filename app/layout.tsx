@@ -57,11 +57,20 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   twitter: {
     card: "summary_large_image",
-    title: "Climb Mount Kilimanjaro in 2026 — Guided Treks With 95% Summit Rate",
-    description: "Climb Kilimanjaro with WFR-certified guides and a 95% summit rate. Small groups, Nairobi logistics, and free custom itineraries.",
-    images: ["/images/rugged_kilimanjaro_hero.webp"],
+    site: "@kiligo",
   },
 };
 
@@ -119,44 +128,73 @@ export default function RootLayout({
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Lemosho Route Trek"
-                    }
+                    },
+                    "price": "2500",
+                    "priceCurrency": "USD"
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Machame Route Trek"
-                    }
+                    },
+                    "price": "2200",
+                    "priceCurrency": "USD"
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Marangu Route Trek"
-                    }
+                    },
+                    "price": "1900",
+                    "priceCurrency": "USD"
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Northern Circuit Route Trek"
-                    }
+                    },
+                    "price": "3200",
+                    "priceCurrency": "USD"
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Rongai Route Trek"
-                    }
+                    },
+                    "price": "2100",
+                    "priceCurrency": "USD"
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Umbwe Route Trek"
-                    }
+                    },
+                    "price": "2000",
+                    "priceCurrency": "USD"
                   }
                 ]
+              }
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "KiliGo",
+              "alternateName": ["Kiligo", "Climb Mount Kilimanjaro", "Climb Kili"],
+              "url": "https://kiligo.net",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://kiligo.net/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
               }
             })
           }}
