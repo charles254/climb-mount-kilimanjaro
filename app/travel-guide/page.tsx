@@ -9,6 +9,16 @@ export const metadata: Metadata = {
   description: "Plan your trip to Kilimanjaro from 100+ cities. Direct flights to JRO, Nairobi transit options, Tanzania e-visa requirements, and shuttle logistics.",
   keywords: "how to get to kilimanjaro, flights to kilimanjaro, kilimanjaro from nairobi, tanzania visa requirements, JRO airport, kilimanjaro travel guide, climb kilimanjaro from, Tanzania e-visa, NBO transit",
   alternates: { canonical: "/travel-guide" },
+  openGraph: {
+    title: "How to Get to Kilimanjaro — Flights & Visa Guide",
+    description: "Plan your trip to Kilimanjaro from 100+ cities. Flights, visas, and shuttle logistics.",
+    url: "/travel-guide",
+    type: "website",
+  },
+  twitter: {
+    title: "How to Get to Kilimanjaro — Flights & Visa Guide",
+    description: "Plan your trip to Kilimanjaro from 100+ cities. Flights, visas, and shuttle logistics.",
+  },
 };
 
 const REGIONS = [

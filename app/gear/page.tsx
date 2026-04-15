@@ -9,6 +9,16 @@ export const metadata: Metadata = {
   description: "The complete Kilimanjaro packing list for 2026. Layering for summit night, waterproof boots, sleeping bags, and rent-vs-buy cost advice.",
   keywords: "kilimanjaro packing list, what to wear climbing kilimanjaro, best boots for kilimanjaro, kilimanjaro gear, kilimanjaro sleeping bag, summit night gear kilimanjaro, trekking poles, headlamp, gaiters",
   alternates: { canonical: "/gear" },
+  openGraph: {
+    title: "Kilimanjaro Packing List 2026 — Essential Gear",
+    description: "The complete Kilimanjaro packing list. Layering, boots, sleeping bags, and rent-vs-buy advice.",
+    url: "/gear",
+    type: "website",
+  },
+  twitter: {
+    title: "Kilimanjaro Packing List 2026 — Essential Gear",
+    description: "The complete Kilimanjaro packing list. Layering, boots, sleeping bags, and rent-vs-buy advice.",
+  },
 };
 
 export default function GearGuideIndex() {

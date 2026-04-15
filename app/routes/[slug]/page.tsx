@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    title: `${route.name} Route — ${route.duration} Kilimanjaro Trek | KiliGo`,
+    title: `${route.name} — ${route.duration} Kilimanjaro Trek | KiliGo`,
     description: `Complete guide to climbing Kilimanjaro via the ${route.name}. Success rate: ${route.success_rate}, Duration: ${route.duration}. Book your guided trek now.`,
     keywords: `${route.name} route, Kilimanjaro treks, best Kilimanjaro routes, acclimatization ${route.name}`,
     alternates: {

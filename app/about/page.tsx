@@ -12,7 +12,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About KiliGo — Nairobi Kilimanjaro Guides With 500+ Successful Summits",
     description: "Meet KiliGo, a Nairobi-based Kilimanjaro expedition company with WFR-certified guides and 500+ successful summits.",
+    url: "/about",
+    type: "website",
     images: [{ url: "/images/rugged_kilimanjaro_hero.webp", width: 1200, height: 630, alt: "KiliGo expedition team at Uhuru Peak summit on Mount Kilimanjaro" }],
+  },
+  twitter: {
+    title: "About KiliGo — 500+ Kilimanjaro Summits Since 2018",
+    description: "Meet KiliGo, a Nairobi-based Kilimanjaro expedition company with WFR-certified guides.",
   },
 };
 

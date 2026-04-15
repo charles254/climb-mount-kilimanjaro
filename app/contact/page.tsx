@@ -7,6 +7,12 @@ export const metadata: Metadata = {
   description: "Get a free Kilimanjaro itinerary and quote from KiliGo. Transparent pricing, dedicated WFR-certified guide, and 95% summit success rate from Nairobi.",
   keywords: "book kilimanjaro trek, kilimanjaro tour operators, contact kilimanjaro guides, kilimanjaro guided tour, kilimanjaro nairobi, custom kilimanjaro quotes, private climb, group discount, expedition date",
   alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Book Your Kilimanjaro Climb — Free Quote | KiliGo",
+    description: "Get a free Kilimanjaro itinerary and quote from KiliGo. Transparent pricing, dedicated WFR-certified guide, and 95% summit success rate from Nairobi.",
+    url: "https://kiligo.net/contact",
+    type: "website",
+  },
 };
 
 export default function ContactPage() {

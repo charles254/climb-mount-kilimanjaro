@@ -6,7 +6,7 @@ import { personas } from '@/lib/persona-data';
 import { hasDeepDive } from '@/lib/travel-deep-dives';
 import { SITE_URL } from '@/lib/config';
 
-const lastModified = new Date('2025-06-01');
+const lastModified = new Date();
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_URL;
@@ -92,12 +92,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/ultimate-guide`,
-      lastModified,
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/gear`,
       lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.8,

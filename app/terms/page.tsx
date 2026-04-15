@@ -14,6 +14,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/terms',
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function TermsConditions() {
